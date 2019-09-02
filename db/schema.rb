@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_163413) do
+ActiveRecord::Schema.define(version: 2019_09_02_205154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.date "date"
+    t.string "status"
+    t.integer "price"
+    t.bigint "laboratory_id"
+    t.bigint "vaccine_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["laboratory_id"], name: "index_appointments_on_laboratory_id"
+    t.index ["member_id"], name: "index_appointments_on_member_id"
+    t.index ["vaccine_id"], name: "index_appointments_on_vaccine_id"
+  end
+
+  create_table "laboratories", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "opening_hours"
+    t.string "website"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "laboratory_vaccines", force: :cascade do |t|
+    t.bigint "laboratory_id"
+    t.bigint "vaccine_id"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["laboratory_id"], name: "index_laboratory_vaccines_on_laboratory_id"
+    t.index ["vaccine_id"], name: "index_laboratory_vaccines_on_vaccine_id"
+  end
+
+  create_table "member_vaccines", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "vaccine_id"
+    t.date "vaccine_date"
+    t.boolean "vaccinated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_member_vaccines_on_member_id"
+    t.index ["vaccine_id"], name: "index_member_vaccines_on_vaccine_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birth_date"
+    t.string "category"
+    t.bigint "user_id"
+    t.boolean "admin"
+    t.string "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +86,24 @@ ActiveRecord::Schema.define(version: 2019_09_02_163413) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vaccines", force: :cascade do |t|
+    t.string "name"
+    t.integer "vaccination_age"
+    t.integer "doses"
+    t.boolean "lab"
+    t.boolean "sus"
+    t.boolean "required"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "appointments", "laboratories"
+  add_foreign_key "appointments", "members"
+  add_foreign_key "appointments", "vaccines"
+  add_foreign_key "laboratory_vaccines", "laboratories"
+  add_foreign_key "laboratory_vaccines", "vaccines"
+  add_foreign_key "member_vaccines", "members"
+  add_foreign_key "member_vaccines", "vaccines"
+  add_foreign_key "members", "users"
 end
