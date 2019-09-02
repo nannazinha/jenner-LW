@@ -46,7 +46,13 @@ GEM
     autoprefixer-rails (9.6.1.1)
       execjs
     bcrypt (3.1.13)
+    better_errors (2.5.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -54,6 +60,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    debug_inspector (0.0.3)
     devise (4.7.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -143,6 +150,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    roberto_barros (0.0.4)
     sassc (2.2.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -192,6 +200,8 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  better_errors
+  binding_of_caller
   bootsnap
   devise
   dotenv-rails
@@ -204,6 +214,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.3)
   redis
+  roberto_barros
   sassc-rails
   simple_form
   spring
