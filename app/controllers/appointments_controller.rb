@@ -14,6 +14,10 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
+    appointment_date = @appointment.appointment_date.to_date
+    start_date = @transaction.start_date.to_date
+    end_date = @transaction.end_date.to_date
+    @appointment.available_times = [1, ((end_date - start_date).to_i)].max * @item.price
     @appointment.member = @appointment
     @appointment.user = current_user
     if @appointment.save!
@@ -35,6 +39,10 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
     redirect_to members_path
+  end
+
+  def available_times
+
   end
 
   private
