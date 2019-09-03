@@ -1,3 +1,5 @@
+require "time"
+
 class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_member, only: %i(show edit update destroy)
@@ -11,6 +13,7 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.member_vaccines.build
+    @vaccines = []
   end
 
   def create
@@ -24,7 +27,12 @@ class MembersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @member.member_vaccines.build
+    today = Date.current
+    age = ((today - @member.birth_date).to_f / 365 * 12).round + 12
+    @vaccines = Vaccine.where("vaccination_age <= #{age}")
+  end
 
   def update
     @member.update(member_params)
@@ -43,6 +51,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name, :birth_date, :gender, :category)
+    params.require(:member).permit(:first_name, :last_name, :birth_date, :gender, :category,
+      member_vaccines_attributes: [:vaccine_id, :vaccine, :member_id, :vaccine_date, :vaccinated])
   end
 end
