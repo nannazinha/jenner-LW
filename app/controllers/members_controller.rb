@@ -1,10 +1,10 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_member, only: :show
+  before_action :set_member, only: %i(show edit update destroy)
 
   def index
     @members = Member.where(user: current_user)
-     end
+  end
 
   def show; end
 
@@ -24,13 +24,16 @@ class MembersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    @member.update(member_params)
+    redirect_to member_path(@member)
   end
 
   def destroy
+    @member.destroy
+    redirect_to members_path
   end
 
   private
