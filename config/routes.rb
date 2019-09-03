@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :members do
+  resources :members
+
+  resources :laboratories, only: [:index] do
     resources :appointments
   end
 end

@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Escolha uma data e horário:</h2>
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for [@laboratory, @appointment], method: "get" do |f| %>
+      <%= f.input :member_id, input_html: { value: 1 }, as: :hidden %>
+      <%= f.input :vaccine_id, input_html: { value: 1 }, as: :hidden %>
+      <%= f.input :date, label: "Escolha uma data:", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Agendar", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
