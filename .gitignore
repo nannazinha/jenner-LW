@@ -14,5 +14,8 @@ yarn-error.log
 .byebug_history
 .env*
 .env*
+<<<<<<< HEAD
 ‘.env’
+=======
+>>>>>>> 99e5fd827058a7d45d92c4249470f11f1e25dd29
 .env*
