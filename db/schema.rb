@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_154801) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.time "opening_time"
-    t.time "closing_time"
+    t.integer "opening_time"
+    t.integer "closing_time"
   end
 
   create_table "laboratory_vaccines", force: :cascade do |t|
