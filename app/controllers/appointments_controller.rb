@@ -9,8 +9,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = Appointment.new
     @laboratory = Laboratory.find(params[:laboratory_id])
+    @appointment = Appointment.new
   end
 
   def create
