@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_190954) do
+ActiveRecord::Schema.define(version: 2019_09_02_205154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.date "date"
+    t.string "status"
+    t.integer "price"
+    t.bigint "laboratory_id"
+    t.bigint "vaccine_id"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["laboratory_id"], name: "index_appointments_on_laboratory_id"
+    t.index ["member_id"], name: "index_appointments_on_member_id"
+    t.index ["vaccine_id"], name: "index_appointments_on_vaccine_id"
+  end
 
   create_table "laboratories", force: :cascade do |t|
     t.string "name"
@@ -84,6 +98,9 @@ ActiveRecord::Schema.define(version: 2019_09_02_190954) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appointments", "laboratories"
+  add_foreign_key "appointments", "members"
+  add_foreign_key "appointments", "vaccines"
   add_foreign_key "laboratory_vaccines", "laboratories"
   add_foreign_key "laboratory_vaccines", "vaccines"
   add_foreign_key "member_vaccines", "members"

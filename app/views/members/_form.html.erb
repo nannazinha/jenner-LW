@@ -1,0 +1,18 @@
+<%= simple_form_for(@member) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs" style="width: 600px; margin: 0 auto; padding-top: 30px;">
+    <%= f.input :first_name, label: 'Nome' %>
+    <%= f.input :last_name, label: 'Sobrenome' %>
+    <%= f.input :birth_date, label: 'Data de nascimento' %>
+    <%= f.input :gender, label: 'Genero' %>
+    <%= f.input :category, label: 'Categoria' %>
+    <%= f.input :user_id, as: :hidden %>
+    <%= f.input :admin, as: :hidden %>
+    <% raise %>
+  </div>
+
+  <div class="form-actions" style="width: 600px; margin: 0 auto; padding-top: 30px;">
+    <%= f.button :submit, value: "Adicionar", class: "btn btn-outline-success" %>
+  </div>
+<% end %>

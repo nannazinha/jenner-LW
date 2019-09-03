@@ -16,6 +16,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'roberto_barros'
+gem 'nested_form'
+gem 'cocoon'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
