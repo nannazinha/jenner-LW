@@ -2,7 +2,20 @@ puts 'Cleaning database motherfuckers'
 
 Laboratory.destroy_all
 Vaccine.destroy_all
+User.destroy_all
+Member.destroy_all
 
+puts 'Creating users...'
+
+User.create(email: 'mae@mail.com', password: '123456')
+User.create(email: 'pai@mail.com', password: '123456')
+
+puts 'Finished!'
+
+puts 'Creating members'
+
+Member.create(first_name: 'Mae', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Titular', user_id: 1, gender: 'Male')
+Member.create(first_name: 'Filho', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Dependente', user_id: 1, gender: 'Male')
 
 puts 'Creating Laboratory db...'
 
