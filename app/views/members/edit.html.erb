@@ -9,17 +9,15 @@
     <%= f.input :category, label: 'Categoria' %>
     <%= f.input :user_id, as: :hidden %>
 
-
-
-      <%= f.simple_fields_for :member_vaccines do |mv| %>
-        <%= mv.input :vaccine_id %>
-        <%=  mv.input :vaccine_date %>
-        <%= mv.input :vaccinated %>
+    <%= f.simple_fields_for :member_vaccines do |mv| %>
+      <%= mv.input :vaccine_id %>
+      <%= mv.date_field :vaccine_date %>
+      <%= mv.input :vaccinated %>
     <% end %>
-        </div>
+  </div>
 
   <div class="form-actions" style="width: 600px; margin: 0 auto; padding-top: 30px;">
-    <%= f.button :submit, value: "Adicionar", class: "btn btn-outline-success" %>
+    <%= f.button :submit, value: "Editar", class: "btn btn-outline-success" %>
   </div>
 <% end %>
 
