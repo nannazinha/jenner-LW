@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.f
 
-Laboratory.destroy
+puts 'Cleaning database motherfuckers'
+
+Laboratory.destroy_all
+Vaccine.destroy_all
+
 
 puts 'Creating Laboratory db...'
 
@@ -18,5 +22,22 @@ Laboratory.create(name: 'UBS Nossa Senhora do Brasil - Armando Darienzo', addres
 
 puts 'Finished!'
 
+require 'csv'
 
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'vaccines.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Vaccine.new
+  t.name = row['name']
+  t.vaccination_age = row['vaccination_age']
+  t.doses = row['doses']
+  t.lab = row['lab']
+  t.sus = row['sus']
+  t.required = row['required']
+  t.description = row['description']
+  t.save
+  puts "#{t.name} saved"
+end
+
+puts "There are now #{Vaccine.count} rows in the transactions table"
 
