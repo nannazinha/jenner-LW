@@ -20,6 +20,9 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     @member.user = current_user
     if @member.save!
+      Vaccine.all.each do |vaccine|
+        MemberVaccine.create(member: @member, vaccine: vaccine)
+      end
       redirect_to member_path(@member)
     else
       flash[:alert] = "Something went wrong."
@@ -27,12 +30,7 @@ class MembersController < ApplicationController
     end
   end
 
-  def edit
-    @member.member_vaccines.build
-    today = Date.current
-    age = ((today - @member.birth_date).to_f / 365 * 12).round + 12
-    @vaccines = Vaccine.where("vaccination_age <= #{age}")
-  end
+  def edit; end
 
   def update
     @member.update(member_params)
@@ -51,7 +49,15 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name, :birth_date, :gender, :category,
-      member_vaccines_attributes: [:vaccine_id, :vaccine, :member_id, :vaccine_date, :vaccinated])
+    params.require(:member).permit( :first_name,
+                                    :last_name,
+                                    :birth_date,
+                                    :gender,
+                                    :category,
+                                    member_vaccines_attributes: [ :id,
+                                                                  :vaccine_id,
+                                                                  :member_id,
+                                                                  :vaccine_date,
+                                                                  :vaccinated])
   end
 end

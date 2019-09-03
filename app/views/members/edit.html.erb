@@ -1,7 +1,28 @@
-<h1>Members#edit</h1>
-<p>Find me in app/views/members/edit.html.erb</p>
+<%= simple_form_for(@member) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs" style="width: 600px; margin: 0 auto; padding-top: 30px;">
+    <%= f.input :first_name, label: 'Nome' %>
+    <%= f.input :last_name, label: 'Sobrenome' %>
+    <%= f.date_field :birth_date, label: 'Data de nascimento', placeholder: ""%>
+    <%= f.input :gender, label: 'Genero' %>
+    <%= f.input :category, label: 'Categoria' %>
+    <%= f.input :user_id, as: :hidden %>
+    <%= f.input :admin, as: :hidden %>
 
-<%= render 'form', member: @member %>
+
+
+      <%= f.simple_fields_for :member_vaccines do |mv| %>
+        <%= mv.input :vaccine_id %>
+        <%=  mv.input :vaccine_date %>
+        <%= mv.input :vaccinated %>
+    <% end %>
+        </div>
+
+  <div class="form-actions" style="width: 600px; margin: 0 auto; padding-top: 30px;">
+    <%= f.button :submit, value: "Adicionar", class: "btn btn-outline-success" %>
+  </div>
+<% end %>
 
 
 <%= link_to 'Voltar ao perfil', @member %> |

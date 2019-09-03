@@ -10,14 +10,6 @@
     <%= f.input :user_id, as: :hidden %>
     <%= f.input :admin, as: :hidden %>
 
-    <%= f.simple_fields_for :member_vaccines do |mv| %>
-      <% @vaccines.each do |vaccine| %>
-        <h3><%= vaccine.name %></h3>
-        <%= mv.input :vaccine_id, input_html:{value: vaccine.id, name:"member[member_vaccines_attributes][#{vaccine.id}][vaccine_id]", id:"member_member_vaccines_attributes_#{vaccine.id}_vaccine_id"}, as: :hidden %>
-        <%=  mv.input :vaccine_date, input_html:{value: vaccine.id, name:"member[member_vaccines_attributes][#{vaccine.id}][vaccine_date]", id:"member_member_vaccines_attributes_#{vaccine.id}_vaccine_date"} %>
-        <%= mv.input :vaccinated, input_html:{value: vaccine.id, name:"member[member_vaccines_attributes][#{vaccine.id}][vaccinated]", id:"member_member_vaccines_attributes_#{vaccine.id}_vaccinated"} %>
-      <% end %>
-      <% end %>
         </div>
 
   <div class="form-actions" style="width: 600px; margin: 0 auto; padding-top: 30px;">

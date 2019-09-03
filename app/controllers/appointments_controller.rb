@@ -10,14 +10,15 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @laboratory = Laboratory.find(params[:laboratory_id])
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.member = @appointment
+    @appointment.laboratory = @laboratory
     @appointment.user = current_user
     if @appointment.save!
-      redirect_to member_path(@member)
+      redirect_to laboratory_path(@laboratory)
     else
       flash[:alert] = "Something went wrong."
       render :new
@@ -29,7 +30,7 @@ class AppointmentsController < ApplicationController
 
   def update
     @appointment.update(appointment_params)
-    redirect_to member_path(@member)
+    redirect_to laboratory_path(@laboratory)
   end
 
   def destroy
