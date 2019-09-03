@@ -38,10 +38,6 @@ class AppointmentsController < ApplicationController
     redirect_to members_path
   end
 
-  def confirmed
-    @appointment = Appointment.find(params[:id])
-  end
-
   private
 
   def set_appointment
