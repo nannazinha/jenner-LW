@@ -11,6 +11,7 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.member_vaccines.build
+    @vaccines = []
   end
 
   def create
@@ -24,7 +25,10 @@ class MembersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @member.member_vaccines.build
+    @vaccines = Vaccine.all
+  end
 
   def update
     @member.update(member_params)
@@ -43,6 +47,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:first_name, :last_name, :birth_date, :gender, :category)
+    params.require(:member).permit(:first_name, :last_name, :birth_date, :gender, :category,
+      member_vaccines_attributes: [:vaccine_id, :vaccine, :member_id, :vaccine_date, :vaccinated])
   end
 end
