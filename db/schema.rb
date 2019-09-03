@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2019_09_03_154801) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.integer "opening_time"
     t.integer "closing_time"
   end
