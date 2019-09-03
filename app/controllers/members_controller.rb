@@ -1,3 +1,5 @@
+require "time"
+
 class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_member, only: %i(show edit update destroy)
@@ -27,7 +29,9 @@ class MembersController < ApplicationController
 
   def edit
     @member.member_vaccines.build
-    @vaccines = Vaccine.all
+    today = Date.current
+    age = ((today - @member.birth_date).to_f / 365 * 12).round + 12
+    @vaccines = Vaccine.where("vaccination_age <= #{age}")
   end
 
   def update
