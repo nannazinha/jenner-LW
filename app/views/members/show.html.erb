@@ -2,11 +2,6 @@
 <p>Find me in app/views/members/show.html.erb</p>
 
 <%= @member.first_name %>
-<%= @member.last_name %>
-<%= @member.birth_date %>
-<%= @member.gender %>
-<%= @member.category %>
-
 
 <p>Vacinas tomadas</p>
 <% @member.member_vaccines.each do |mv| %>
@@ -23,6 +18,7 @@
     <%#= mv.vaccine_date %>
    <% end %>
 <% end %>
+
 
 <%= link_to "Editar", edit_member_path(@member) %>
 <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
