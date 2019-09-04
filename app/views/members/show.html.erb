@@ -30,6 +30,7 @@
       <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
     <% end %>
   <% end %>
+
   <%= link_to "
   Editar", edit_member_path(@member) %>
   <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
