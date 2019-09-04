@@ -24,7 +24,7 @@
     <%= member.first_name %>
     <% vaccine_filter(member).each do |v| %>
       <% v.member_vaccines.each do |mv| %>
-        <%= mv.vaccine.name unless mv.vaccinated%>
+        <%= link_to (mv.vaccine.name unless mv.vaccinated), laboratories_path %>
       <% end %>
     <% end %>
     <hr>
