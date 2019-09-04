@@ -1,5 +1,6 @@
 class VaccinesController < ApplicationController
   before_action :set_vaccine, only: [:show]
+  before_action :set_member, only: [:show]
 
   def show
     # .where = vaccine
@@ -27,5 +28,9 @@ class VaccinesController < ApplicationController
 
   def set_vaccine
     @vaccine = Vaccine.find(params[:id])
+  end
+
+  def set_member
+    @member = Member.find(params[:id])
   end
 end
