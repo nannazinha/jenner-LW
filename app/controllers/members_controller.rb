@@ -31,7 +31,6 @@ class MembersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
