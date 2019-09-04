@@ -2,13 +2,19 @@ require "time"
 
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_member, only: %i(show edit update destroy)
+  before_action :set_member, only: %i(show edit update destroy show_alert)
 
   def index
     @members = Member.where(user: current_user)
+    # @member.user_id = user
+    # vac = ((Date.current - member.birth_date).to_f / 365 * 12)
+    # @vacinnes = MemberVaccine.where("vaccination_age <= #{vac}")
   end
 
-  def show; end
+  def show
+    @age = ((Date.current - @member.birth_date).to_f / 365 * 12).round
+    @vac = Vaccine.where("vaccination_age <= #{@age}")
+  end
 
   def new
     @member = Member.new
@@ -41,6 +47,10 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     redirect_to members_path
+  end
+
+  def show_alert
+
   end
 
   private
