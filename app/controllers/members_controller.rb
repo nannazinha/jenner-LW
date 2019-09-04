@@ -2,13 +2,14 @@ require "time"
 
 class MembersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_member, only: %i(show edit update destroy)
+  before_action :set_member, only: %i( show edit update destroy show_alert)
 
   def index
     @members = Member.where(user: current_user)
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @member = Member.new
@@ -31,7 +32,6 @@ class MembersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -42,6 +42,10 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     redirect_to members_path
+  end
+
+  def show_alert
+
   end
 
   private

@@ -1,0 +1,25 @@
+<div class="container">
+   <div>
+      <h2>Confirme o seu agendamento:</h2>
+   </div>
+    <br>
+    <br>
+    <div>
+     <table>
+        <thead>
+          <tr>
+            <th scope="col" class="table-title">Membro</th>
+            <th scope="col" class="table-title">Vacina</th>
+            <th scope="col" class="table-title">Local</th>
+            <th scope="col" class="table-title">Data/Horário</th>
+            <th scope="col" class="table-title">Valor</th>
+          <br>
+          </tr>
+        </thead>
+</div>
+
+<h3>
+  <p> <%= @appointment.laboratory.name %>
+  <%= @appointment.vaccine.name %>
+</h3>
+  <h4> <%= @appointment.date %></h4>

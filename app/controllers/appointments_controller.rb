@@ -1,24 +1,31 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_member, only: [:create]
+  before_action :set_vaccine, only: [:create]
+
 
   def index
     @appointments = Appointment.all
   end
 
   def show
+    @appointment = Appointment.find(params[:id])
   end
 
   def new
-    @laboratory = Laboratory.find(params[:laboratory_id])
     @appointment = Appointment.new
+    @member = Member.find(params[:member_id])
+    @vaccine = Vaccine.find(params[:vaccine_id])
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.vaccine = @vaccine
+    @appointment.member = @member
     @appointment.laboratory = @laboratory
-    @appointment.user = current_user
+
     if @appointment.save!
-      redirect_to laboratory_path(@laboratory)
+      redirect_to member_vaccine_appointment_path(id: @appointment.id, laboratory_id: @laboratory.id)
     else
       flash[:alert] = "Something went wrong."
       render :new
@@ -38,13 +45,25 @@ class AppointmentsController < ApplicationController
     redirect_to members_path
   end
 
-  private
-
-  def set_appointment
+  def confirmed
     @appointment = Appointment.find(params[:id])
   end
 
+  private
+
+  def set_laboratory
+    @laboratory = Laboratory.find(params[:laboratory_id])
+  end
+
   def appointment_params
-    params.require(:appointment).permit(:date, :status, :price, :laboratory_id, :vaccine_id, :member_id)
+    params.require(:appointment).permit(:date, :status, :price)
+  end
+
+  def set_member
+    @member = Member.find(params[:member_id])
+  end
+
+  def set_vaccine
+    @vaccine = Vaccine.find(params[:vaccine_id])
   end
 end
