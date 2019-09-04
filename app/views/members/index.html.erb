@@ -13,17 +13,19 @@
 <!-- ----------------------------- -->
 <p>
   <% @members.each do |member| %>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <p> <%= link_to member.first_name, member_path(member) %></p>
-=======
-    <p> <%= link_to  member.first_name, member_path(member)%></p>
->>>>>>> 73d76c526f382678d7f6d846fb5b5cdd54226873
-=======
+
 
     <p> <%= link_to member.first_name, member_path(member) %></p>
 
->>>>>>> a9f423b19733092e6ed7b9d7b501f01f36c4783f
+
+    <p> <%= link_to member.first_name, member_path(member) %></p>
+
+
+
+
+    <p> <%= link_to member.first_name, member_path(member) %></p>
+
+
   <% end %>
 </p>
 
