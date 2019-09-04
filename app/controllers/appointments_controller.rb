@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_laboratory, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :new, :edit, :update, :destroy]
 
   def index
     @appointments = Appointment.all
@@ -10,12 +10,14 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @member = Member.find(params[:member_id])
+    @vaccine = Vaccine.find(params[:vaccine_id])
   end
 
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.laboratory = @laboratory
-    @appointment.user = current_user
+    @appointment.member.user_id = current_user
     if @appointment.save!
       redirect_to laboratory_appointment_path(@appointment)
     else
