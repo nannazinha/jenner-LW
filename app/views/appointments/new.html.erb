@@ -1,5 +1,15 @@
 <div class="container">
   <h2>Escolha uma data e horário:</h2>
+  <div>
+    <h4><strong><%= @laboratory.name %></strong></h5>
+    <p>Endereço: <%= @laboratory.address %></p>
+    <p>Tel: <%= @laboratory.phone %></p>
+    <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+    <p><%= link_to @laboratory.website, @laboratory.website %></p>
+    <br>
+    <h4>[ Inserir nome da vacina ]</h4>
+    <h5>R$<%= @appointment.price %>,00</h5>
+  </div>
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <%= simple_form_for [@laboratory, @appointment], method: "get" do |f| %>
       <%= f.input :member_id, input_html: { value: params[:member_id] }, as: :hidden %>
