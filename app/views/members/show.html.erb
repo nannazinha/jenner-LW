@@ -3,13 +3,6 @@
 
   <h1>Members#show</h1>
 
-    <% @vac.each do |v| %>
-      <% v.member_vaccines.each do |mv| %>
-        <%= mv.vaccinated %>
-      <% end %>
-    <% end %>
-
-
   <%= @member.first_name %>
   <%= @member.last_name %>
   <%= @member.birth_date %>
