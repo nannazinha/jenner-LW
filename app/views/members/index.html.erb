@@ -13,8 +13,13 @@
 <!-- ----------------------------- -->
 <p>
   <% @members.each do |member| %>
-    <p> <%= member.first_name %> <%= member.last_name %></p>
+    <p> <%= link_to member.first_name, member_path(member) %></p>
   <% end %>
 </p>
+
+<!-- Vacinas pendentes e atrasadas -->
+
+
+
 </div>
 
