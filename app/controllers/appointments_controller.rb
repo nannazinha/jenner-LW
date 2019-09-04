@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :new, :create, :edit, :update, :destroy]
 
   def index
     @appointments = Appointment.all
@@ -9,7 +9,6 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @laboratory = Laboratory.find(params[:laboratory_id])
     @appointment = Appointment.new
   end
 
@@ -18,7 +17,7 @@ class AppointmentsController < ApplicationController
     @appointment.laboratory = @laboratory
     @appointment.user = current_user
     if @appointment.save!
-      redirect_to laboratory_path(@laboratory)
+      redirect_to laboratory_appointment_path(@appointment)
     else
       flash[:alert] = "Something went wrong."
       render :new
@@ -38,10 +37,14 @@ class AppointmentsController < ApplicationController
     redirect_to members_path
   end
 
+  def confirmed
+    @appointment = Appointment.find(params[:id])
+  end
+
   private
 
-  def set_appointment
-    @appointment = Appointment.find(params[:id])
+  def set_laboratory
+    @laboratory = Laboratory.find(params[:laboratory_id])
   end
 
   def appointment_params

@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :laboratories, only: [:index] do
     resources :appointments
   end
+
+  get "/appointments/:id/confirmed/:id", to: "appointments#confirmed", as: :confirmed
+
 end
