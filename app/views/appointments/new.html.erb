@@ -11,7 +11,7 @@
     <h5>R$<%= @appointment.price %>,00</h5>
   </div>
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <%= simple_form_for @appointment, url: member_vaccine_appointments_path, method: "post" do |f| %>
+    <%= simple_form_for @appointment, url: member_vaccine_appointments_path(laboratory_id: @laboratory.id), method: "post" do |f| %>
       <%= f.input :date, label: "Escolha uma data:", as: :string, required: true, input_html: {class: "datepicker"} %>
       <%= f.button :submit, "Agendar", class: "btn btn-primary" %>
     <% end %>
