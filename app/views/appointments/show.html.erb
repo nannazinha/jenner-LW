@@ -19,13 +19,13 @@
         <tbody>
           <% @appointments.each do |appointment| %>
             <tr>
-              <td><%= appointment.member_id %></td>
-              <td><%= appointment.vaccine_id %></td>
-              <td><%= @laboratory.name %>
-                <%= @laboratory.address %>
+              <td><%#= appointment.member_id %></td>
+              <td><%#= appointment.vaccine_id %></td>
+              <td><%#= @laboratory.name %>
+                <%#= @laboratory.address %>
               </td>
-              <td><%= @appointment.date %></td>
-              <td>R$<%= appointment.price %></td>
+              <td><%#= @appointment.date %></td>
+              <td>R$<%#= appointment.price %></td>
             </tr>
           <% end %>
         </tbody>
