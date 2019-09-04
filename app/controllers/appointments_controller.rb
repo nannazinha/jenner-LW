@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_laboratory, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :new, :edit, :update, :destroy]
 
   def index
     @appointments = Appointment.all
@@ -10,6 +10,8 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    @member = Member.find(params[:member_id])
+    @vaccine = Vaccine.find(params[:vaccine_id])
   end
 
   def create
