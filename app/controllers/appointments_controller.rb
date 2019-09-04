@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.laboratory = @laboratory
-    @appointment.user = current_user
+    @appointment.member.user_id = current_user
     if @appointment.save!
       redirect_to laboratory_appointment_path(@appointment)
     else
