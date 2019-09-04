@@ -22,7 +22,6 @@ class AppointmentsController < ApplicationController
     @appointment.vaccine = @vaccine
     @appointment.member = @member
 
-    raise
     if @appointment.save!
       redirect_to laboratory_appointment_path(@appointment)
     else
