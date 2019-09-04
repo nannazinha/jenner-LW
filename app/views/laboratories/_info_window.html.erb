@@ -1,8 +1,9 @@
-<h5><%= laboratory.name %></h5>
-<p><%= laboratory.address %></p>
-<p><%= laboratory.phone %></p>
-<p><%= laboratory.opening_time %>h às <%= laboratory.closing_time %>h</p>
-<p><%= laboratory.website %></p>
-<% if laboratory.category == "private" %>
-  <%= link_to "AGENDAR", new_laboratory_appointment_path(laboratory_id: laboratory.id, opening: laboratory.opening_time, closing: laboratory.closing_time), class: "btn btn-primary" %>
-<% end %>
+  <h5><%= laboratory.name %></h5>
+  <p><%= laboratory.address %></p>
+  <p><%= laboratory.phone %></p>
+  <p><%= laboratory.opening_time %>h às <%= laboratory.closing_time %>h</p>
+  <p><%= laboratory.website %></p>
+  <% if laboratory.category == "private" %>
+    <%= link_to "AGENDAR", new_laboratory_appointment_path(laboratory_id: laboratory.id, opening: laboratory.opening_time, closing: laboratory.closing_time), class: "btn btn-primary" %>
+  <% end %>
+
