@@ -1,26 +1,28 @@
-<h1>Members#show</h1>
+<div class="container">
+  <h1>Members#show</h1>
 
-<%= @member.first_name %>
-<%= @member.last_name %>
-<%= @member.birth_date %>
-<%= @member.gender %>
-<%= @member.category %>
+  <%= @member.first_name %>
+  <%= @member.last_name %>
+  <%= @member.birth_date %>
+  <%= @member.gender %>
+  <%= @member.category %>
 
 
-<p>Vacinas tomadas</p>
-<% @member.member_vaccines.each do |mv| %>
-  <%  if mv.vaccinated %>
-    <p><%= mv.vaccine_id%> - <%= mv.vaccine_date %></p>
+  <p>Vacinas tomadas</p>
+  <% @member.member_vaccines.each do |mv| %>
+    <%  if mv.vaccinated %>
+      <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+    <% end %>
   <% end %>
-<% end %>
 
-<p>Vacinas pendentes</p>
-<% @member.member_vaccines.each do |mv| %>
-  <%  if !mv.vaccinated %>
-    <p><%= mv.vaccine_id%> - <%= mv.vaccine_date %></p>
+  <p>Vacinas pendentes</p>
+  <% @member.member_vaccines.each do |mv| %>
+    <%  if !mv.vaccinated %>
+      <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+    <% end %>
   <% end %>
-<% end %>
-<%= link_to "
-Editar", edit_member_path(@member) %>
-<%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
-<%= link_to 'Voltar à página principal', members_path %>
+  <%= link_to "
+  Editar", edit_member_path(@member) %>
+  <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
+  <%= link_to 'Voltar à página principal', members_path %>
+</div>

@@ -4,18 +4,21 @@ Laboratory.destroy_all
 Vaccine.destroy_all
 User.destroy_all
 Member.destroy_all
+LaboratoryVaccine.destroy_all
 
 puts 'Creating users...'
 
 User.create(email: 'mae@mail.com', password: '123456')
 User.create(email: 'pai@mail.com', password: '123456')
 
-puts 'Finished!'
+puts "#{User.count} users created!!!"
 
-puts 'Creating members'
+puts 'Creating members...'
 
 Member.create(first_name: 'Mae', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Titular', user_id: 1, gender: 'Male')
 Member.create(first_name: 'Filho', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Dependente', user_id: 1, gender: 'Male')
+
+puts "#{Member.count} members created!!!"
 
 puts 'Creating Laboratory db...'
 
@@ -24,9 +27,9 @@ Laboratory.create(name: 'Vacina Descomplicada', address: 'Rua José Antônio Coe
 Laboratory.create(name: 'CEDIPI Clínica', address: 'Alameda Joaquim Eugênio de Lima, 1338, Jardim Paulista, São Paulo, SP', phone: '(11) 3887-6111', website: 'cedipi.com.br', category: 'private', opening_time: 8, closing_time: 18)
 Laboratory.create(name: 'UBS Nossa Senhora do Brasil - Armando Darienzo', address: 'Rua Almirante Marques de Leão, 648, Bela Vista, São Paulo, SP', phone: '(11) 3284-4601', website: 'https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/', category: 'public', opening_time: 7, closing_time: 9)
 
+puts "#{Laboratory.count} laboratories created!!!"
 
-
-puts 'Finished!'
+puts 'Creating vaccines db...'
 
 require 'csv'
 
@@ -45,5 +48,23 @@ csv.each do |row|
   puts "#{t.name} saved"
 end
 
-puts "There are now #{Vaccine.count} rows in the transactions table"
+puts "#{Vaccine.count} vaccines added to db!!!"
 
+puts 'Creating Laboratory vaccine prices...'
+
+num_labs = Laboratory.count + 1
+num_vacs = Vaccine.count + 1
+
+num_labs.times do |l|
+  num_vacs.times do |v|
+    LaboratoryVaccine.create(
+      laboratory_id: l,
+      vaccine_id: v,
+      price: rand(100..600)
+    )
+  end
+end
+
+puts "#{LaboratoryVaccine.count} laboratory vaccines created!!!"
+
+puts 'Finished!'
