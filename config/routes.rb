@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :members do
     resources :vaccines, only: [:show] do
-      resources :appointments, only: [:show, :new, :create]
+      resources :appointments, only: [:show, :new]
     end
   end
 

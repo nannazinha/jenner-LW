@@ -1,5 +1,8 @@
 class AppointmentsController < ApplicationController
-  before_action :set_laboratory, only: [:show, :new, :edit, :update, :destroy]
+  before_action :set_laboratory, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_member, only: [:create]
+  before_action :set_vaccine, only: [:create]
+
 
   def index
     @appointments = Appointment.all
@@ -16,8 +19,10 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.laboratory = @laboratory
-    @appointment.member.user_id = current_user
+    @appointment.vaccine = @vaccine
+    @appointment.member = @member
+
+    raise
     if @appointment.save!
       redirect_to laboratory_appointment_path(@appointment)
     else
@@ -50,6 +55,14 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:date, :status, :price, :laboratory_id, :vaccine_id, :member_id)
+    params.require(:appointment).permit(:date, :status, :price)
+  end
+
+  def set_member
+    @member = Member.find(params[:member_id])
+  end
+
+  def set_vaccine
+    @vaccine = Vaccine.find(params[:vaccine_id])
   end
 end
