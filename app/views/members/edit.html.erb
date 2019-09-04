@@ -10,7 +10,7 @@
     <%= f.input :user_id, as: :hidden %>
 
     <%= f.simple_fields_for :member_vaccines do |mv| %>
-      <%= mv.input :vaccine_id %>
+      <%= mv.object.vaccine.name %>
       <%= mv.date_field :vaccine_date %>
       <%= mv.input :vaccinated %>
     <% end %>
