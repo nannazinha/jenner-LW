@@ -20,7 +20,7 @@
   <p>Vacinas pendentes</p>
   <% @member.member_vaccines.each do |mv| %>
     <%  if !mv.vaccinated %>
-      <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+      <p><%= link_to mv.vaccine.name, member_vaccine_path(mv.vaccine)%> - <%= mv.vaccine_date %></p>
     <% end %>
   <% end %>
 

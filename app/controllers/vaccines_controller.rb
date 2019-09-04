@@ -1,6 +1,10 @@
-class LaboratoriesController < ApplicationController
-  def index
-    @laboratories = Laboratory.geocoded #returns flats with coordinates
+class VaccinesController < ApplicationController
+  before_action :set_vaccine, only: [:show]
+  before_action :set_member, only: [:show]
+
+  def show
+    # .where = vaccine
+    @laboratories = Laboratory.geocoded #returns labs with coordinates
     @markers = @laboratories.map do |laboratory|
       if laboratory.category == "private"
         {
@@ -18,5 +22,15 @@ class LaboratoriesController < ApplicationController
         }
       end
     end
+  end
+
+  private
+
+  def set_vaccine
+    @vaccine = Vaccine.find(params[:id])
+  end
+
+  def set_member
+    @member = Member.find(params[:id])
   end
 end
