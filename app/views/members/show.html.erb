@@ -1,31 +1,3 @@
-
-<h1>Members#show</h1>
-
-<%= @member.first_name %>
-<%= @member.last_name %>
-<%= @member.birth_date %>
-<%= @member.gender %>
-<%= @member.category %>
-
-
-<p>Vacinas tomadas</p>
-<% @member.member_vaccines.each do |mv| %>
-  <%  if mv.vaccinated %>
-    <p><%= mv.vaccine_id%> - <%= mv.vaccine_date %></p>
-  <% end %>
-<% end %>
-
-<p>Vacinas pendentes</p>
-<% @member.member_vaccines.each do |mv| %>
-  <%  if !mv.vaccinated %>
-    <p><%= mv.vaccine_id%> - <%= mv.vaccine_date %></p>
-  <% end %>
-<% end %>
-<%= link_to "
-Editar", edit_member_path(@member) %>
-<%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
-<%= link_to 'Voltar à página principal', members_path %>
-
 <div class="container">
   <h1>Members#show</h1>
 
