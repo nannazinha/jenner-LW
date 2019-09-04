@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :members
 
+
   resources :laboratories, only: [:index] do
     resources :appointments
   end
