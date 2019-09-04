@@ -31,6 +31,6 @@ class VaccinesController < ApplicationController
   end
 
   def set_member
-    @member = Member.find(params[:id])
+    @member = Member.find(params[:member_id])
   end
 end
