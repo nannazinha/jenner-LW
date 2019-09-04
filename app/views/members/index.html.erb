@@ -7,21 +7,31 @@
 <% @members.each do |member| %>
   <% if member.category == 'Titular' %>
     <h3> <%= member.first_name %> <%= member.last_name %></h3>
-    <% end %>
+  <% end %>
 <% end %>
 
 <!-- ----------------------------- -->
 <p>
   <% @members.each do |member| %>
-
-
     <p> <%= link_to member.first_name, member_path(member) %></p>
-
-
   <% end %>
 </p>
 
 <!-- Vacinas pendentes e atrasadas -->
+
+
+  <% @members.each do |member| %>
+    <%= member.first_name %>
+    <% vaccine_filter(member).each do |v| %>
+      <% v.member_vaccines.each do |mv| %>
+        <%= mv.vaccine.name unless mv.vaccinated%>
+      <% end %>
+    <% end %>
+    <hr>
+  <% end %>
+
+
+
 
 
 </div>
