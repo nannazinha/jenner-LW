@@ -1,0 +1,36 @@
+<div class="container">
+   <div>
+      <h2>Confirme o seu agendamento:</h2>
+   </div>
+    <br>
+    <br>
+    <div>
+     <table>
+        <thead>
+          <tr>
+            <th scope="col" class="table-title">Membro</th>
+            <th scope="col" class="table-title">Vacina</th>
+            <th scope="col" class="table-title">Local</th>
+            <th scope="col" class="table-title">Data/Horário</th>
+            <th scope="col" class="table-title">Valor</th>
+          <br>
+          </tr>
+        </thead>
+        <tbody>
+          <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.member_id %></td>
+              <td><%= appointment.vaccine_id %></td>
+              <td><%= @laboratory.name %>
+                <%= @laboratory.address %>
+              </td>
+              <td><%= @appointment.date %></td>
+              <td>R$<%= appointment.price %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <%= link_to "Confirmar agendamento", confirmed_path(@appointment), class: "btn btn-outline-success" %>
+</div>
