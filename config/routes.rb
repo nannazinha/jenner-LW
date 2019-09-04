@@ -4,10 +4,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :members
-
-
-  resources :laboratories, only: [:index] do
-    resources :appointments
+  resources :members do
+    resources :vaccines, only: [:show] do
+      resources :appointments, only: [:show, :new]
+    end
   end
 end
