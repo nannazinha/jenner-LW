@@ -9,6 +9,7 @@
     background: $sidebarcolor;
     color: #fff;
     transition: all 0.3s;
+    position: relative;
 }
 
 #sidebar.active {
@@ -58,7 +59,7 @@
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #412234;
+    background: #fff;
 }
 
 #sidebar .sidebar-header strong {
@@ -79,6 +80,7 @@
 #sidebar ul li a:hover {
     color: white;
     background: rgba(255,255,255,0.1);
+    text-decoration: none;
 }
 #sidebar ul li a i {
     margin-right: 10px;
@@ -86,13 +88,13 @@
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #412234;
+    background: #fff;
 }
 
 
 a[data-toggle="collapse"] {
     position: relative;
-    background-color: #659157;
+    background-color: #fff;
 }
 
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
@@ -111,7 +113,7 @@ a[aria-expanded="true"]::before {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #fff;
 }
 
 ul.CTAs {
