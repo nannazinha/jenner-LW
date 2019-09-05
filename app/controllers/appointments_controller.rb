@@ -3,6 +3,10 @@ class AppointmentsController < ApplicationController
   before_action :set_member, only: [:new]
   before_action :set_vaccine, only: [:new]
 
+  def index
+    @appointments = Appointment.joins(:member).where(members: {user: current_user})
+  end
+
   def show
     @appointment = Appointment.find(params[:id])
   end
@@ -23,7 +27,9 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save!
       # raise
-
+      member_vaccine = MemberVaccine.find_by(vaccine: @appointment.vaccine, member: @appointment.member)
+      member_vaccine.vaccinated = false
+      member_vaccine.save
       redirect_to @appointment
     else
       flash[:alert] = "Something went wrong."
