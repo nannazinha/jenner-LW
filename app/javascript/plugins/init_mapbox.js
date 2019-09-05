@@ -45,10 +45,3 @@ const initMapbox = () => {
 
 export { initMapbox };
 
-
-
-// if (hour < 18) {
-//   greeting = "Good day";
-// } else {
-//   greeting = "Good evening";
-// }
