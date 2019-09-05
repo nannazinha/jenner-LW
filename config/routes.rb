@@ -2,14 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: 'pages#home'
+  root to: 'members#index'
 
   resources :members do
-    resources :vaccines, only: [:show] do
-      resources :appointments, only: [:show, :new, :create]
-    end
+    resources :vaccines, only: [:show]
   end
 
-  get "/appointments/:id/confirmed/:id", to: "appointments#confirmed", as: :confirmed
+  resources :appointments, only: [:show, :new, :create]
 
 end
