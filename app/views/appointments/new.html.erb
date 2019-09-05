@@ -1,27 +1,47 @@
 <div class="container">
   <h2>Escolha uma data e horário:</h2>
-  <div>
-    <h4><strong><%= @laboratory.name %></strong></h5>
-    <p>Endereço: <%= @laboratory.address %></p>
-    <p>Tel: <%= @laboratory.phone %></p>
-    <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
-    <p><%= link_to @laboratory.website, @laboratory.website %></p>
-    <br>
-    <h4><%= @vaccine.name %></h4>
-    <h5>R$<%= @appointment.price %>,00</h5>
-  </div>
+  <h4><strong><%= @laboratory.name %></strong></h4>
+  <p>Endereço: <%= @laboratory.address %></p>
+  <p>Tel: <%= @laboratory.phone %></p>
+  <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+  <p><%= link_to @laboratory.website, @laboratory.website, class: "btn btn-primary" %></p>
+  <br>
+  <h4><%= @vaccine.name %></h4>
+  <h5>R$<%= @price %>,00</h5>
+
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-
-
-
     <%= simple_form_for @appointment, method: :post do |f| %>
       <%= f.input :vaccine_id, as: :hidden, input_html: { value: @vaccine.id } %>
       <%= f.input :member_id, as: :hidden, input_html: { value: @member.id } %>
       <%= f.input :laboratory_id, as: :hidden, input_html: { value: @laboratory.id, data: {opening_time: "#{@laboratory.opening_time}:00", closing_time: "#{@laboratory.closing_time}:00" }} %>
       <%= f.input :date, label: "Escolha uma data:", as: :string, required: true, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Agendar", class: "btn btn-primary" %>
-    <% end %>
+      <a id="date-button" class="btn btn-primary disabled" data-toggle="modal" data-target="#modal-window">Agendar</a>
+    <% end%>
   </div>
 </div>
 
 
+
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h4><strong><%= @laboratory.name %></strong></h5>
+        <p>Endereço: <%= @laboratory.address %></p>
+        <p>Tel: <%= @laboratory.phone %></p>
+        <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+        <p><%= link_to @laboratory.website, @laboratory.website %></p>
+        <br>
+        <h4><%= @vaccine.name %></h4>
+        <h5>R$<%= @price %>,00</h5>
+        <br>
+        <h5 id="date-modal"></h5>
+      </div>
+      <div class="modal-footer">
+        <button id='submit_appointment' class="btn btn-primary">CONFIRMAR</button>
+      </div>
+
+    </div>
+  </div>
+</div>

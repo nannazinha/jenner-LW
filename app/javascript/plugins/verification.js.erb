@@ -1,0 +1,12 @@
+$("#modal-window").find(".modal-content").html("<%= j (render 'new') %>");
+$("#modal-window").modal();
+
+const dateInput = document.querySelector('.form-control.string.required.datepicker.input')
+const dateButton = document.getElementById('date-button')
+
+console.log(dateInput.innerText);
+console.log(dateInput);
+console.log(dateButton);
+dateButton.addEventListener("click", (event) => {
+  console.log(dateInput);
+});
