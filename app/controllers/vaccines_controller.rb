@@ -10,7 +10,7 @@ class VaccinesController < ApplicationController
         {
           lat: laboratory.latitude,
           lng: laboratory.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { laboratory: laboratory }),
+          infoWindow: render_to_string(partial: "info_window", locals: { laboratory: laboratory, laboratory_vaccine: LaboratoryVaccine.find_by(laboratory: laboratory, vaccine: @vaccine) }),
           image_url: helpers.asset_url('icon_blue.png')
         }
       else

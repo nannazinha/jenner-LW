@@ -4,7 +4,10 @@
   <p><%= laboratory.opening_time %>h às <%= laboratory.closing_time %>h</p>
   <p><%= laboratory.website %></p>
 
+
   <% if laboratory.category == "private" %>
+    <h6><b> R$ <%= laboratory_vaccine.price %></b></h6>
+
     <%= link_to "AGENDAR", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-primary" %>
   <% end %>
 
