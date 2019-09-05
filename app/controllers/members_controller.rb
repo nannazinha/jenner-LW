@@ -44,11 +44,7 @@ class MembersController < ApplicationController
     redirect_to members_path
   end
 
-  def show_alert
-
-  end
-
-  private
+   private
 
   def set_member
     @member = Member.find(params[:id])

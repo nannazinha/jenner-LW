@@ -1,40 +1,30 @@
-<div class="container">
-<h1>Members#index</h1>
-<p>Find me in app/views/members/index.html.erb</p>
+  <div class="container">
+  <h1>Members#index</h1>
+  <p>Find me in app/views/members/index.html.erb</p>
 
 <!-- Current_user :admin da conta -->
 <!-- Mudar category para radio button, com opçoes 'Titular e dependente' -->
-<% @members.each do |member| %>
-  <% if member.category == 'Titular' %>
-    <h3> <%= member.first_name %> <%= member.last_name %></h3>
+  <% @members.each do |member| %>
+    <% if member.category == 'Titular' %>
+      <h3> <%= member.first_name %> <%= member.last_name %></h3>
+    <% end %>
   <% end %>
-<% end %>
 
 <!-- ----------------------------- -->
-<p>
-  <% @members.each do |member| %>
-    <p> <%= link_to member.first_name, member_path(member) %></p>
-  <% end %>
-</p>
+  <p>
+    <% @members.each do |member| %>
+      <p> <%= link_to member.first_name, member_path(member) %></p>
+    <% end %>
+  </p>
 
 <!-- Vacinas pendentes e atrasadas -->
-
-
   <% @members.each do |member| %>
     <%= member.first_name %>
     <% vaccine_filter(member).each do |v| %>
-      <% v.member_vaccines.each do |mv| %>
-        <% unless mv.vaccinated %>
-          <%= link_to mv.vaccine.name, member_path(mv.member) %>
-        <% end %>
-      <% end %>
+      <%= v.name%>
     <% end %>
-    <hr>
+     <hr>
   <% end %>
-
-
-
-
 
 </div>
 

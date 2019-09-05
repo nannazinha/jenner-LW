@@ -1,12 +1,13 @@
 .footer {
   background-color: $footercolor;
-  color: white;
+  color: gray;
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   overflow: hidden;
-
+  box-shadow: 5px rgba(100,100,100,0.4) !important;
+  border: top;
   display: flex;
   align-items: center;
   justify-content: space-between;
