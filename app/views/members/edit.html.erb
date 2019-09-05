@@ -22,8 +22,8 @@
 
 
           <%= f.simple_fields_for :member_vaccines do |mv| %>
-          <div class="bg-dark m-3 p-2 rounded">
-            <p><%= mv.object.vaccine.name %></p>
+          <div class="vaccines">
+            <h5><%= mv.object.vaccine.name.upcase %></h5>
 
             <p><%= mv.date_field :vaccine_date %></p>
 
