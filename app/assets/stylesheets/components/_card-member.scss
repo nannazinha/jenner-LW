@@ -1,0 +1,33 @@
+.card-member {
+  white-space: nowrap;
+  font-family: "Graphik-Regular";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  min-height: 150px;
+  border-radius: 3px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 24px;
+  transition: all .15s ease;
+}
+
+.card-member:hover {
+  text-decoration: none;
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
+.card-secondary {
+  background-color: white;
+  color: #FD1015;
+  border-color: white;
+  box-shadow: 0 2px 14px rgba(126,87,88,0.1), 0 3px 6px rgba(0,0,0,0.08);
+  }
+
+.card-secondary:hover {
+  box-shadow: 0 6px 20px rgba(126,87,88,0.1), 0 6px 10px rgba(0,0,0,0.08);
+  color: #E45D60;
+}
