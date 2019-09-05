@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :members do
-    resources :vaccines, only: [:show] do
-      resources :appointments, only: [:show, :new, :create]
-    end
+    resources :vaccines, only: [:show]
   end
+
+  resources :appointments, only: [:show, :new, :create]
 
   get "/appointments/:id/confirmed/:id", to: "appointments#confirmed", as: :confirmed
 
