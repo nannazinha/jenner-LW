@@ -5,7 +5,7 @@
   <p><%= laboratory.website %></p>
 
   <% if laboratory.category == "private" %>
-    <%= link_to "AGENDAR", new_member_vaccine_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, opening: laboratory.opening_time, closing: laboratory.closing_time), class: "btn btn-primary" %>
+    <%= link_to "AGENDAR", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-primary" %>
   <% end %>
 
 
