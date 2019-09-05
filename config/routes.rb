@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :vaccines, only: [:show]
   end
 
-  resources :appointments, only: [:show, :new, :create]
+  resources :appointments, only: [:show, :new, :create, :index]
+
+  post '/vaccinate_member', to: "vaccines#vaccinate", as: "vaccinate"
 
 end

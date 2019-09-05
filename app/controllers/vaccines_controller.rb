@@ -1,6 +1,6 @@
 class VaccinesController < ApplicationController
-  before_action :set_vaccine, only: [:show]
-  before_action :set_member, only: [:show]
+  before_action :set_vaccine, only: [:show, :vaccinate]
+  before_action :set_member, only: [:show, :vaccinate]
 
   def show
     # .where = vaccine
@@ -22,6 +22,15 @@ class VaccinesController < ApplicationController
         }
       end
     end
+  end
+
+  def vaccinate
+    member_vaccine = MemberVaccine.find_by(vaccine: @vaccine, member: @member)
+    member_vaccine.vaccinated = !member_vaccine.vaccinated
+    appointment = Appointment.find_by(vaccine: @vaccine, member: @member)
+    member_vaccine.vaccine_date = appointment.date
+    member_vaccine.save!
+    redirect_to @member
   end
 
   private
