@@ -1,4 +1,23 @@
 <div class="container">
+
+  <div class="row">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12 border text-center">
+          Vacinas atrasadas e pendentes
+          </div>
+        </div>
+      </div>
+      <div class="col-12 border text-center justify-content-between d-flex">
+          <% @members.each do |member| %>
+            <%= link_to member.first_name, member_path(member), class: 'btn card-member card-secondary' %>
+          <% end %>
+      </div>
+
+      </div>
+  </div>
+</div>
 <h1>Members#index</h1>
 <p>Find me in app/views/members/index.html.erb</p>
 
@@ -34,7 +53,26 @@
 
 
 
+<!--   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
 
+  <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+    <span><strong>Mmh</strong> 🤔 seems like you don't have <a href="#">profile picture</a> yet.</span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
 
-</div>
+  <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+    <span><strong>Oops!</strong> 😱 a problem has occurred while processing your booking.</span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+ -->
+
 
