@@ -20,6 +20,7 @@ gem 'nested_form'
 gem 'cocoon'
 gem 'geocoder'
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem "better_errors"
