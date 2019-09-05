@@ -1,6 +1,8 @@
 <div class="container">
    <div>
-      <h2>Confirme o seu agendamento:</h2>
+      <h2>Seu agendamento foi confirmado!:</h2>
+      <h3>O pedido número <%= @appointment.id %> foi aprovado!</h3>
+      <h4>Um email de confirmação foi enviado</h4>
    </div>
     <br>
     <br>
@@ -16,10 +18,21 @@
           <br>
           </tr>
         </thead>
+        <tbody>
+          <%# @current_user.appointments.each do |appointment| %>
+            <tr>
+              <td><%= @appointment.member.first_name %> <%= @appointment.member.last_name %></td>
+              <td><%= @appointment.vaccine.name %></td>
+              <td><%= @appointment.laboratory.name %>
+                <%= @appointment.laboratory.address %>
+              </td>
+              <td><%= @appointment.date %></td>
+              <td>R$<%= @appointment.price %>,00</td>
+            </tr>
+          <%# end %>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <p><%= link_to "Voltar à página principal", members_path %> | <%= link_to "Voltar à página do membro", member_path(@appointment.member_id) %></p>
 </div>
-
-<h3>
-  <p> <%= @appointment.laboratory.name %>
-  <%= @appointment.vaccine.name %>
-</h3>
-  <h4> <%= @appointment.date %></h4>
