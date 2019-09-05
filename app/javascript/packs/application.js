@@ -10,11 +10,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initSidebar } from '../plugins/init_sidebar';
 
+import { createAppointment } from '../plugins/create_appointment';
 
 initMapbox();
 initSidebar();
 
-import { createAppointment } from '../plugins/create_appointment';
 
 initMapbox();
 createAppointment();
