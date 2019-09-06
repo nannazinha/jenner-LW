@@ -19,9 +19,8 @@
         <p>VACINAS TOMADAS</p>
         <div class="row col-12 justify-content-between m-0">
         <% @member.member_vaccines.each do |mv| %>
-          <%  if mv.vaccinated %>
-            <p><%= mv.vaccine.name.upcase class: "vaccine-btn btn-primary"%></p>
-            <p><%= mv.vaccine_date %></p>
+          <% if mv.vaccinated %>
+            <p class="vaccine-tomada"><%=mv.vaccine.name.upcase%> | <%= mv.vaccine_date %></p>
           <% end %>
         <% end %>
         </div>
@@ -31,16 +30,13 @@
             <% @member.member_vaccines.each do |mv| %>
               <%  if !mv.vaccinated %>
 
-                <p><%= link_to mv.vaccine.name.upcase, member_vaccine_path(@member, mv.vaccine), class: "vaccine-btn btn-primary" %></p>
+                <p><%= link_to mv.vaccine.name.upcase, member_vaccine_path(@member, mv.vaccine), class: "vaccine-btn btn-danger" %></p>
                 <p><%= mv.vaccine_date %></p>
               <% end %>
             <% end %>
         </div>
 
-        <%= link_to "
-        Editar", edit_member_path(@member) %>
-        <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
-        <%= link_to 'Voltar à página principal', members_path %>
+        <p style="margin-top: 5px"><%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %> | <%= link_to 'Voltar à página principal', members_path %></p>
       </div>
     </div>
   </div>
