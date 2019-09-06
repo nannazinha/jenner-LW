@@ -22,6 +22,8 @@
           <% member = current_user.members.find_by(category: "0") %>
           <% if member %>
             <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
+            <% else %>
+          <%= image_tag "default.jpg" %>
           <% end %>
 
         </div>
