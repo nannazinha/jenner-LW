@@ -16,8 +16,6 @@
         <!-- TOGGLE BUTTON -->
         <div class="navbar-header">
 
-
-
         <!-- IMAGE MEMBER - TITULAR -->
         <div class="container-fluid">
           <% member = current_user.members.find_by(category: "0") %>
@@ -29,12 +27,12 @@
           <% else %>
             <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
             <div  class="text-center py-2">
-              <h3><%= member.first_name %></h3>
+              <h3><span> <%= member.first_name %></span></h3>
             </div>
           <% end %>
 
         </div>
-          <h5><%=  %>  </h5>
+          <h5></h5>
                 <a href="#">
                     <i class="far fa-id-card"></i>
                     About
