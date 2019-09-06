@@ -8,7 +8,11 @@
   <%= @member.birth_date %>
   <%= @member.gender %>
   <%= @member.category %>
-
+  <% if @member.photo.url %>
+    <%= cl_image_tag @member.photo %>
+  <% else %>
+    <%= image_tag "default.jpg" %>
+  <% end %>
 
   <p>Vacinas tomadas</p>
   <% @member.member_vaccines.each do |mv| %>
