@@ -5,13 +5,13 @@
       <%= cl_image_tag @member.photo, crop: :fill %>
       <div>
         <h5><b><%= @member.first_name %> <%= @member.last_name %></b></h5>
-        <h5><% if @member.category == 0 %>
+        <h5><% if @member.category == "0" %>
             <%= "Titular" %> |
           <% else %>
             <%= "Dependente" %> |
           <% end %>
-        <%= @member.birth_date %> |
-          <% if @member.gender == 0 %>
+        <%= @member.birth_date.strftime("%d/%m/%Y") %> |
+          <% if @member.gender == "0" %>
             <%= "Sexo: Feminino" %></h5>
           <% else %>
             <%= "Sexo: Masculino" %></h5>
