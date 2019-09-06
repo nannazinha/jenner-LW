@@ -1,25 +1,24 @@
-
 <div class="container">
 
   <div class="row">
 
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center py-5 flash-pos">
+
             <% @members.each do |member| %>
               <% vaccine_filter(member).each do |v| %>
+              <div class="col-12 col-sm-6 text-center py-2 flash-pos">
               <div class="flash flash-danger  alert-dismissible fade show" role="alert">
                 <span><strong><%= member.first_name %>:</strong> Está com a vacina <%= v.name%> atrasada! 😱 </span>
                 <a data-dismiss="alert" aria-label="Close">
                   <i class="fas fa-times"></i>
                 </a>
               </div>
-
+            </div>
               <% end %>
                <hr>
             <% end %>
           </div>
-        </div>
       </div>
       <div class="col-12 text-center justify-content-between d-flex">
           <% @members.each do |member| %>
