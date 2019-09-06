@@ -29,9 +29,9 @@
     <%  if !mv.vaccinated %>
       <div class="col-sm-3">
       <div class="gridvac">
-        <p>mv.vaccine.name</p>
-        <p>mv.vaccine_date</p>
-        <%#= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> <%#= mv.vaccine_date %>
+        <!-- <p>mv.vaccine.name</p>
+        <p>mv.vaccine_date</p> -->
+        <%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> <%#= mv.vaccine_date %>
       </div>
       </div>
 
