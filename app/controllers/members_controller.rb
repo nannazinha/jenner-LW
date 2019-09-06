@@ -56,6 +56,7 @@ class MembersController < ApplicationController
                                     :birth_date,
                                     :gender,
                                     :category,
+                                    :photo,
                                     member_vaccines_attributes: [ :id,
                                                                   :vaccine_id,
                                                                   :member_id,

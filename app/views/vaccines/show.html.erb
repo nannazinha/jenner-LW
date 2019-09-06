@@ -3,23 +3,28 @@
 
   <div class="map-text-card">
     <div class="map-text-card-sub">
-      <h3><b><%= @member.first_name %> <%= @member.last_name %></b></h3>
-      <h4><% if @member.category == 0 %>
-          <%= "Titular" %></h4>
-        <% else %>
-          <%= "Dependente" %>
-        <% end %>
-      <h5><%= @member.birth_date %> |
-        <% if @member.gender == 0 %>
-          <%= "Sexo: Feminino" %></h5>
-        <% else %>
-          <%= "Sexo: Masculino" %></h5>
-        <% end %>
+      <%= cl_image_tag @member.photo, crop: :fill %>
+      <div>
+        <h3><b><%= @member.first_name %> <%= @member.last_name %></b></h3>
+        <h4><% if @member.category == 0 %>
+            <%= "Titular" %></h4>
+          <% else %>
+            <%= "Dependente" %>
+          <% end %>
+        <h5><%= @member.birth_date %> |
+          <% if @member.gender == 0 %>
+            <%= "Sexo: Feminino" %></h5>
+          <% else %>
+            <%= "Sexo: Masculino" %></h5>
+          <% end %>
+      </div>
     </div>
     <div class="map-text-card-divisoria"></div>
     <div class="map-text-card-sub">
-      <h4><b><%= @vaccine.name %></b></h4>
-      <p><%= @vaccine.description %></p>
+      <div>
+        <h4><b><%= @vaccine.name %></b></h4>
+        <p><%= @vaccine.description %></p>
+      </div>
     </div>
   </div>
 
@@ -31,4 +36,9 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+
+  <div class="map-key">
+    <div class="map-key-img"><%= image_tag "icon_red.png" %></div><p>Rede pública</p>
+    <div class="map-key-img"><%= image_tag "icon_blue.png" %></div><p>Rede privada</p>
+  </div>
 </div>
