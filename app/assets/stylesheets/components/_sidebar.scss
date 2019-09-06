@@ -7,9 +7,11 @@
 #sidebar {
     min-width: 110px;
     max-width: 250px;
-    background: $azul;
+    background: white;
     color: gray;
+    background-color: $azul;
     transition: all 0.3s;
+    border-right: 2px solid $azul;
 
 }
 
@@ -21,6 +23,10 @@
 
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
     display: none;
+}
+
+#sidebar.active .sidebar-header button {
+    padding:0;
 }
 
 #sidebar.active .sidebar-header strong {
@@ -37,6 +43,13 @@
     padding: 20px 10px;
     text-align: center;
     font-size: 0.85em;
+
+}
+#sidebar.active span {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+    display:none;
 }
 
 #sidebar.active ul li a i {
@@ -100,15 +113,15 @@ a[data-toggle="collapse"] {
 }
 
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\f055';
+    content: '+';
     display: block;
     position: absolute;
     right: 20px;
     font-family: 'Font Awesome 5 Free';
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
 a[aria-expanded="true"]::before {
-    content: '\f055';
+    content: '+';
 }
 
 
