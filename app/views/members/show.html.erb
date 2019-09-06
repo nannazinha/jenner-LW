@@ -1,32 +1,37 @@
 <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-6 col-lg-8">
+        <div class="form-member">
+          <h1>Cartão de vacinas</h1>
+
+          <%= @member.first_name %>
+          <%= @member.last_name %>
+          <%= @member.birth_date.strftime("%d, %B %Y") %>
+          <%= @member.gender %>
+          <%= @member.category %>
 
 
-  <h1>Members#show</h1>
+          <p>Vacinas tomadas</p>
+          <% @member.member_vaccines.each do |mv| %>
+            <%  if mv.vaccinated %>
+              <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+            <% end %>
+          <% end %>
 
-  <%= @member.first_name %>
-  <%= @member.last_name %>
-  <%= @member.birth_date %>
-  <%= @member.gender %>
-  <%= @member.category %>
+          <p>Vacinas pendentes</p>
+          <% @member.member_vaccines.each do |mv| %>
+            <%  if !mv.vaccinated %>
+              <p><%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> - <%= mv.vaccine_date %></p>
+            <% end %>
+          <% end %>
 
-
-  <p>Vacinas tomadas</p>
-  <% @member.member_vaccines.each do |mv| %>
-    <%  if mv.vaccinated %>
-      <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
-    <% end %>
-  <% end %>
-
-  <p>Vacinas pendentes</p>
-  <% @member.member_vaccines.each do |mv| %>
-    <%  if !mv.vaccinated %>
-      <p><%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> - <%= mv.vaccine_date %></p>
-    <% end %>
-  <% end %>
-
-  <%= link_to "
-  Editar", edit_member_path(@member) %>
-  <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
-  <%= link_to 'Voltar à página principal', members_path %>
+          <%= link_to "
+          Editar", edit_member_path(@member) %>
+          <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
+          <%= link_to 'Voltar à página principal', members_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
