@@ -1,15 +1,26 @@
-<div class="container">
-  <h2>Escolha uma data e horário:</h2>
-  <h4><strong><%= @laboratory.name %></strong></h4>
-  <p>Endereço: <%= @laboratory.address %></p>
-  <p>Tel: <%= @laboratory.phone %></p>
-  <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
-  <p><%= link_to @laboratory.website, @laboratory.website, class: "btn btn-primary" %></p>
-  <br>
-  <h4><%= @vaccine.name %></h4>
-  <h5>R$<%= @price %>,00</h5>
+<div class="container mt-3 mb-3">
+  <h2><strong>Escolha uma data e horário:</strong></h2>
 
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+  <div class="appointment-new-card">
+    <div><% if @laboratory.category == "public" %>
+        <%= image_tag "icon_red.png" %>
+      <% else %>
+        <%= image_tag "icon_blue.png" %>
+      <% end %>
+    </div>
+    <div>
+      <h4><strong><%= @laboratory.name %></strong></h4>
+      <p>Endereço: <%= @laboratory.address %></p>
+      <p>Tel: <%= @laboratory.phone %></p>
+      <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+      <p><%= link_to @laboratory.website, @laboratory.website %></p>
+      <br>
+      <h4><strong><%= @vaccine.name %></strong></h4>
+      <h5>R$<%= @price %>,00</h5>
+    </div>
+  </div>
+
+  <div class="form-wrapper mt-4" style="width: 400px; margin: 7%;">
     <%= simple_form_for @appointment, method: :post do |f| %>
       <%= f.input :vaccine_id, as: :hidden, input_html: { value: @vaccine.id } %>
       <%= f.input :member_id, as: :hidden, input_html: { value: @member.id } %>
@@ -20,23 +31,28 @@
   </div>
 </div>
 
-
-
-
 <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h4><strong><%= @laboratory.name %></strong></h5>
-        <p>Endereço: <%= @laboratory.address %></p>
-        <p>Tel: <%= @laboratory.phone %></p>
-        <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
-        <p><%= link_to @laboratory.website, @laboratory.website %></p>
-        <br>
-        <h4><%= @vaccine.name %></h4>
-        <h5>R$<%= @price %>,00</h5>
-        <br>
-        <h5 id="date-modal"></h5>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ml-5 mr-5">
+      <div class="modal-body appointment-new-card">
+        <div><% if @laboratory.category == "public" %>
+            <%= image_tag "icon_red.png" %>
+          <% else %>
+            <%= image_tag "icon_blue.png" %>
+          <% end %>
+        </div>
+        <div>
+          <h4><strong><%= @laboratory.name %></strong></h4>
+          <p>Endereço: <%= @laboratory.address %></p>
+          <p>Tel: <%= @laboratory.phone %></p>
+          <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+          <p><%= link_to @laboratory.website, @laboratory.website %></p>
+          <br>
+          <h4><strong><%= @vaccine.name %></strong></h4>
+          <h5>R$<%= @price %>,00</h5>
+          <br>
+          <h4 id="date-modal"></h4>
+        </div>
       </div>
       <div class="modal-footer">
         <button id='submit_appointment' class="btn btn-primary">CONFIRMAR</button>
