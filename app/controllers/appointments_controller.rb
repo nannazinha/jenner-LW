@@ -4,7 +4,7 @@ class AppointmentsController < ApplicationController
   before_action :set_vaccine, only: [:new]
 
   def index
-    @appointments = Appointment.joins(:member).where(members: {user: current_user})
+    @appointments = Appointment.joins(:member).where(members: {user: current_user}).order("created_at DESC")
   end
 
   def show
