@@ -42,9 +42,11 @@
 
                 <!-- MEMBERS VACCINES LINKS -->
                 <ul class="collapse list-unstyled" id="pageSubmenu">
+
                   <% current_user.members.each do |member| %>
                     <li><%= link_to member.first_name, member_path(member.id) %></li>
                   <% end %>
+
                 </ul>
             </li>
             <li>
