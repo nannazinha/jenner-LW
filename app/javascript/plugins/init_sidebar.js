@@ -1,4 +1,3 @@
-
 const initSidebar = () => {
  $(document).ready(function () {
           $("#sidebar").mCustomScrollbar({
@@ -6,16 +5,16 @@ const initSidebar = () => {
           });
 
           $('#sidebarCollapse').on('click', function () {
-              $('#sidebar').addClass('active');
-              $('.overlay').addClass('active');
-              $('.collapse.in').toggleClass('in');
-              $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            const sidebar = document.getElementById("sidebar")
+            if (sidebar.classList.contains('active')){
+                sidebar.classList.remove('active')
+            }else {
+             sidebar.classList.add('active')
+            }
+
+
           });
 
-          $('#dismiss, .overlay').on('click', function () {
-              $('#sidebar').removeClass('active');
-              $('.overlay').removeClass('active');
-          });
 
 
       });

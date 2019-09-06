@@ -13,20 +13,37 @@
   <p>Vacinas tomadas</p>
   <% @member.member_vaccines.each do |mv| %>
     <%  if mv.vaccinated %>
-      <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+      <div class="cards">
+        <div class="card">
+           <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+        </div>
+      </div>
     <% end %>
   <% end %>
 
   <p>Vacinas pendentes</p>
+  <div class="container-fluid">
+    <div class="row">
+
   <% @member.member_vaccines.each do |mv| %>
     <%  if !mv.vaccinated %>
-      <p><%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> - <%= mv.vaccine_date %></p>
+      <div class="col-sm-3">
+      <div class="gridvac">
+        <!-- <p>mv.vaccine.name</p>
+        <p>mv.vaccine_date</p> -->
+        <%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> <%#= mv.vaccine_date %>
+      </div>
+      </div>
+
     <% end %>
   <% end %>
+    </div>
+  </div>
 
   <%= link_to "
   Editar", edit_member_path(@member) %>
   <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %>
   <%= link_to 'Voltar à página principal', members_path %>
 </div>
+
 

@@ -1,10 +1,11 @@
-<div class="wrapper">
-    <!-- Sidebar Holder -->
+  <div class="wrapper">
+    <!-- SIDEBAR -->
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>TITULAR</h3>
             <strong>BS</strong>
         </div>
+
           <div class="navbar-header">
               <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                   <i class="glyphicon glyphicon-align-left"></i>
@@ -12,10 +13,24 @@
               </button>
           </div>
 
+        <!-- TOGGLE BUTTON -->
+        <div class="navbar-header">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                <i class="glyphicon glyphicon-align-left"></i>
+                <span>Toggle Sidebar</span>
+            </button>
+        </div>
+
+
+        <!-- IMAGE MEMBER - TITULAR -->
+        <div>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "avatar-sidebar" %>
+        </div>
+        <!-- MENU -->
         <ul class="list-unstyled components">
             <li >
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="fas fa-plus-circle"></i>
+                    <i class="fas fa-home"></i>
                     Home
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -30,20 +45,23 @@
                     About
                 </a>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-duplicate"></i>
-                    Pages
+                    <i class="fas fa-syringe"></i>
+                    Vacinas
                 </a>
+
+                <!-- MEMBERS VACCINES LINKS -->
                 <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li><a href="#">Page 1</a></li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
+
+                  <% current_user.members.each do |member| %>
+                    <li><%= link_to member.first_name, member_path(member.id) %></li>
+                  <% end %>
+
                 </ul>
             </li>
             <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-link"></i>
-                    Portfolio
-                </a>
+                <a href="/appointments">
+                    <i class="far fa-calendar-alt"></i>
+                    Meus agendamentos
             </li>
             <li>
                 <a href="#">
@@ -58,17 +76,17 @@
                 </a>
             </li>
         </ul>
-
+        <!-- BUTTON ADD MEMBER -->
         <ul class="list-unstyled CTAs">
-            <li><a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download text-center">Adicionar familiar</a></li>
-                    </ul>
-    </nav>
+          <li><a href="/members/new" class="download text-center">Adicionar familiar</a></li>
+        </ul>
 
-    <!-- Page Content Holder -->
-    <div class="container-full">
+    </nav>
+    <!-- END SIDEBAR -->
+<div class="container-full">
+
       <div class="row">
         <div class="col-8">
-
 
     <div id="content">
 
@@ -91,4 +109,5 @@
         </div>
     </div>
     </div>
-</div>
+    </div>
+

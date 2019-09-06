@@ -6,3 +6,28 @@
   text-align: left;
   font-family: 'Open Sans', sans-serif;
 }
+
+.map-text-card {
+  background-color: lightgrey;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 17px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.map-text-card-sub {
+  margin-left: 20px;
+  margin-right: 5px;
+  padding: 0px;
+  width: 480px;
+  text-align: left;
+}
+
+.map-text-card-divisoria {
+  width: 1px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+}

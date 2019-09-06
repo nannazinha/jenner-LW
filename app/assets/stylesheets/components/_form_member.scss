@@ -1,0 +1,30 @@
+.form-member {
+  background: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+.vaccines {
+  background-color: #C7E7F2;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
