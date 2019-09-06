@@ -34,14 +34,13 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, value: "Editar", class: "btn btn-primary" %>
+            <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
           </div>
             <% end %>
 
+          <%= link_to 'Voltar ao perfil', @member %> |
+          <%= link_to 'Voltar à página principal', members_path %>
       </div>
-
-    <%= link_to 'Voltar ao perfil', @member %> |
-    <%= link_to 'Voltar à página principal', members_path %>
     </div>
   </div>
 </div>
