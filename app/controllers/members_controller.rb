@@ -3,6 +3,7 @@ require "time"
 class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_member, only: %i( show edit update destroy show_alert)
+  skip_before_action :has_members, only: %i(new create)
 
   def index
     @members = Member.where(user: current_user)
