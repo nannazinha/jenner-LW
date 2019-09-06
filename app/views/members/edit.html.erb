@@ -20,18 +20,17 @@
 
           <%= f.input :user_id, as: :hidden %>
 
-
-          <%= f.simple_fields_for :member_vaccines do |mv| %>
-          <div class="vaccines">
-            <h5><%= mv.object.vaccine.name.upcase %></h5>
-
-            <p><%= mv.date_field :vaccine_date %></p>
-
-            <p><%= mv.input :vaccinated %></p>
-            </div>
-          <% end %>
-
-          </div>
+           <div class="row">
+            <%= f.simple_fields_for :member_vaccines do |mv| %>
+              <div class="col-12 col-sm-4 justify-content-between m-0">
+                <div class="vaccines">
+                    <p><%= mv.object.vaccine.name.upcase %></p>
+                    <p><%= mv.input :vaccine_date, label: 'Data da vacinação' %></p>
+                    <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
+                </div>
+              </div>
+            <% end %>
+           </div>
 
           <div class="form-actions">
             <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
@@ -41,6 +40,7 @@
           <%= link_to 'Voltar ao perfil', @member %> |
           <%= link_to 'Voltar à página principal', members_path %>
       </div>
+    </div>
     </div>
   </div>
 </div>

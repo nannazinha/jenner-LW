@@ -1,0 +1,31 @@
+.appointment-new-card {
+  display: flex;
+  margin-top: 30px;
+}
+
+.appointment-new-card img {
+  height: 50px;
+  margin-right: 20px;
+}
+
+.appointment-new-card p {
+  margin-bottom: 0px;
+}
+
+.appointment-new-card a {
+  color: grey;
+}
+
+.datepicker {
+  height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.date-button {
+  font-size: 10rem;
+}
+
+.confirmed-photo {
+  border-radius: 100px;
+}
