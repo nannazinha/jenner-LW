@@ -15,8 +15,7 @@ puts "#{User.count} users created!!!"
 
 puts 'Creating members...'
 
-Member.create(first_name: 'Mae', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Titular', user_id: 1, gender: 'Female')
-Member.create(first_name: 'Filho', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Dependente', user_id: 1, gender: 'Male')
+Member.create(first_name: 'Mae', last_name: 'da Silva', birth_date: '01/01/1990', category: 'Titular', user_id: 1, gender: 'Female', remote_photo_url: "https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg?w=1200")
 
 puts "#{Member.count} members created!!!"
 
