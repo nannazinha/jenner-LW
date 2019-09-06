@@ -3,18 +3,19 @@
     <div class="col-12 col-sm-6 col-lg-12">
       <div class="form-member">
         <h1>Cartão de vacinas</h1>
+        <h5 class="d-flex justify-content-center">
+          <%= @member.first_name %>
+          <%= @member.last_name %>
+          <%= @member.birth_date.strftime("%d, %B %Y") %>
+          <%= @member.gender %>
+          <%= @member.category %>
+        </h5>
 
-        <%= @member.first_name %>
-        <%= @member.last_name %>
-        <%= @member.birth_date.strftime("%d, %B %Y") %>
-        <%= @member.gender %>
-        <%= @member.category %>
         <% if @member.photo.url %>
           <%= cl_image_tag @member.photo %>
         <% else %>
           <%= image_tag "default.jpg" %>
         <% end %>
-
 
         <p>VACINAS TOMADAS</p>
 
