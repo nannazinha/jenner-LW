@@ -41,7 +41,7 @@
                 </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                   <% @members.each do |member| %>
-                    <li><% link_to member.name, @member %></li>
+                    <li><% link_to member.first_name  , @member %></li>
                     <% end %>
                     <li><a href="#">Page 2</a></li>
                     <li><a href="#">Page 3</a></li>
