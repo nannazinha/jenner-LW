@@ -2,30 +2,27 @@
   <h2><strong>Escolha a clínica</strong></h2>
 
   <div class="map-text-card">
-    <div class="map-text-card-sub">
       <%= cl_image_tag @member.photo, crop: :fill %>
       <div>
-        <h3><b><%= @member.first_name %> <%= @member.last_name %></b></h3>
-        <h4><% if @member.category == 0 %>
-            <%= "Titular" %></h4>
+        <h5><b><%= @member.first_name %> <%= @member.last_name %></b></h5>
+        <h5><% if @member.category == 0 %>
+            <%= "Titular" %> |
           <% else %>
-            <%= "Dependente" %>
+            <%= "Dependente" %> |
           <% end %>
-        <h5><%= @member.birth_date %> |
+        <%= @member.birth_date %> |
           <% if @member.gender == 0 %>
             <%= "Sexo: Feminino" %></h5>
           <% else %>
             <%= "Sexo: Masculino" %></h5>
           <% end %>
       </div>
-    </div>
-    <div class="map-text-card-divisoria"></div>
-    <div class="map-text-card-sub">
+  </div>
+  <div class="map-text-card">
       <div>
-        <h4><b><%= @vaccine.name %></b></h4>
+        <h5><b><%= @vaccine.name %></b></h5>
         <p><%= @vaccine.description %></p>
       </div>
-    </div>
   </div>
 
   <div

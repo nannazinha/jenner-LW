@@ -1,5 +1,6 @@
 .mapboxgl-popup {
-  max-width: 500px;
+  width: 100vh;
+  overflow-wrap: break-word;
 }
 
 .mapboxgl-popup-content {
@@ -8,28 +9,18 @@
 }
 
 .map-text-card {
-  background-color: lightgrey;
   margin-bottom: 15px;
   margin-top: 15px;
   padding: 17px;
   border-radius: 10px;
   display: flex;
   align-items: center;
+  border: 1px solid $azul;
 }
 
-.map-text-card-sub {
-  margin-left: 20px;
-  margin-right: 5px;
-  padding: 0px;
-  width: 480px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-}
-
-.map-text-card-sub img {
+.map-text-card img {
   border-radius: 100px;
-  height: 130px;
+  height: 70px;
   background-size: cover;
   margin-right: 18px;
 }
@@ -38,7 +29,7 @@
   width: 1px;
   height: 150px;
   border-style: solid;
-  border-color: grey;
+  border-color: $azul;
   border-width: 1px;
 }
 
@@ -57,5 +48,5 @@
 
 .map-key p {
   margin-right: 20px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
