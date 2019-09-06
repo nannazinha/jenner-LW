@@ -3,20 +3,28 @@
     <!-- SIDEBAR -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Jenner</h3>
+            <h3>TITULAR</h3>
             <strong>BS</strong>
         </div>
+
+          <div class="navbar-header">
+              <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                  <i class="glyphicon glyphicon-align-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button>
+          </div>
+
         <!-- TOGGLE BUTTON -->
         <div class="navbar-header">
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                <i class="glyphicon glyphicon-align-left"></i>
-                <span>Toggle Sidebar</span>
+            <button type="button" id="sidebarCollapse" class="btn toggle-btn">
+                <i class="fas fa-arrows-alt-h"></i>
             </button>
         </div>
 
+
         <!-- IMAGE MEMBER - TITULAR -->
-        <div>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "avatar-sidebar" %>
+        <div class="container-fluid">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "rounded-circle img-fluid" %>
         </div>
         <!-- MENU -->
         <ul class="list-unstyled components">

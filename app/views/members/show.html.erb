@@ -32,8 +32,8 @@
   <% @member.member_vaccines.each do |mv| %>
     <%  if !mv.vaccinated %>
       <div class="col-sm-3">
-      <div class="gridvac">
-        <!-- <p>mv.vaccine.name</p>
+      <div class="cards">
+   <!--      <p>mv.vaccine.name</p>
         <p>mv.vaccine_date</p> -->
         <%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> <%#= mv.vaccine_date %>
       </div>
