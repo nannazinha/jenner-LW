@@ -140,6 +140,12 @@ a.article, a.article:hover {
     color: gray !important;
 }
 
+.toggle-btn {
+    color: gray;
+    font-size: 40 px;
+}
+
+
 
 
 /* ---------------------------------------------------
@@ -207,5 +213,6 @@ a.article, a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+
 
 }
