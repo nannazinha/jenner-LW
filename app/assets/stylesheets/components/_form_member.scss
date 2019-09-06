@@ -44,6 +44,21 @@
     background-color: #C5D86D;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   }
+
+  .vaccines {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 20px;
+   border-radius: 5px;
+   width: 20vw;
+   font-size: 12px;
+   margin-left: 15px;
+   margin-bottom: 10px;
+   background-color: #C7E7F2;
+   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+   text-align: center;
+  }
 }
 
 
