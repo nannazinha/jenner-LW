@@ -113,15 +113,15 @@ a[data-toggle="collapse"] {
 }
 
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\f055';
+    content: '+';
     display: block;
     position: absolute;
     right: 20px;
     font-family: 'Font Awesome 5 Free';
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
 a[aria-expanded="true"]::before {
-    content: '\f055';
+    content: '+';
 }
 
 
