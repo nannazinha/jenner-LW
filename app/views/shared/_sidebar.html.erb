@@ -17,7 +17,13 @@
 
         <!-- IMAGE MEMBER - TITULAR -->
         <div class="container-fluid">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "rounded-circle img-fluid" %>
+          <%#= image_tag "https://kitt.lewagon.com/placeholder/users/nannazinha", class: "rounded-circle img-fluid" %>
+
+          <% member = current_user.members.find_by(category: "0") %>
+          <% if member %>
+            <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
+          <% end %>
+
         </div>
                 <a href="#">
                     <i class="glyphicon glyphicon-briefcase"></i>
