@@ -30,3 +30,38 @@
   box-shadow: 0 6px 20px rgba(126,87,88,0.1), 0 6px 10px rgba(0,0,0,0.08);
   color: lightgrey;
 }
+
+.vac-card {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.vac-card img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.vac-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: gray;
+}
+
+.vac-card h3, h5 {
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: .7;
+  // margin-bottom: 0;
+  margin: 8px;
+  color:gray;
+}
+
+.vac-card .vac-card-infos {
+  padding: 16px;
+}
