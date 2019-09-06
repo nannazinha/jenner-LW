@@ -10,7 +10,7 @@
     background: $azul;
     color: gray;
     transition: all 0.3s;
-    position: relative;
+
 }
 
 #sidebar.active {
@@ -207,4 +207,5 @@ a.article, a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+
 }
