@@ -13,28 +13,52 @@
     margin-bottom: 50px;
     margin-top: 0px;
   }
+
   .btn {
     width: 100%;
     padding: 10px;
     font-weight: bold;
   }
+
   .vaccine-btn{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
     border-radius: 5px;
-    width: 18vw;
-    font-size: 12px;
-    margin-left: 15px;
+    width: 16vw;
+    font-size: 11px;
+    margin-right: 15px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .vaccine-tomada{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 5px;
+    width: 16vw;
+    font-size: 11px;
+    margin-right: 15px;
+    background-color: #C5D86D;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .vaccines {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 20px;
+   border-radius: 5px;
+   width: 20vw;
+   font-size: 12px;
+   margin-left: 15px;
+   margin-bottom: 10px;
+   background-color: #C7E7F2;
+   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+   text-align: center;
   }
 }
 
-.vaccines {
-  background-color: #C7E7F2;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
-}
 

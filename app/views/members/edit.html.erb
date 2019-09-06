@@ -13,25 +13,24 @@
           <%= f.input :first_name, label: 'Nome' %>
           <%= f.input :last_name, label: 'Sobrenome' %>
 
-          <%= f.input :birth_date, order: [:day, :month, :year], label: 'Data de Nascimento' %>
+          <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data de Nascimento' %>
 
           <%= f.input :gender, as: :radio_buttons, collection: [['0', 'Feminino'], ['1', 'Masculino']], label_method: :second, value_method: :first, label: 'Gênero' %>
           <%= f.input :category, as: :radio_buttons, collection: [['0', 'Titular'], ['1', 'Dependente']], label_method: :second, value_method: :first, label: 'Conta' %>
 
           <%= f.input :user_id, as: :hidden %>
 
-
-          <%= f.simple_fields_for :member_vaccines do |mv| %>
-          <div class="vaccines">
-            <h5><%= mv.object.vaccine.name.upcase %></h5>
-
-            <p><%= mv.date_field :vaccine_date %></p>
-
-            <p><%= mv.input :vaccinated %></p>
-            </div>
-          <% end %>
-
-          </div>
+           <div class="row">
+            <%= f.simple_fields_for :member_vaccines do |mv| %>
+              <div class="col-12 col-sm-4 justify-content-between m-0">
+                <div class="vaccines">
+                    <p><%= mv.object.vaccine.name.upcase %></p>
+                    <p><%= mv.input :vaccine_date, label: 'Data da vacinação' %></p>
+                    <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
+                </div>
+              </div>
+            <% end %>
+           </div>
 
           <div class="form-actions">
             <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
@@ -41,6 +40,7 @@
           <%= link_to 'Voltar ao perfil', @member %> |
           <%= link_to 'Voltar à página principal', members_path %>
       </div>
+    </div>
     </div>
   </div>
 </div>
