@@ -4,4 +4,14 @@ module VaccineFilterHelper
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where("vaccination_age <= ?", age).where.not(id: vaccine_taken_ids)
   end
+
+  def vaccine_tomada(member)
+    vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
+    Vaccine.where.not(id: vaccine_taken_ids)
+  end
+
+  def vaccine_tomada_tomada(member)
+    vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
+    Vaccine.where(id: vaccine_taken_ids)
+  end
 end
