@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-6 col-lg-8">
+    <div class="col-xs-12 col-sm-6 col-lg-12">
       <div class="form-member">
         <h1>Editar membro</h1>
         <%= simple_form_for(@member) do |f| %>
@@ -15,8 +15,8 @@
 
           <%= f.input :birth_date, order: [:day, :month, :year], label: 'Data de Nascimento' %>
 
-          <%= f.input :gender, as: :radio_buttons, collection: [['0', 'Feminino'], ['1', 'Masculino']], label_method: :second, value_method: :first %>
-          <%= f.input :category, as: :radio_buttons, collection: [['0', 'Titular'], ['1', 'Dependente']], label_method: :second, value_method: :first %>
+          <%= f.input :gender, as: :radio_buttons, collection: [['0', 'Feminino'], ['1', 'Masculino']], label_method: :second, value_method: :first, label: 'Gênero' %>
+          <%= f.input :category, as: :radio_buttons, collection: [['0', 'Titular'], ['1', 'Dependente']], label_method: :second, value_method: :first, label: 'Conta' %>
 
           <%= f.input :user_id, as: :hidden %>
 
@@ -34,14 +34,13 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, value: "Editar", class: "btn btn-primary" %>
+            <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
           </div>
             <% end %>
 
+          <%= link_to 'Voltar ao perfil', @member %> |
+          <%= link_to 'Voltar à página principal', members_path %>
       </div>
-
-    <%= link_to 'Voltar ao perfil', @member %> |
-    <%= link_to 'Voltar à página principal', members_path %>
     </div>
   </div>
 </div>

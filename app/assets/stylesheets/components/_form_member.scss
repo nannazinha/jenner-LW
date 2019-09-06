@@ -18,6 +18,16 @@
     padding: 10px;
     font-weight: bold;
   }
+  .vaccine-btn{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 5px;
+    width: 18vw;
+    font-size: 12px;
+    margin-left: 15px;
+  }
 }
 
 .vaccines {
