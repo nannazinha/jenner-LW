@@ -5,14 +5,25 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-12 border text-center">
-          Vacinas atrasadas e pendentes
+          <div class="col-12 text-center py-5 flash-pos">
+            <% @members.each do |member| %>
+              <% vaccine_filter(member).each do |v| %>
+              <div class="flash flash-danger  alert-dismissible fade show" role="alert">
+                <span><strong><%= member.first_name %>:</strong> Está com a vacina <%= v.name%> atrasada! 😱 </span>
+                <a data-dismiss="alert" aria-label="Close">
+                  <i class="fas fa-times"></i>
+                </a>
+              </div>
+
+              <% end %>
+               <hr>
+            <% end %>
           </div>
         </div>
       </div>
-      <div class="col-12 border text-center justify-content-between d-flex">
+      <div class="col-12 text-center justify-content-between d-flex">
           <% @members.each do |member| %>
-            <%= link_to member.first_name, member_path(member), class: 'btn card-member card-secondary' %>
+            <%=  link_to member.first_name, member_path(member),class: 'btn card-member card-secondary' %>
           <% end %>
       </div>
 
@@ -24,28 +35,28 @@
 
 <!-- Current_user :admin da conta -->
 <!-- Mudar category para radio button, com opçoes 'Titular e dependente' -->
-  <% @members.each do |member| %>
+<!--   <% @members.each do |member| %>
     <% if member.category == 'Titular' %>
       <h3> <%= member.first_name %> <%= member.last_name %></h3>
     <% end %>
-  <% end %>
+  <% end %> -->
 
 <!-- ----------------------------- -->
-  <p>
+<!--   <p>
     <% @members.each do |member| %>
       <p> <%= link_to member.first_name, member_path(member) %></p>
     <% end %>
-  </p>
+  </p> -->
 
 <!-- Vacinas pendentes e atrasadas -->
-  <% @members.each do |member| %>
+<!--   <% @members.each do |member| %>
     <%= member.first_name %>
     <% vaccine_filter(member).each do |v| %>
       <%= v.name%>
     <% end %>
      <hr>
   <% end %>
-
+ -->
 
 
 
