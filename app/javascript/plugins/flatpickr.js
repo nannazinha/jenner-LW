@@ -9,6 +9,7 @@ if(document.querySelector('.datepicker')){
     enableTime: true,
     time_24hr: true,
     inline: true,
+    dateFormat: "d/m/Y, H:i",
     minTime: document.getElementById('appointment_laboratory_id' ).dataset.openingTime,
     maxTime: document.getElementById('appointment_laboratory_id' ).dataset.closingTime,
     onChange: function(selectedDates, dateStr, instance) {
