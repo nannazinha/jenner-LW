@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row justify-content-center">
-      <div class="col-xs-12 col-sm-6 col-lg-8">
+      <div class="col-12 col-sm-6 col-lg-12">
         <div class="form-member">
           <h1>Cartão de vacinas</h1>
 
@@ -11,19 +11,25 @@
           <%= @member.category %>
 
 
-          <p>Vacinas tomadas</p>
+          <p>VACINAS TOMADAS</p>
+          <div class="row col-12 d-flex justify-content-between m-0">
           <% @member.member_vaccines.each do |mv| %>
             <%  if mv.vaccinated %>
-              <p><%= mv.vaccine.name%> - <%= mv.vaccine_date %></p>
+              <p><%= mv.vaccine.name.upcase class: "vaccine-btn btn-primary"%></p>
+              <p><%= mv.vaccine_date %></p>
             <% end %>
           <% end %>
 
-          <p>Vacinas pendentes</p>
-          <% @member.member_vaccines.each do |mv| %>
-            <%  if !mv.vaccinated %>
-              <p><%= link_to mv.vaccine.name, member_vaccine_path(@member, mv.vaccine)%> - <%= mv.vaccine_date %></p>
-            <% end %>
-          <% end %>
+          <p>VACINAS PENDENTES</p>
+          <div class="row col-12 d-flex justify-content-between m-0">
+              <% @member.member_vaccines.each do |mv| %>
+                <%  if !mv.vaccinated %>
+
+                  <p><%= link_to mv.vaccine.name.upcase, member_vaccine_path(@member, mv.vaccine), class: "vaccine-btn btn-primary" %></p>
+                  <p><%= mv.vaccine_date %></p>
+                <% end %>
+              <% end %>
+          </div>
 
           <%= link_to "
           Editar", edit_member_path(@member) %>
@@ -33,3 +39,4 @@
       </div>
     </div>
   </div>
+
