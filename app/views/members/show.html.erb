@@ -12,16 +12,17 @@
 
 
           <p>VACINAS TOMADAS</p>
-          <div class="row col-12 d-flex justify-content-between m-0">
+          <div class="row col-12 justify-content-between m-0">
           <% @member.member_vaccines.each do |mv| %>
             <%  if mv.vaccinated %>
               <p><%= mv.vaccine.name.upcase class: "vaccine-btn btn-primary"%></p>
               <p><%= mv.vaccine_date %></p>
             <% end %>
           <% end %>
+          </div>
 
           <p>VACINAS PENDENTES</p>
-          <div class="row col-12 d-flex justify-content-between m-0">
+          <div class="row col-12 justify-content-between m-0">
               <% @member.member_vaccines.each do |mv| %>
                 <%  if !mv.vaccinated %>
 
