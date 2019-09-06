@@ -2,7 +2,7 @@
 
   <div class="row">
 
-      <div class="container">
+      <div class="container my-3">
         <div class="row">
 
             <% @members.each do |member| %>
@@ -20,9 +20,22 @@
             <% end %>
           </div>
       </div>
-      <div class="col-12 text-center justify-content-between d-flex">
+      <div class="col-12 col-sm-6 text-center justify-content-between d-flex">
           <% @members.each do |member| %>
-            <%=  link_to member.first_name, member_path(member),class: 'btn card-member card-secondary' %>
+            <%=  link_to member_path(member) do %>
+              <div class= 'btn card-member card-secondary d-flex flex-column justify-content-center' >
+                  <div class="avatar-card">
+                    <% if member.photo.url %>
+                      <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
+                    <% else %>
+                        <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
+                    <% end %>
+                  </div>
+                  <div class="p-2">
+                    <%= member.first_name %>
+                  </div>
+              </div>
+              <% end %>
           <% end %>
       </div>
 
@@ -82,5 +95,7 @@
  -->
 
 </div>
+
+
 
 
