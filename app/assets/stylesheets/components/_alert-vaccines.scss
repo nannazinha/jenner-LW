@@ -7,7 +7,7 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 8px;
-  width: 600px;
+  width: 100%;
 }
 
 .flash-success {
@@ -24,6 +24,5 @@
 
 .flash-danger {
   border: 2px solid #FD1015;
-  position: absolute;
   // margin-top: 5px;
 }
