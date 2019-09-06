@@ -2,17 +2,21 @@
   <div class="wrapper">
     <!-- SIDEBAR -->
     <nav id="sidebar">
-        <div class="sidebar-header">
+      <!-- TOGGLE BUTTON -->
+        <div class="sidebar-header text-center ">
+          <div class="toggle-btn">
+
+           <button type="button" id="sidebarCollapse" class="btn toggle-btn">
+                <i class="fas fa-arrows-alt-h"></i>
+            </button>
+          </div>
 
           <strong>BS</strong>
         </div>
 
         <!-- TOGGLE BUTTON -->
         <div class="navbar-header">
-            <button type="button" id="sidebarCollapse" class="btn toggle-btn">
-                <i class="fas fa-arrows-alt-h"></i>
-            </button>
-        </div>
+
 
 
         <!-- IMAGE MEMBER - TITULAR -->
@@ -28,15 +32,21 @@
 
         </div>
                 <a href="#">
-                    <i class="glyphicon glyphicon-briefcase"></i>
+                    <i class="far fa-id-card"></i>
                     About
                 </a>
         <!-- MENU -->
         <ul class="list-unstyled components">
+
+            <li>
+                <a href="/members">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+            </li>
             <li >
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
                     <i class="fas fa-home"></i>
-                    Home
+                    <span>Home</span>
                 </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li><a href="#">Home 1</a></li>
@@ -46,8 +56,8 @@
             </li>
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="fas fa-syringe"></i>
-                    Vacinas
+                    <i class="far fa-id-card"></i>
+                    <span>Cartão de Vacinas</span>
                 </a>
 
                 <!-- MEMBERS VACCINES LINKS -->
@@ -59,27 +69,35 @@
 
                 </ul>
             </li>
-            <li>
+             <li>
                 <a href="/appointments">
                     <i class="far fa-calendar-alt"></i>
-                    Meus agendamentos
+                    <span>Meus agendamentos</span>
+                </a>
             </li>
             <li>
                 <a href="#">
+                    <i class="fas fa-syringe"></i>
+                    <span>Vacinas</span>
+            </li>
+
+
+            <li>
+                <a href="#">
                     <i class="glyphicon glyphicon-paperclip"></i>
-                    FAQ
+                    <span>FAQ</span>
                 </a>
             </li>
              <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-paperclip"></i>
-                    Sobre
+                    <span>Sobre</span>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class="glyphicon glyphicon-send"></i>
-                    Contact
+                    <span>Contact</span>
                 </a>
             </li>
         </ul>
