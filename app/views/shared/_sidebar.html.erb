@@ -100,6 +100,12 @@
                     <span>Contact</span>
                 </a>
             </li>
+             <li>
+                <a href="#">
+                    <i class="glyphicon glyphicon-send"></i>
+                    <span><%= link_to "Log out", destroy_user_session_path, method: :delete%></span>
+                </a>
+            </li>
         </ul>
         <!-- BUTTON ADD MEMBER -->
         <ul class="list-unstyled CTAs">
