@@ -1,0 +1,19 @@
+<div class="container vacc">
+  <div>
+    <h2>Vacinas</h2>
+  </div>
+
+  <div>
+        <% @vaccines.each do |vaccine| %>
+      <li class="list-unstyled  ">
+        <a href="#xSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="fas fa-syringe"></i>
+            <span><%=vaccine.name %></span>
+        </a>
+        <ul class="collapse list-unstyled" id="xSubmenu">
+          <li><%= vaccine.description %></li>
+        </ul>
+      </li>
+    <% end %>
+  </div>
+</div>

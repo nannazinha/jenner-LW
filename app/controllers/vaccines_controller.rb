@@ -2,6 +2,10 @@ class VaccinesController < ApplicationController
   before_action :set_vaccine, only: [:show, :vaccinate]
   before_action :set_member, only: [:show, :vaccinate]
 
+  def index
+    @vaccines = Vaccine.all
+  end
+
   def show
     # .where = vaccine
     @laboratories = Laboratory.geocoded #returns labs with coordinates
