@@ -10,6 +10,18 @@ const buildMap = () => {
   });
 };
 
+function jumpTo(index){
+    map.setView(positions[index], 4, {
+        pan: {
+            animate: false,
+            // duration: 1
+        },
+        zoom: {
+            animate: false,
+        }
+    });
+}
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
