@@ -19,6 +19,8 @@ Bundler.require(*Rails.groups)
 
 module Jenner
   class Application < Rails::Application
+    config.i18n.default_locale = :'pt-BR'
+    config.time_zone = 'Brasilia'
     config.generators do |generate|
           generate.assets false
           generate.helper false
