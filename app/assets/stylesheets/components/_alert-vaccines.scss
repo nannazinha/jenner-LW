@@ -23,6 +23,12 @@
 }
 
 .flash-danger {
-  border: 2px solid #FD1015;
+  border: 2px solid $danger;
   // margin-top: 5px;
+}
+
+.alert-x {
+  animation-duration: 50s;
+  animation-delay: 50s;
+  animation-iteration-count: 3;
 }
