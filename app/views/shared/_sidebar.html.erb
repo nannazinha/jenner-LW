@@ -1,140 +1,84 @@
 <% if user_signed_in? %>
-  <div class="wrapper">
-    <!-- SIDEBAR -->
-    <nav id="sidebar">
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <!-- TOGGLE BUTTON -->
+      <div class="sidebar-header text-center ">
+        <div class="toggle-btn">
+          <button type="button" id="sidebarCollapse" class="btn toggle-btn">
+            <i class="fas fa-arrows-alt-h"></i>
+          </button>
+        </div>
+      </div>
+
       <!-- TOGGLE BUTTON -->
-        <div class="sidebar-header text-center ">
-          <div class="toggle-btn">
-            <button type="button" id="sidebarCollapse" class="btn toggle-btn">
-              <i class="fas fa-arrows-alt-h"></i>
-            </button>
+      <div class="navbar-header">
+
+      <!-- IMAGE MEMBER - TITULAR -->
+      <div class="container-fluid">
+        <% if @master %>
+          <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid w-75 self-align" %>
+          <div  class="text-center py-2">
+            <h3><span> <%= @master.first_name %></span></h3>
           </div>
-        </div>
+        <% else %>
+          <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
+        <% end %>
+      </div>
 
-        <!-- TOGGLE BUTTON -->
-        <div class="navbar-header">
-
-        <!-- IMAGE MEMBER - TITULAR -->
-        <div class="container-fluid">
-          <% if @master %>
-            <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid" %>
-            <div  class="text-center py-2">
-              <h3><span> <%= @master.first_name %></span></h3>
-            </div>
-          <% else %>
-            <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
-          <% end %>
-
-        </div>
-
-                <a href="#">
-                    <i class="far fa-id-card"></i>
-                    About
-                </a>
-        <!-- MENU -->
-        <ul class="list-unstyled components">
-
-            <li>
-                <a href="/members">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-            </li>
-            <li >
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="#">Home 1</a></li>
-                    <li><a href="#">Home 2</a></li>
-                    <li><a href="#">Home 3</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="far fa-id-card"></i>
-                    <span>Cartão de Vacinas</span>
-                </a>
-
-                <!-- MEMBERS VACCINES LINKS -->
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-
-                  <% current_user.members.each do |member| %>
-                    <li><%= link_to member.first_name, member_path(member.id) %></li>
-                  <% end %>
-
-                </ul>
-            </li>
-             <li>
-                <a href="/appointments">
-                    <i class="far fa-calendar-alt"></i>
-                    <span>Meus agendamentos</span>
-                </a>
-            </li>
-            <li>
-                <a href="/vaccines">
-                    <i class="fas fa-syringe"></i>
-                    <span>Vacinas</span>
-            </li>
-
-
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-paperclip"></i>
-                    <span>FAQ</span>
-                </a>
-            </li>
-             <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-paperclip"></i>
-                    <span>Sobre</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-send"></i>
-                    <span>Contact</span>
-                </a>
-            </li>
-             <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-send"></i>
-                    <span><%= link_to "Log out", destroy_user_session_path, method: :delete%></span>
-                </a>
-            </li>
-        </ul>
-        <!-- BUTTON ADD MEMBER -->
+      <!-- MENU -->
+      <ul class="list-unstyled components">
+          <li>
+              <a href="/members">
+                  <i class="fas fa-home"></i>
+                  <span>Home</span>
+              </a>
+          </li>
+          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                  <i class="far fa-id-card"></i>
+                  <span>Cartão de Vacinas</span>
+              </a>
+              <!-- MEMBERS VACCINES LINKS -->
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <% current_user.members.each do |member| %>
+                  <li><%= link_to member.first_name, member_path(member.id) %></li>
+                <% end %>
+              </ul>
+          </li>
+          <li>
+            <a href="/appointments">
+              <i class="far fa-calendar-alt"></i>
+              <span>Meus agendamentos</span>
+            </a>
+          </li>
+          <li>
+            <a href="/vaccines">
+              <i class="fas fa-syringe"></i>
+              <span>Vacinas</span>
+            </a>
+          </li>
+          <li >
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+              <i class="fas fa-cog"></i>
+              <span>Configurações</span>
+              </a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Sobre</a></li>
+                  <li><a href="#">Contato</a></li>
+              </ul>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Sair</span>
+            <% end %>
+          </li>
+           <!-- BUTTON ADD MEMBER -->
         <ul class="list-unstyled CTAs">
           <li><a href="/members/new" class="download text-center">Adicionar familiar</a></li>
         </ul>
-
-    </nav>
-    <!-- END SIDEBAR -->
-<div class="container-full">
-
-      <div class="row">
-        <div class="col-8">
-
-    <div id="content">
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-      </div>
-        </div>
-    </div>
-    </div>
-    </div>
+      </ul>
+  </nav>
 <% end %>
