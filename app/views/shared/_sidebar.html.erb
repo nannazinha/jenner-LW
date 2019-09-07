@@ -5,12 +5,10 @@
       <!-- TOGGLE BUTTON -->
         <div class="sidebar-header text-center ">
           <div class="toggle-btn">
-
-           <button type="button" id="sidebarCollapse" class="btn toggle-btn">
-                <i class="fas fa-arrows-alt-h"></i>
+            <button type="button" id="sidebarCollapse" class="btn toggle-btn">
+              <i class="fas fa-arrows-alt-h"></i>
             </button>
           </div>
-
         </div>
 
         <!-- TOGGLE BUTTON -->
@@ -18,7 +16,6 @@
 
         <!-- IMAGE MEMBER - TITULAR -->
         <div class="container-fluid">
-
           <% if @master %>
             <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid" %>
             <div  class="text-center py-2">
@@ -26,7 +23,6 @@
             </div>
           <% else %>
             <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
-
           <% end %>
 
         </div>
@@ -76,7 +72,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/vaccines">
                     <i class="fas fa-syringe"></i>
                     <span>Vacinas</span>
             </li>
