@@ -1,6 +1,6 @@
 .card-member {
   white-space: nowrap;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   width: 250px;
@@ -31,6 +31,8 @@
   color: lightgrey;
 }
 
+
+// MEMBER PROFILE
 .vac-card {
   overflow: hidden;
   height: 200px;
@@ -65,4 +67,47 @@
 
 .vac-card .vac-card-infos {
   padding: 16px;
+}
+// END MEMBER PROFILE
+
+
+.vaccs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .vaccs {
+    grid-template-columns: 2fr 2fr 2fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .vaccs {
+    grid-template-columns: 2fr 2fr 2fr;;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .vaccs {
+    grid-template-columns: 2fr 2fr 2fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .vaccs {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .vaccs {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
