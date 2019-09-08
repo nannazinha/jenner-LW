@@ -5,12 +5,12 @@ module VaccineFilterHelper
     Vaccine.where("vaccination_age <= ?", age).where.not(id: vaccine_taken_ids)
   end
 
-  def vaccine_tomada(member)
+  def vaccine_expired(member)
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where.not(id: vaccine_taken_ids)
   end
 
-  def vaccine_tomada_tomada(member)
+  def vaccine_taken(member)
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where(id: vaccine_taken_ids)
   end

@@ -23,7 +23,7 @@
         <p>VACINAS TOMADAS</p>
 
         <div class="row">
-          <% vaccine_tomada_tomada(@member).each do |mv| %>
+          <% vaccine_taken(@member).each do |mv| %>
           <div class="col-12 col-sm-3 justify-content-between m-0">
             <p class="vaccine-tomada"><%=mv.name.upcase%> | <%#= mv.vaccine_date %></p>
           </div>
@@ -33,7 +33,7 @@
         <p>VACINAS PENDENTES</p>
 
         <div class="row">
-            <% vaccine_tomada(@member).each do |mv| %>
+            <% vaccine_expired(@member).each do |mv| %>
             <div class="col-12 col-sm-3 justify-content-between m-0">
               <p><%= link_to mv.name.upcase, member_vaccine_path(@member), class: "vaccine-btn btn-danger" %></p>
               <p><%#= mv.vaccine_date %></p>
