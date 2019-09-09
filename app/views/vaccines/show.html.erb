@@ -1,26 +1,20 @@
-<div class="container mt-3 mb-3">
-  <h2><strong>Escolha a clínica</strong></h2>
+<div class="container">
+  <h1>ESCOLHA A CLÍNICA</h1>
 
   <div class="map-text-card">
-      <%= cl_image_tag @member.photo, crop: :fill %>
+      <% if @member.photo.url %>
+        <%= cl_image_tag @member.photo %>
+      <% else %>
+        <%= image_tag "default.jpg" %>
+      <% end %>
       <div>
-        <h5><b><%= @member.first_name %> <%= @member.last_name %></b></h5>
-        <h5><% if @member.category == "0" %>
-            <%= "Titular" %> |
-          <% else %>
-            <%= "Dependente" %> |
-          <% end %>
-        <%= @member.birth_date.strftime("%d/%m/%Y") %> |
-          <% if @member.gender == "0" %>
-            <%= "Sexo: Feminino" %></h5>
-          <% else %>
-            <%= "Sexo: Masculino" %></h5>
-          <% end %>
+        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> | <%= @member.category %></b></h5>
+        <h5><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h5>
       </div>
   </div>
   <div class="map-text-card">
       <div>
-        <h5><b><%= @vaccine.name %></b></h5>
+        <p><b><%= @vaccine.name %></b></p>
         <p><%= @vaccine.description %></p>
       </div>
   </div>
