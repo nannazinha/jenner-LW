@@ -10,18 +10,6 @@ const buildMap = () => {
   });
 };
 
-function jumpTo(index){
-    map.setView(positions[index], 4, {
-        pan: {
-            animate: false,
-            // duration: 1
-        },
-        zoom: {
-            animate: false,
-        }
-    });
-}
-
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
@@ -30,8 +18,8 @@ const addMarkersToMap = (map, markers) => {
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '40px';
-      element.style.height = '40px';
+      element.style.width = '30px';
+      element.style.height = '30px';
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
