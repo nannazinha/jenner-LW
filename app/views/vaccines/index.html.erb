@@ -6,11 +6,11 @@
   <div>
         <% @vaccines.each do |vaccine| %>
       <li class="list-unstyled  ">
-        <a href="#xSubmenu" data-toggle="collapse" aria-expanded="false">
+        <a href="#Submenu-<%= vaccine.id %>" data-toggle="collapse" aria-expanded="false">
           <i class="fas fa-syringe"></i>
             <span><%=vaccine.name %></span>
         </a>
-        <ul class="collapse list-unstyled" id="xSubmenu">
+        <ul class="collapse list-unstyled" id="Submenu-<%= vaccine.id %>">
           <li><%= vaccine.description %></li>
         </ul>
       </li>
