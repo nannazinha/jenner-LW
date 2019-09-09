@@ -47,7 +47,7 @@ class UserMailer < ApplicationMailer
 
     mail(
       to:       @appointment.member.user.email,
-      subject:  "Agendamento #{@appointment.id} confirmado!"
+      subject:  "Agendamento ##{@appointment.id} confirmado!"
     )
   end
 

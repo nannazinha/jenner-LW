@@ -1,0 +1,13 @@
+<div class="container mt-3">
+  <h2><b>Certificação de Vacina</b></h2>
+
+  <p>A Jenner Inc. certifica que <b><%= @member.first_name %> <%= @member.last_name %></b> tomou a vacina <b><%= @vaccine.name %></b> no dia <b><%= @appointment.date.strftime("%d/%m/%Y") %></b>, no laboratório <b><%= @appointment.laboratory.name %></b>, situado no endereço <b><%= @appointment.laboratory.address %></b>.</p>
+
+  <p>Atenciosamente,</p>
+  <p><b>Edward Jenner</b></p>
+  <p>CEO, Jenner Inc.</p>
+  <br>
+  <p><%= link_to "Voltar à página principal", members_path %> | <%= link_to "Voltar à página do familiar", member_path(@appointment.member_id) %></p>
+
+</div>
+
