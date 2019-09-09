@@ -21,6 +21,26 @@ class UserMailer < ApplicationMailer
     )
   end
 
+  def update_confirmation_member
+    @user = params[:user] # Instance variable => available in view
+    @member = params[:member]
+
+    mail(
+      to:       @member.user.email,
+      subject:  "Dados do membro #{@member.first_name} #{@member.last_name} atualizados!"
+    )
+  end
+
+  def destroy_confirmation_member
+    @user = params[:user] # Instance variable => available in view
+    @member = params[:member]
+
+    mail(
+      to:       @member.user.email,
+      subject:  "Membro #{@member.first_name} #{@member.last_name} deletado!"
+    )
+  end
+
   def create_confirmation_appointment
     @user = params[:user] # Instance variable => available in view
     @appointment = params[:appointment]
