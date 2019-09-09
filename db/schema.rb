@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_001442) do
   create_table "laboratory_vaccines", force: :cascade do |t|
     t.bigint "laboratory_id"
     t.bigint "vaccine_id"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
