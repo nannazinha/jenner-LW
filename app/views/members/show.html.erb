@@ -14,7 +14,8 @@
             </div>
             <div>
               <h1><%= @member.first_name %> <%= @member.last_name %></h1>
-              <h3><%= @member.birth_date.strftime("%d, %B %Y") %> | <%#= @member.gender  : "feminino" : "masculino" %></h3>
+              <h3><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h3>
+
               <h5><%= @member.category %></h5>
             </div>
           </div>
