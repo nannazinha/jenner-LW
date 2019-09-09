@@ -12,7 +12,7 @@
   <p><b>Laboratório: </b><%= @appointment.laboratory.name %></p>
   <p><b>Endereço: </b><%= @appointment.laboratory.address %></p>
   <p><b>Data / horário: </b><%= @appointment.date.strftime("%d/%m/%Y / %H:%M") %></p>
-  <p><b>Valor: </b> R$<%= @appointment.price %>,00</p>
+  <p><b>Valor: </b> R$<%= @appointment.price / 100 %>,00</p>
   <br>
   <br>
   <p>Atenciosamente,</p>
