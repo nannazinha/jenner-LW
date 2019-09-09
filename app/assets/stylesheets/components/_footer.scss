@@ -25,3 +25,100 @@
 .footer-links a:hover {
   color: lightgray;
 }
+
+// RESPONSIVENESS
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer{
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  .footer-links a {
+    font-size: 30px;
+    padding: 0px 2px;
+  }
+   .footer-copyright{
+
+    padding: 0px 2px;
+    .avatar{
+      width: 20px;
+    }
+    .far{
+       font-size: 10px;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .footer{
+    padding: 0px 50px;
+    font-size: 24px;
+  }
+
+  .footer-links a {
+    font-size: 30px;
+    padding: 0px 2px;
+  }
+   .footer-copyright{
+
+    padding: 0px 2px;
+    .avatar{
+      width: 20px;
+    }
+    .far{
+       font-size: 10px;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+   .footer-links a {
+    font-size: 24px;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    padding: 0px 10px;
+
+  }
+   .footer-copyright{
+    padding: 0px 2px;
+      .avatar{
+        width: 40px;
+      }
+}
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .footer-links a {
+    font-size: 24px;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    padding: 0px 10px;
+
+  }
+   .footer-copyright{
+    padding: 0px 2px;
+      .avatar{
+        width: 40px;
+      }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .footer-links a {
+    font-size: 24px;
+    font-family: "Open Sans", "Helvetica", "sans-serif";
+    padding: 0px 10px;
+
+  }
+  .footer-copyright{
+    padding: 0px 2px;
+      .avatar{
+        width: 40px;
+      }
+  }
+}
