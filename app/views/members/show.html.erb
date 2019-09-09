@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-12">
+  <div class="col-12 col-lg-8 offset-lg-2">
     <h1>CARTÃO DE VACINAS</h1>
       <div class="cards vac-card">
         <div>
@@ -22,7 +22,7 @@
 
       <div class="row">
         <% vaccine_taken(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-6 col-md-4 col-lg-4">
             <div class="vaccines-tomadas">
               <p><%= link_to mv.name.upcase, member_vaccine_show_path(@member, @vaccine, format: :pdf) %> | <%#= mv.vaccine_date %></p>
             </div>
@@ -34,7 +34,7 @@
 
       <div class="row">
         <% vaccine_expired(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-6 col-md-4 col-lg-4">
             <div class="vaccines-pendentes">
               <p><%= link_to mv.name.upcase, member_vaccine_path(@member, mv) %></p>
               <p><%#= mv.vaccine_date %></p>
