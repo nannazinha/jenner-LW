@@ -2,14 +2,16 @@
   <h1>ESCOLHA A CLÍNICA</h1>
 
   <div class="map-text-card">
+    <div class="img">
       <% if @member.photo.url %>
         <%= cl_image_tag @member.photo %>
       <% else %>
         <%= image_tag "default.jpg" %>
       <% end %>
+    </div>
       <div>
-        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> | <%= @member.category %></b></h5>
-        <h5><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h5>
+        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
+        <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
       </div>
   </div>
   <div class="map-text-card">
@@ -29,7 +31,7 @@
   ></div>
 
   <div class="map-key">
-    <div><%= image_tag "icon_red.png" %></div><p>Rede pública</p>
-    <div><%= image_tag "icon_blue.png" %></div><p>Rede privada</p>
+    <div><%= image_tag "icon_red.png" %></div><p>REDE PÚBLICA</p>
+    <div><%= image_tag "icon_blue.png" %></div><p>REDE PRIVADA</p>
   </div>
 </div>
