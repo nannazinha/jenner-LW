@@ -1,37 +1,39 @@
 <div class="container">
-  <h1>ESCOLHA A CLÍNICA</h1>
+  <div class="col-12 col-lg-8 offset-lg-2">
+    <h1>ESCOLHA A CLÍNICA</h1>
 
-  <div class="map-text-card">
-    <div class="img">
-      <% if @member.photo.url %>
-        <%= cl_image_tag @member.photo %>
-      <% else %>
-        <%= image_tag "default.jpg" %>
-      <% end %>
+    <div class="map-text-card">
+      <div class="img">
+        <% if @member.photo.url %>
+          <%= cl_image_tag @member.photo %>
+        <% else %>
+          <%= image_tag "default.jpg" %>
+        <% end %>
+      </div>
+        <div>
+          <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
+          <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
+        </div>
     </div>
-      <div>
-        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
-        <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
-      </div>
-  </div>
-  <div class="map-text-card">
-      <div>
-        <p><b><%= @vaccine.name %></b></p>
-        <p><%= @vaccine.description %></p>
-      </div>
-  </div>
+    <div class="map-text-card">
+        <div>
+          <p><b><%= @vaccine.name %></b></p>
+          <p><%= @vaccine.description %></p>
+        </div>
+    </div>
 
-  <div
-    id="map"
-    style="width: 100%;
-    height: 500px;
-    border-radius: 10px"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 500px;
+      border-radius: 10px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
 
-  <div class="map-key">
-    <div><%= image_tag "icon_red.png" %></div><p>REDE PÚBLICA</p>
-    <div><%= image_tag "icon_blue.png" %></div><p>REDE PRIVADA</p>
+    <div class="map-key">
+      <div><%= image_tag "icon_red.png" %></div><p>REDE PÚBLICA</p>
+      <div><%= image_tag "icon_blue.png" %></div><p>REDE PRIVADA</p>
+    </div>
   </div>
 </div>
