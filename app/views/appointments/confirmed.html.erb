@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-6 py-5">
+    <h4><strong><%= @laboratory.name %></strong></h4>
+    <p>Endereço: <%= @laboratory.address %></p>
+    <p>Tel: <%= @laboratory.phone %></p>
+    <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+    <p><%= link_to @laboratory.website, @laboratory.website %></p>
+    <br>
+    <h4><strong><%= @vaccine.name %></strong></h4>
+    <h5>R$<%= @vaccine_laboratory.price %>,00</h5>
+    <br>
+    <h4 id="date-modal"></h4>
+    <%= form_tag members_path, method: :post do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <script type="text/javascript"
+        src="https://assets.pagar.me/checkout/checkout.js"
+        data-encryption-key="<%= ENV['PAGARME_ENCRYPTION_KEY'] %>"
+        data-ui-color="#808080"
+        data-header-text="<%= " #{@laboratory.name} <br/> #{@vaccine.name} - R$ #{LaboratoryVaccine.find_by(vaccine: @vaccine, laboratory: @laboratory).price}" %>"
+        data-customer-email="<%= current_user.email %>"
+        data-create-token="false"
+        data-button-class="btn btn-primary w-50"
+        data-amount="<%= @vaccine_laboratory.price %>">
+      </script>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

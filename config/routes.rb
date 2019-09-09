@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   post '/vaccinate_member', to: "vaccines#vaccinate", as: "vaccinate"
 
+  get 'confirmed/:id', to: 'appointments#confirmed', as: 'confirmed'
+
 end
