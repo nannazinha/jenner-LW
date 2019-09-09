@@ -25,6 +25,8 @@ class AppointmentsController < ApplicationController
     @laboratory = @appointment.laboratory
     @vaccine = @appointment.vaccine
     @vaccine_laboratory = LaboratoryVaccine.find_by(laboratory: @laboratory, vaccine: @vaccine)
+    mail = UserMailer.with(appointment: @appointment, user: current_user).create_confirmation_appointment
+    mail.deliver_now
   end
 
   def create
@@ -38,8 +40,6 @@ class AppointmentsController < ApplicationController
       member_vaccine.vaccinated = false
       member_vaccine.save
 
-      mail = UserMailer.with(appointment: @appointment, user: current_user).create_confirmation_appointment
-      mail.deliver_now
       redirect_to confirmed_path(@appointment)
 
     else
