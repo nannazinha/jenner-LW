@@ -17,7 +17,7 @@
         src="https://assets.pagar.me/checkout/checkout.js"
         data-encryption-key="<%= ENV['PAGARME_ENCRYPTION_KEY'] %>"
         data-ui-color="#808080"
-        data-header-text="<%= " #{@laboratory.name} <br/> #{@vaccine.name} - R$ #{LaboratoryVaccine.find_by(vaccine: @vaccine, laboratory: @laboratory).price}" %>"
+        data-header-text="<%= "#{@laboratory.name} <br/> #{@vaccine.name} - R$ #{LaboratoryVaccine.find_by(vaccine: @vaccine, laboratory: @laboratory).price / 100}" %>"
         data-customer-email="<%= current_user.email %>"
         data-create-token="false"
         data-button-class="btn btn-primary w-50"
