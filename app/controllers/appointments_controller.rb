@@ -30,6 +30,8 @@ class AppointmentsController < ApplicationController
       member_vaccine = MemberVaccine.find_by(vaccine: @appointment.vaccine, member: @appointment.member)
       member_vaccine.vaccinated = false
       member_vaccine.save
+      mail = UserMailer.with(appointment: @appointment, user: current_user).create_confirmation_appointment
+      mail.deliver_now
       redirect_to @appointment
     else
       flash[:alert] = "Something went wrong."

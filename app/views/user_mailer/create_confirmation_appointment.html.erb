@@ -1,0 +1,17 @@
+<h2><b>Agendamento confirmado!</b></h2>
+
+<p>Olá <%= @user.email %>,</p>
+
+<p>O agendamento <%= @appointment.id %> foi confirmado!</p>
+
+<h3><b>Dados do novo agendamento:</b></h3>
+<p><b>ID: </b><%= @appointment.id %></p>
+<p><b>Membro: </b><%= @appointment.member.first_name %> <%= @appointment.member.last_name %></p>
+<p><b>Vacina: </b><%= @appointment.vaccine.name %></p>
+<p><b>Laboratório: </b><%= @appointment.laboratory.name %></p>
+<p><b>Endereço: </b><%= @appointment.laboratory.address %></p>
+<p><b>Data / horário: </b><%= @appointment.date.strftime("%d/%m/%Y / %H:%M") %></p>
+<p><b>Valor: </b> R$<%= @appointment.price %>,00</p>
+<br>
+<p>Obrigado pela preferência!</p>
+<p><b>Equipe Jenner</b></p>
