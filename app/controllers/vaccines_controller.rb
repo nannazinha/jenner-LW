@@ -34,8 +34,10 @@ class VaccinesController < ApplicationController
     appointment = Appointment.find_by(vaccine: @vaccine, member: @member)
     member_vaccine.vaccine_date = appointment.date
     member_vaccine.save!
-    mail = UserMailer.with(member: @member, vaccine: @vaccine, appointment: appointment, user: current_user).create_confirmation_vaccinate
-    mail.deliver_now
+    if MemberVaccine.find_by(vaccine: appointment.vaccine, member: appointment.member).vaccinated == true
+      mail = UserMailer.with(member: @member, vaccine: @vaccine, appointment: appointment, user: current_user).create_confirmation_vaccinate
+      mail.deliver_now
+    end
     redirect_to @member
   end
 
