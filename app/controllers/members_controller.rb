@@ -39,11 +39,15 @@ class MembersController < ApplicationController
 
   def update
     @member.update(member_params)
+    mail = UserMailer.with(member: @member, user: current_user).update_confirmation_member
+    mail.deliver_now
     redirect_to member_path(@member)
   end
 
   def destroy
     @member.destroy
+    mail = UserMailer.with(member: @member, user: current_user).destroy_confirmation_member
+    mail.deliver_now
     redirect_to members_path
   end
 
