@@ -6,7 +6,7 @@
 
 
   <% if laboratory.category == "private" %>
-    <h6><b> R$ <%= humanized_money_with_symbol(laboratory_vaccine.price) %></b></h6>
+    <h6><b> R$ <%= humanized_money_with_symbol((laboratory_vaccine.price)/100) %></b></h6>
 
     <%= link_to "AGENDAR", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-primary" %>
   <% end %>

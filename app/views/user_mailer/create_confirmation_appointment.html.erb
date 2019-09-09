@@ -2,10 +2,10 @@
 
 <p>Olá <%= @user.email %>,</p>
 
-<p>O agendamento <%= @appointment.id %> foi confirmado!</p>
+<p>O agendamento número <b><%= @appointment.id %></b> foi confirmado!</p>
 
 <h3><b>Dados do novo agendamento:</b></h3>
-<p><b>ID: </b><%= @appointment.id %></p>
+<p><b>Número do agendamento: </b><%= @appointment.id %></p>
 <p><b>Membro: </b><%= @appointment.member.first_name %> <%= @appointment.member.last_name %></p>
 <p><b>Vacina: </b><%= @appointment.vaccine.name %></p>
 <p><b>Laboratório: </b><%= @appointment.laboratory.name %></p>
