@@ -8,7 +8,7 @@
     <p><%= link_to @laboratory.website, @laboratory.website %></p>
     <br>
     <h4><strong><%= @vaccine.name %></strong></h4>
-    <h5>R$<%= @vaccine_laboratory.price %>,00</h5>
+    <h5>R$<%= (@vaccine_laboratory.price)/100 %></h5>
     <br>
     <h4 id="date-modal"></h4>
     <%= form_tag appointment_path(@appointment), method: :get do %>
