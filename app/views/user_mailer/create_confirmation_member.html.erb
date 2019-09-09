@@ -1,0 +1,22 @@
+<h2><b>Membro criado!</b></h2>
+
+<p>Olá <%= @user.email %>,</p>
+
+<p>O membro <%= @member.first_name %> <%= @member.last_name %> foi criado!</p>
+
+<h3><b>Dados do novo membro:</b></h3>
+<p><b>Nome: </b><%= @member.first_name %> <%= @member.last_name %></p>
+<% if @member.category == "Titular" %>
+  <p><b>Categoria: </b>Titular</p>
+<% else %>
+  <p><b>Categoria: </b>Dependente</p>
+<% end %>
+<p><b>Data de nascimento: </b><%= @member.birth_date.strftime("%d/%m/%Y ") %></p>
+<% if @member.gender == "Feminino" %>
+  <p><b>Sexo: </b>Feminino</p>
+<% else %>
+  <p><b>Sexo: </b>Masculino</p>
+<% end %>
+<br>
+<p>Obrigado pela preferência!</p>
+<p><b>Equipe Jenner</b></p>
