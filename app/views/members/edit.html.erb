@@ -23,10 +23,10 @@
 
           <%= f.input :user_id, as: :hidden %>
 
-           <div class="row">
+           <div class="ed-vaccs d-grid">
             <%= f.simple_fields_for :member_vaccines do |mv| %>
-              <div class="col-12 col-sm-4 justify-content-between m-0">
-                <div class="vaccines">
+              <div class="col-xs-12 col-sm-12 justify-content-between m-0">
+                <div class="vaccines vaccine-btn ed-vaccs">
                     <p><%= mv.object.vaccine.name.upcase %></p>
                     <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data da vacinação' %></p>
                     <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
