@@ -1,29 +1,50 @@
 .appointment-new-card {
   display: flex;
-  margin-top: 30px;
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  img {
+    height: 22px;
+    margin-right: 10px;
+  }
+
+  p {
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+
+  a {
+    color: #666666;
+  }
+
+  h4 {
+    margin-top: 3px;
+    font-size: 20px;
+    color: #666666;
+  }
 }
 
-.appointment-new-card img {
-  height: 50px;
-  margin-right: 20px;
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  color: #666666;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.appointment-new-card p {
-  margin-bottom: 0px;
-}
-
-.appointment-new-card a {
-  color: grey;
+.btn {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .datepicker {
   height: 0;
   opacity: 0;
   padding: 0;
-}
-
-.date-button {
-  font-size: 10rem;
 }
 
 .confirmed-photo {
