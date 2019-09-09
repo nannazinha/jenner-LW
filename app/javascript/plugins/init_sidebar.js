@@ -1,8 +1,6 @@
 const initSidebar = () => {
  $(document).ready(function () {
-          $("#sidebar").mCustomScrollbar({
-              theme: "minimal"
-          });
+
 
           $('#sidebarCollapse').on('click', function () {
             const sidebar = document.getElementById("sidebar")
