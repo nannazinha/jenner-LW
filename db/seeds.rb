@@ -58,7 +58,7 @@ num_labs.times do |l|
     LaboratoryVaccine.create(
       laboratory_id: l,
       vaccine_id: v,
-      price: rand(100..600)
+      price: (rand(100..600)*100)
     )
   end
 end
