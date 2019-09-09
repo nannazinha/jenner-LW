@@ -1,9 +1,9 @@
 class MemberVaccinesController < ApplicationController
-  before_action :set_vaccine, only: [:show, :vaccinate]
-  before_action :set_member, only: [:show, :vaccinate]
 
   def show
-    @appointment = Appointment.find_by(vaccine: @vaccine, member: @member)
+    @appointment = Appointment.find(params[:id])
+    @member = @appointment.member
+    @vaccine = @appointment.vaccine
     respond_to do |format|
       format.html
       format.pdf do
@@ -16,17 +16,5 @@ class MemberVaccinesController < ApplicationController
     end
   end
 
-  def save
 
-  end
-
-  private
-
-  def set_vaccine
-    @vaccine = Vaccine.find(params[:id])
-  end
-
-  def set_member
-    @member = Member.find(params[:id])
-  end
 end
