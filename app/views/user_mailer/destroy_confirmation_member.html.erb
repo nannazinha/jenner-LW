@@ -5,7 +5,7 @@
 <p>O membro <%= @member.first_name %> <%= @member.last_name %> foi deletado.</p>
 
 <h3><b>Dados do membro deletado:</b></h3>
-<p><b>Nome: </b><%= @member.first_name %> <%= @member.last_name %></p>
+<p><b>Nome completo: </b><%= @member.first_name %> <%= @member.last_name %></p>
 <% if @member.category == "Titular" %>
   <p><b>Categoria: </b>Titular</p>
 <% else %>

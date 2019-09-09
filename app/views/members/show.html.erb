@@ -26,7 +26,7 @@
         <div class="vaccs">
           <% vaccine_taken(@member).each do |mv| %>
           <div class="vaccine-btn btn-success" >
-            <p class=""><%=mv.name.upcase%> | <%#= mv.vaccine_date %></p>
+            <p class=""><%= link_to mv.name.upcase, member_vaccine_show_path(@member, @vaccine, format: :pdf) %> | <%#= mv.vaccine_date %></p>
           </div>
           <% end %>
         </div>
