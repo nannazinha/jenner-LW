@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_001442) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["laboratory_id"], name: "index_laboratory_vaccines_on_laboratory_id"
     t.index ["vaccine_id"], name: "index_laboratory_vaccines_on_vaccine_id"
   end
@@ -77,18 +78,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_001442) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "state"
-    t.string "vaccine_sku"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "amount_currency", default: "USD", null: false
-    t.jsonb "payment"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -111,7 +100,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_001442) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price_cents", default: 0, null: false
   end
 
   add_foreign_key "appointments", "laboratories"
@@ -122,5 +110,4 @@ ActiveRecord::Schema.define(version: 2019_09_09_001442) do
   add_foreign_key "member_vaccines", "members"
   add_foreign_key "member_vaccines", "vaccines"
   add_foreign_key "members", "users"
-  add_foreign_key "orders", "users"
 end
