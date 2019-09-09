@@ -7,13 +7,15 @@
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+        <div class="d-inline">
         <%= f.input :first_name, label: 'Nome' %>
         <%= f.input :last_name, label: 'Sobrenome' %>
+        </div>
 
         <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de Nascimento' %>
 
-        <%= f.input :gender, as: :radio_buttons, collection: [['0', 'Feminino'], ['1', 'Masculino']], label_method: :second, value_method: :first, label: 'Gênero' %>
-        <%= f.input :category, as: :radio_buttons, collection: [['0', 'Titular'], ['1', 'Dependente']], label_method: :second, value_method: :first, label: 'Conta' %>
+        <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Gênero' %>
+        <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
 
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
@@ -22,22 +24,22 @@
     </div>
 
 
+      <div class="row">
         <%= f.simple_fields_for :member_vaccines do |mv| %>
-          <div class="row justify-content-between">
-            <div class="col-xs-12 col-md-6 col-lg-4">
-              <div class="vaccines">
-                <p><%= mv.object.vaccine.name.upcase %></p>
-                <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data da vacinação' %></p>
-                <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
-              </div>
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="vaccines">
+              <p><%= mv.object.vaccine.name.upcase %></p>
+              <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data da vacinação' %></p>
+              <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
             </div>
           </div>
         <% end %>
+      </div>
 
 
 
-      <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
-    <% end %>
+        <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
+      <% end %>
 
     <%= link_to 'Voltar ao perfil', @member %> |
     <%= link_to 'Voltar à página principal', members_path %>
