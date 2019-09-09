@@ -26,38 +26,9 @@
       <%= f.input :member_id, as: :hidden, input_html: { value: @member.id } %>
       <%= f.input :laboratory_id, as: :hidden, input_html: { value: @laboratory.id, data: {opening_time: "#{@laboratory.opening_time}:00", closing_time: "#{@laboratory.closing_time}:00" }} %>
       <%= f.input :date, label: "Escolha uma data:", as: :string, required: true, input_html: {class: "datepicker"} %>
-      <a id="date-button" class="btn btn-primary disabled" data-toggle="modal" data-target="#modal-window">Agendar</a>
+      <%= f.submit 'Agendar', class: 'btn btn-primary' %>
     <% end%>
   </div>
 </div>
 
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content ml-5 mr-5">
-      <div class="modal-body appointment-new-card">
-        <div><% if @laboratory.category == "public" %>
-            <%= image_tag "icon_red.png" %>
-          <% else %>
-            <%= image_tag "icon_blue.png" %>
-          <% end %>
-        </div>
-        <div>
-          <h4><strong><%= @laboratory.name %></strong></h4>
-          <p>Endereço: <%= @laboratory.address %></p>
-          <p>Tel: <%= @laboratory.phone %></p>
-          <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
-          <p><%= link_to @laboratory.website, @laboratory.website %></p>
-          <br>
-          <h4><strong><%= @vaccine.name %></strong></h4>
-          <h5>R$<%= @price %>,00</h5>
-          <br>
-          <h4 id="date-modal"></h4>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button id='submit_appointment' class="btn btn-primary">CONFIRMAR</button>
-      </div>
 
-    </div>
-  </div>
-</div>

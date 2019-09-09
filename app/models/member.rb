@@ -5,4 +5,5 @@ class Member < ApplicationRecord
   has_many :appointments, dependent: :destroy
   accepts_nested_attributes_for :member_vaccines, allow_destroy: true
   mount_uploader :photo, PhotoUploader
+  has_many :orders
 end
