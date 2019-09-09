@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_184236) do
+ActiveRecord::Schema.define(version: 2019_09_09_001442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2019_09_06_184236) do
   create_table "laboratory_vaccines", force: :cascade do |t|
     t.bigint "laboratory_id"
     t.bigint "vaccine_id"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["laboratory_id"], name: "index_laboratory_vaccines_on_laboratory_id"
     t.index ["vaccine_id"], name: "index_laboratory_vaccines_on_vaccine_id"
   end

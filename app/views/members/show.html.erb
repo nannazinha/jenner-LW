@@ -1,51 +1,49 @@
-<div class="container vaccine-container">
-  <div class="row justify-content-center">
-    <div class="col-xs-6 col-sm-6 col-lg-12">
-      <div class="form-member">
-        <h1>Cartão de vacinas</h1>
-
-          <div class="cards vac-card">
-            <div>
-              <% if @member.photo.url %>
-                <%= cl_image_tag @member.photo %>
-              <% else %>
-                <%= image_tag "default.jpg" %>
-              <% end %>
-            </div>
-            <div>
-              <h1><%= @member.first_name %> <%= @member.last_name %></h1>
-              <h3><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h3>
-
-              <h5><%= @member.category %></h5>
-            </div>
-          </div>
-
-
-        <p>VACINAS TOMADAS</p>
-
-        <div class="vaccs">
-          <% vaccine_taken(@member).each do |mv| %>
-          <div class="vaccine-btn btn-success" >
-            <p class=""><%= link_to mv.name.upcase, member_vaccine_show_path(@member, @vaccine, format: :pdf) %> | <%#= mv.vaccine_date %></p>
-          </div>
+<div class="container">
+  <div class="col-sm-12">
+    <h1>CARTÃO DE VACINAS</h1>
+      <div class="cards vac-card">
+        <div>
+          <% if @member.photo.url %>
+            <%= cl_image_tag @member.photo %>
+          <% else %>
+            <%= image_tag "default.jpg" %>
           <% end %>
         </div>
+        <div>
+          <h1><%= @member.first_name %> <%= @member.last_name %></h1>
+          <h3><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h3>
 
-        <p>VACINAS PENDENTES</p>
+          <h5><%= @member.category %></h5>
+        </div>
+      </div>
 
-        <div class="vaccs">
-            <% vaccine_expired(@member).each do |mv| %>
-            <div>
 
-              <p><%= link_to mv.name.upcase, member_vaccine_path(@member), class: "vaccine-btn btn-danger" %></p>
+      <p>VACINAS TOMADAS</p>
+
+      <div class="row">
+        <% vaccine_taken(@member).each do |mv| %>
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="vaccines-tomadas">
+              <p><%= link_to mv.name.upcase, member_vaccine_show_path(@member, @vaccine, format: :pdf) %> | <%#= mv.vaccine_date %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <p>VACINAS PENDENTES</p>
+
+      <div class="row">
+        <% vaccine_expired(@member).each do |mv| %>
+          <div class="col-xs-12 col-md-6 col-lg-3">
+            <div class="vaccines-pendentes">
+              <p><%= link_to mv.name.upcase, member_vaccine_path(@member) %></p>
               <p><%#= mv.vaccine_date %></p>
             </div>
-            <% end %>
-        </div>
-
-        <p style="margin-top: 5px"><%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %> | <%= link_to 'Voltar à página principal', members_path %></p>
+          </div>
+        <% end %>
       </div>
-    </div>
+
+      <p style="margin-top: 5px"><%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %> | <%= link_to 'Voltar à página principal', members_path %></p>
   </div>
 </div>
 

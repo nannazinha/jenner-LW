@@ -17,11 +17,13 @@
       <%= render 'shared/sidebar' %>
       <%= yield %>
     </div>
-    <footer>
-      <%= render 'shared/footer' %>
-    </footer>
-    <%= javascript_include_tag 'application' %>
+    <!-- <footer>
+      <%#= render 'shared/footer' %>
+    </footer> -->
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://assets.pagar.me/pagarme-js/3.0/pagarme.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
   </body>
 </html>

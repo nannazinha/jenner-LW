@@ -24,6 +24,9 @@ gem 'carrierwave', '~> 1.2'
 gem 'rails-i18n'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'pagarme'
+gem 'money-rails'
+gem 'omniauth-google-oauth2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

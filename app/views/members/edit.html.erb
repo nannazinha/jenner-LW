@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-sm-12">
     <div class="form-edit">
-      <h1>Editar familiar</h1>
+      <h1>EDITAR FAMILIAR</h1>
       <%= simple_form_for(@member) do |f| %>
 
         <%= f.error_notification %>
@@ -14,8 +14,14 @@
 
         <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de Nascimento' %>
 
-        <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Gênero' %>
-        <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
+        <div class="row radio-inline">
+          <div class="col-xs-6 flex-fill px-3">
+            <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Gênero' %>
+          </div>
+          <div class="col-xs-6 flex-fill px-3">
+            <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
+          </div>
+        </div>
 
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>

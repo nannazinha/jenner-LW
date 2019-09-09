@@ -17,7 +17,14 @@ class AppointmentsController < ApplicationController
       format.html
       format.js
     end
-    @price = LaboratoryVaccine.where(laboratory: @laboratory, vaccine: @vaccine).last.price
+    @price = LaboratoryVaccine.find_by(laboratory: @laboratory, vaccine: @vaccine).price
+  end
+
+  def confirmed
+    @appointment = Appointment.find(params[:id])
+    @laboratory = @appointment.laboratory
+    @vaccine = @appointment.vaccine
+    @vaccine_laboratory = LaboratoryVaccine.find_by(laboratory: @laboratory, vaccine: @vaccine)
   end
 
   def create
@@ -30,9 +37,11 @@ class AppointmentsController < ApplicationController
       member_vaccine = MemberVaccine.find_by(vaccine: @appointment.vaccine, member: @appointment.member)
       member_vaccine.vaccinated = false
       member_vaccine.save
+
       mail = UserMailer.with(appointment: @appointment, user: current_user).create_confirmation_appointment
       mail.deliver_now
-      redirect_to @appointment
+      redirect_to confirmed_path(@appointment)
+
     else
       flash[:alert] = "Something went wrong."
       render :new
