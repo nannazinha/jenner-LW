@@ -9,6 +9,7 @@ class MemberVaccinesController < ApplicationController
       format.pdf do
         render pdf: "file_name",
         template: "../views/member_vaccines/show.pdf.erb",
+        page_size: 'A4',
         layout: "../views/layouts/pdf.html.erb",
         show_as_html: params[:debug].present?
       end

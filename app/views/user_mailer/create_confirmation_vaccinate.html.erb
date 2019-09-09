@@ -1,7 +1,23 @@
-<h2><b>Certificação de Vacina</b></h2>
+<div class="pdf mt-3">
+  <div class="pdf-logo"><%= wicked_pdf_image_tag "logo.png" %></div>
+  <br>
+  <h2><b>Certificação de Vacina</b></h2>
+  <br>
+  <p>A Jenner Inc. certifica que <b><%= @member.first_name %> <%= @member.last_name %></b> tomou a vacina <b><%= @vaccine.name %></b> no dia <b><%= @appointment.date.strftime("%d/%m/%Y") %></b>, no laboratório <b><%= @appointment.laboratory.name %></b>, situado no endereço <b><%= @appointment.laboratory.address %></b>.</p>
+  <br>
+  <h3><b>Dados da vacina abaixo:</b></h3>
+  <p><b>Número do agendamento: </b><%= @appointment.id %></p>
+  <p><b>Nome completo: </b><%= @appointment.member.first_name %> <%= @appointment.member.last_name %></p>
+  <p><b>Vacina: </b><%= @appointment.vaccine.name %></p>
+  <p><b>Laboratório: </b><%= @appointment.laboratory.name %></p>
+  <p><b>Endereço: </b><%= @appointment.laboratory.address %></p>
+  <p><b>Data / horário: </b><%= @appointment.date.strftime("%d/%m/%Y / %H:%M") %></p>
+  <p><b>Valor: </b> R$<%= @appointment.price %>,00</p>
+  <br>
+  <br>
+  <p>Atenciosamente,</p>
+  <%= wicked_pdf_image_tag "signature.png" %>
+  <p><b>Edward Jenner</b></p>
+  <p>CEO, Jenner Inc.</p>
 
-<p>A Jenner Inc. certifica que <b><%= @member.first_name %> <%= @member.last_name %></b> tomou a vacina <b><%= @vaccine.name %></b> no dia <b><%= @appointment.date.strftime("%d/%m/%Y") %></b>, no laboratório <b><%= @appointment.laboratory.name %></b>, situado no endereço <b><%= @appointment.laboratory.address %></b>.</p>
-
-<p>Atenciosamente,</p>
-<p><b>Edward Jenner</b></p>
-<p>CEO, Jenner Inc.</p>
+</div>
