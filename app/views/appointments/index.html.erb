@@ -26,7 +26,7 @@
               <td><%= appointment.vaccine.name %></td>
               <td><%= appointment.laboratory.name %></td>
               <td><%= appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
-              <td>R$<%= appointment.price %>,00</td>
+              <td>R$<%= (appointment.price)/100 %></td>
               <td>
                 <% if MemberVaccine.find_by(vaccine: appointment.vaccine, member: appointment.member).vaccinated == false %>
                   <%= form_tag vaccinate_path do %>
