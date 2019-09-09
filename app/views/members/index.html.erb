@@ -1,101 +1,41 @@
-<div class="container">
-
+<div class="container vaccine-container">
   <div class="row">
-
-      <div class="container my-3">
-        <div class="row">
-
-            <% @members.each do |member| %>
-              <% vaccine_filter(member).each do |v| %>
-              <div class="col-12 col-sm-6 text-center py-2 flash-pos">
-              <div class="flash flash-danger  alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
+    <div class="container my-3">
+      <div class="row">
+        <% @members.each do |member| %>
+          <% vaccine_filter(member).each do |v| %>
+            <div class="col-12 col-sm-6 text-center py-2 flash-pos">
+              <div class="flash flash-danger alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
                 <span><strong><%= member.first_name %>:</strong> Está com a vacina <%= v.name%> atrasada! 😱 </span>
                 <a data-dismiss="alert" aria-label="Close">
                   <i class="fas fa-times"></i>
                 </a>
               </div>
             </div>
-              <% end %>
-               <hr>
-            <% end %>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 text-center justify-content-between d-flex">
-          <% @members.each do |member| %>
-            <%=  link_to member_path(member) do %>
-              <div class= 'btn card-member card-secondary d-flex flex-column justify-content-center' >
-                  <div class="avatar-card">
-                    <% if member.photo.url %>
-                      <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
-                    <% else %>
-                        <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
-                    <% end %>
-                  </div>
-                  <div class="p-2">
-                    <%= member.first_name %>
-                  </div>
-              </div>
-              <% end %>
           <% end %>
+        <% end %>
       </div>
-
+    </div>
+      <div class="row">
+        <% @members.each do |member| %>
+          <%= link_to member_path(member) do %>
+            <div class="col-12 col-sm-6 text-center justify-content-between ">
+              <div class= 'btn card-member card-secondary d-flex flex-column justify-content-center' >
+                <div class="avatar-card">
+                  <% if member.photo.url %>
+                    <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
+                  <% else %>
+                    <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
+                  <% end %>
+                </div>
+                <div class="p-2">
+                  <%= member.first_name %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
+    </div>
   </div>
 </div>
-
-  <div class="container">
-
-<!-- Current_user :admin da conta -->
-<!-- Mudar category para radio button, com opçoes 'Titular e dependente' -->
-<!--   <% @members.each do |member| %>
-    <% if member.category == 'Titular' %>
-      <h3> <%= member.first_name %> <%= member.last_name %></h3>
-    <% end %>
-  <% end %> -->
-
-<!-- ----------------------------- -->
-<!--   <p>
-    <% @members.each do |member| %>
-      <p> <%= link_to member.first_name, member_path(member) %></p>
-    <% end %>
-  </p> -->
-
-<!-- Vacinas pendentes e atrasadas -->
-<!--   <% @members.each do |member| %>
-    <%= member.first_name %>
-    <% vaccine_filter(member).each do |v| %>
-      <%= v.name%>
-    <% end %>
-     <hr>
-  <% end %>
- -->
-
-
-
-<!--   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  </div>
-
-  <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-    <span><strong>Mmh</strong> 🤔 seems like you don't have <a href="#">profile picture</a> yet.</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  </div>
-
-  <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-    <span><strong>Oops!</strong> 😱 a problem has occurred while processing your booking.</span>
-    <a data-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
-  </div>
- -->
-
-</div>
-
-
-
-

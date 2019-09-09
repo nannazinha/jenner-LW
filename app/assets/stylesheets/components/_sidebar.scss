@@ -1,3 +1,8 @@
+.vaccine-container {
+  width: 80vw;
+}
+
+
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -19,6 +24,7 @@
     min-width: 80px;
     max-width: 80px;
     text-align: center;
+    width: 20vw;
 }
 
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
@@ -174,12 +180,27 @@ a.article, a.article:hover {
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
+// @media (max-width: 768px) {
+//   #sidebar {
+//         min-width: 110px;
+//         max-width: 250px;
+//         text-align: center;
+//         z-index: 100;
+//         // margin-left: -80px !important ;
+//     }
+//   #sidebar.active {
+//     min-width: 80px;
+//     max-width: 80px;
+//     text-align: center;
+//     z-index: 100;
+//     }
+// }
 @media (max-width: 768px) {
     #sidebar {
-        min-width: 80px;
-        max-width: 80px;
+        min-width: 110px;
+        max-width: 250px;
         text-align: center;
-        margin-left: -80px !important ;
+        // margin-left: -80px !important ;
     }
     a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
         top: auto;
@@ -229,3 +250,5 @@ a.article, a.article:hover {
 
 
 }
+
+
