@@ -25,8 +25,13 @@ class AppointmentsController < ApplicationController
     @laboratory = @appointment.laboratory
     @vaccine = @appointment.vaccine
     @vaccine_laboratory = LaboratoryVaccine.find_by(laboratory: @laboratory, vaccine: @vaccine)
+  end
+
+  def email_confirmed
+    @appointment = Appointment.find(params[:id])
     mail = UserMailer.with(appointment: @appointment, user: current_user).create_confirmation_appointment
     mail.deliver_now
+    redirect_to @appointment
   end
 
   def create
