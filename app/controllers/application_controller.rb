@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def has_members
     if current_user
       unless current_user.members.count.zero?
-        @master = current_user.members.find_by(category: "0")
+        @master = current_user.members.find_by(category: "Titular")
       else
         redirect_to new_member_path
       end
