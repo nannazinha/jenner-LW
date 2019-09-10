@@ -1,15 +1,26 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-6 py-5">
-    <h4><strong><%= @laboratory.name %></strong></h4>
-    <p>Endereço: <%= @laboratory.address %></p>
-    <p>Tel: <%= @laboratory.phone %></p>
-    <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
-    <p><%= link_to @laboratory.website, @laboratory.website %></p>
-    <br>
-    <h4><strong><%= @vaccine.name %></strong></h4>
-    <h5>R$<%= (@vaccine_laboratory.price)/100 %></h5>
-    <br>
+  <div class="col-12 col-lg-6 offset-lg-3">
+
+    <h1>PAGAMENTO</h1>
+    <div class="appointment-new-card">
+      <div>
+        <% if @laboratory.category == "public" %>
+          <%= image_tag "icon_red.png" %>
+        <% else %>
+          <%= image_tag "icon_blue.png" %>
+        <% end %>
+      </div>
+      <div>
+        <h4><strong><%= @laboratory.name.upcase %></strong></h4>
+        <p>Endereço: <%= @laboratory.address %></p>
+        <p>Tel: <%= @laboratory.phone %></p>
+        <p>Horário: <%= @laboratory.opening_time %>h às <%= @laboratory.closing_time %>h</p>
+        <p><%= link_to @laboratory.website, @laboratory.website %></p>
+        <br>
+        <h4><strong><%= @vaccine.name.upcase %></strong></h4>
+        <h4>R$<%= (@vaccine_laboratory.price)/100 %></h4>
+      </div>
+    </div>
     <h4 id="date-modal"></h4>
     <%= form_tag email_confirmed_path(@appointment), method: :post do %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -24,7 +35,6 @@
         data-amount="<%= @vaccine_laboratory.price %>">
       </script>
     <% end %>
-    </div>
   </div>
 </div>
 
