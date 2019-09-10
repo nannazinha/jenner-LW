@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-table">
   <div class="col-12 col-lg-8 offset-lg-2">
     <h1>CARTÃO DE VACINAS</h1>
       <div class="cards vac-card">
@@ -28,9 +28,9 @@
           <div class="col-6 col-md-4 col-lg-3">
             <div class="vaccines-tomadas">
               <% if Appointment.find_by(member: @member, vaccine: mv).nil? %>
-                <p><%= image_tag("#{mv.image}") %> <%#= mv.vaccine_date %></p>
+                <%= image_tag("#{mv.image}") %> <%#= mv.vaccine_date %>
               <% else %>
-                <p><%= link_to image_tag("#{mv.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %></p>
+                <%= link_to image_tag("#{mv.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %>
               <% end %>
             </div>
           </div>
@@ -44,13 +44,14 @@
       <div class="row">
         <% vaccine_expired(@member).each do |mv| %>
           <div class="col-6 col-md-4 col-lg-3">
-            <p><%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv), class: "btn vaccines-pendentes" %></p>
-            <p><%#= mv.vaccine_date %></p>
+            <div class="vaccines-pendentes">
+              <%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv) %> <%#= mv.vaccine_date %>
+            </div>
           </div>
         <% end %>
       </div>
 
-      <p style="margin-top: 5px"><%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %> | <%= link_to 'Voltar à página principal', members_path %></p>
+      <p style="margin-top: 5px"> <%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %> | <%= link_to 'Voltar à página principal', members_path %></p>
   </div>
 </div>
 
