@@ -25,12 +25,12 @@
 
       <div class="row">
         <% vaccine_taken(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-4">
+          <div class="col-6 col-md-4 col-lg-3">
             <div class="vaccines-tomadas">
               <% if Appointment.find_by(member: @member, vaccine: mv).nil? %>
-                <p><%= mv.name.upcase %> | <%#= mv.vaccine_date %></p>
+                <p><%= image_tag("#{mv.image}") %> <%#= mv.vaccine_date %></p>
               <% else %>
-                <p><%= link_to mv.name.upcase, member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %></p>
+                <p><%= link_to image_tag("#{mv.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %></p>
               <% end %>
             </div>
           </div>
