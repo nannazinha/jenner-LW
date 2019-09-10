@@ -1,3 +1,8 @@
+@font-face{
+  font-family: 'Umba';
+  src: url('umbasoft-bold.otf');
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: #fff;
@@ -20,4 +25,8 @@
 
 .navbar-lewagon .navbar-brand:hover {
   transform: scaleX(1.15);
+}
+
+.font-text h3{
+  font-family: 'Umba';
 }
