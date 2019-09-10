@@ -1,4 +1,4 @@
-.vaccines-tomadas {
+.vaccines-taken {
   img {
   width: 130px;
   border-radius: 50%;
@@ -7,7 +7,7 @@
   }
 }
 
-.vaccines-pendentes {
+.vaccines-expired {
   img {
   width: 130px;
   border-radius: 50%;
@@ -16,3 +16,11 @@
   }
 }
 
+.vaccines-next {
+  img {
+  width: 130px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: yellow;
+  }
+}
