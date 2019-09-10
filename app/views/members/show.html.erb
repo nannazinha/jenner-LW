@@ -30,7 +30,7 @@
               <% if Appointment.find_by(member: @member, vaccine: mv).nil? %>
                 <%= image_tag("#{mv.image}") %> <%#= mv.vaccine_date %>
               <% else %>
-                <%= link_to image_tag("#{mv.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %>
+                <%= link_to image_tag("#{mv.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> <%#= mv.vaccine_date %>
               <% end %>
             </div>
           </div>
@@ -41,7 +41,7 @@
 
       <div class="row">
         <% vaccine_expired(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-12 col-md-4 col-lg-3">
             <p><%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv), class: "btn vaccines-expired" %></p>
             <p><%#= mv.vaccine_date %></p>
           </div>
@@ -52,9 +52,9 @@
 
       <div class="row">
         <% vaccine_next(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-12 col-md-4 col-lg-3">
             <div class="vaccines-pendentes">
-              <%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv) %> <%#= mv.vaccine_date %>
+              <%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv), class: "btn vaccines-next" %> <%#= mv.vaccine_date %>
             </div>
           </div>
         <% end %>
