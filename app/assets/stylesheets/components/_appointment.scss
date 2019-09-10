@@ -50,3 +50,13 @@ h1 {
 .confirmed-photo {
   border-radius: 100px;
 }
+
+#date-button input {
+  background-color: $azul;
+  display: block;
+  width: 313px;
+  padding: 10px;
+  border-style: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
