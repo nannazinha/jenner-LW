@@ -16,14 +16,14 @@
 
         <div class="row radio-inline">
           <div class="col-xs-6 flex-fill px-3">
-            <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Gênero' %>
+            <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Sexo' %>
           </div>
           <div class="col-xs-6 flex-fill px-3">
             <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
           </div>
         </div>
 
-        <%= f.input :photo %>
+        <%= f.input :photo, label: 'Foto' %>
         <%= f.input :photo_cache, as: :hidden %>
 
         <%= f.input :user_id, as: :hidden %>
