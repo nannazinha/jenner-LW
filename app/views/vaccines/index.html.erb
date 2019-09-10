@@ -7,17 +7,20 @@
 
     <div class="row">
       <div class="col-12 col-lg-6 offset-lg-3">
-        <% @vaccines.each do |vaccine| %>
+        <% index = 0 %>
+        <% vaccine_index.each do |vaccine| %>
           <li class="list-unstyled">
-            <button class="vaccine-list-btn btn btn-primary" href="#Submenu-<%= vaccine.id %>" data-toggle="collapse" aria-expanded="false">
+            <button class="vaccine-list-btn btn btn-primary" href="#Submenu-<%= index %>" data-toggle="collapse" aria-expanded="false">
               <i class="fas fa-syringe"></i>
-                <span><%=vaccine.name %></span>
+                <span><%=vaccine[0] %></span>
             </button>
-            <ul class="collapse list-unstyled mt-2" id="Submenu-<%= vaccine.id %>">
-              <li><%= vaccine.description %></li>
+            <ul class="collapse list-unstyled mt-2" id="Submenu-<%= index %>">
+              <li><%= vaccine[1] %></li>
             </ul>
           </li>
+          <% index += 1 %>
         <% end %>
+              <%# raise %>
       </div>
     </div>
   </div>
