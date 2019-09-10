@@ -21,7 +21,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     @member.user = current_user
-    if @member.save!
+    if @member.save
       Vaccine.all.each do |vaccine|
         MemberVaccine.create(member: @member, vaccine: vaccine)
       end

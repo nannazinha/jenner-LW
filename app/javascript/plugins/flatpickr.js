@@ -13,7 +13,7 @@ if(document.querySelector('.datepicker')){
     minTime: document.getElementById('appointment_laboratory_id' ).dataset.openingTime,
     maxTime: document.getElementById('appointment_laboratory_id' ).dataset.closingTime,
     onChange: function(selectedDates, dateStr, instance) {
-      document.getElementById('date-modal').innerHTML = 'Data / horário: ' + dateStr;
+      // document.getElementById('date-modal').innerHTML = 'Data / horário: ' + dateStr;
       document.getElementById('date-button').classList.remove('disabled');
     },
   })
