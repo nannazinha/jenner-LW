@@ -1,18 +1,64 @@
-.card-member {
-  white-space: nowrap;
-  display: grid;
+.member-cont {
+  position: relative;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 250px;
+  flex-wrap: wrap;
+  transition: 0.5s;
+  border: 1px solid $azul;
   border-radius: 3px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0 24px;
-  transition: all .15s ease;
+  padding: 25px;
 }
 
+.member-cont .card-member {
+  position: relative;
+  width: 230px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.member-cont:hover .card-member {
+  filter: blur(5px);
+  transform: scale(.8);
+}
+
+.member-cont .card-member:hover {
+  filter: blur(0px);
+  transform: scale(1);
+}
+
+.member-cont .card-member .card-content {
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  transition: 0.5s;
+  border-radius: 50px;
+}
+
+.member-cont .card-member:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.member-cont .card-member:hover:before {
+  transform: scaleY(1.15);
+  box-shadow: 0 5px 15px rgba(128,128,128,0.3);
+}
+
+.member-cont .card-member .card-content h3 {
+  font-size: 2em;
+}
+
+.member-cont a {
+  text-decoration: none;
+}
 .card-member:hover {
   text-decoration: none;
   -webkit-transform: translateY(-1px);
@@ -71,48 +117,6 @@
   padding: 16px;
 }
 // END MEMBER PROFILE
-
-// RESPONSIVENESS
-.vaccs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .vaccs {
-    grid-template-columns: 2fr 2fr 2fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .vaccs {
-    grid-template-columns: 2fr 2fr 2fr;;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .vaccs {
-    grid-template-columns: 2fr 2fr 2fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .vaccs {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .vaccs {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
 
 .edit-delete-card-show {
   position:absolute;
