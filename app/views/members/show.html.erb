@@ -24,7 +24,7 @@
         <% vaccine_taken(@member).each do |mv| %>
           <div class="col-6 col-md-4 col-lg-4">
             <div class="vaccines-tomadas">
-              <p><%= link_to mv.name.upcase, member_vaccine_show_path(@member, @vaccine, format: :pdf) %> | <%#= mv.vaccine_date %></p>
+              <p><%= link_to mv.name.upcase, member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv), format: :pdf), target: :_blank %> | <%#= mv.vaccine_date %></p>
             </div>
           </div>
         <% end %>
