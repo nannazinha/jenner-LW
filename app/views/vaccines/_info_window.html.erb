@@ -1,11 +1,17 @@
-  <h5><%= laboratory.name %></h5>
-  <p><%= laboratory.address %></p>
-  <p><%= laboratory.phone %></p>
-  <p><%= laboratory.opening_time %>h às <%= laboratory.closing_time %>h</p>
-  <p><%= laboratory.website %></p>
+<h6><b><%= laboratory.name %></b></h6>
+<%= laboratory.address %>
+<br>
+<%= laboratory.phone %>
+<br>
+<%= laboratory.opening_time %>h às <%= laboratory.closing_time %>h
+<br>
+<%= laboratory.website %>
+<br>
+<br>
 
 
   <% if laboratory.category == "private" %>
+
     <h6><b><%= humanized_money_with_symbol((laboratory_vaccine.price)/100) %></b></h6>
 
     <%= link_to "AGENDAR", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-primary" %>
