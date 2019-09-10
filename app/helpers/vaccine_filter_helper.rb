@@ -1,11 +1,17 @@
 module VaccineFilterHelper
-  def vaccine_filter(member)
+  def vaccine_expired(member)
     age = ((Date.current - member.birth_date).to_f / 365 * 12).round
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where("vaccination_age <= ?", age).where.not(id: vaccine_taken_ids)
   end
 
-  def vaccine_expired(member)
+  def vaccine_next(member)
+    age = ((Date.current - member.birth_date).to_f / 365 * 12).round + 12
+    vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
+    Vaccine.where("vaccination_age <= ?", age).where.not(id: vaccine_taken_ids)
+  end
+
+  def vaccine_filter(member)
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where.not(id: vaccine_taken_ids)
   end
