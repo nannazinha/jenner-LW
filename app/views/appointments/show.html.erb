@@ -1,40 +1,44 @@
-<div class="container mt-3 mb-3">
-   <div class="confirmation-header">
-      <h2 class="mb-3"><strong>Seu agendamento foi confirmado!</strong></h2>
-      <h3 class="mb-3">O pedido número <b><%= @appointment.id %></b> foi aprovado!</h3>
-      <h4>Um email de confirmação foi enviado</h4>
-   </div>
+<div class="container container-table">
+  <div class="col-12"></div>
+
+    <h1>SEU AGENDAMENTO FOI CONFIRMADO!</h1>
+    <div class="appointment-new-card justify-content-center">
+      <div>
+        <h6>O pedido número <b><%= @appointment.id %></b> foi aprovado! Um email de confirmação foi enviado.</h6>
+      </div>
+    </div>
+
+    <h1>DETALHES DO PEDIDO</h1>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" class="table-title">ID</th>
+            <th scope="col" class="table-title">Membro</th>
+            <th scope="col" class="table-title">Vacina</th>
+            <th scope="col" class="table-title">Local</th>
+            <th scope="col" class="table-title">Data/Horário</th>
+            <th scope="col" class="table-title">Valor</th>
+            <br>
+          </tr>
+        </thead>
+        <tbody>
+            <%# @current_user.appointments.each do |appointment| %>
+          <tr>
+            <td><%= @appointment.id %></td>
+            <td><%= cl_image_tag @appointment.member.photo, width: 38, crop: :fill, class: "confirmed-photo" %>
+                <%= @appointment.member.first_name %> <%= @appointment.member.last_name %></td>
+            <td><%= @appointment.vaccine.name %></td>
+            <td><%= @appointment.laboratory.name %></td>
+            <td><%= @appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
+            <td>R$<%= (@appointment.price)/100 %></td>
+          </tr>
+            <%# end %>
+        </tbody>
+        </table>
+    </div>
     <br>
-    <br>
-  <h4><b>Detalhes do pedido:</b></h4>
-  <div class="container justify-content-center p-0">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col" class="table-title">ID</th>
-          <th scope="col" class="table-title">Membro</th>
-          <th scope="col" class="table-title">Vacina</th>
-          <th scope="col" class="table-title">Local</th>
-          <th scope="col" class="table-title">Data/Horário</th>
-          <th scope="col" class="table-title">Valor</th>
-          <br>
-        </tr>
-      </thead>
-      <tbody>
-          <%# @current_user.appointments.each do |appointment| %>
-        <tr>
-          <td><%= @appointment.id %></td>
-          <td><%= cl_image_tag @appointment.member.photo, width: 38, crop: :fill, class: "confirmed-photo" %>
-              <%= @appointment.member.first_name %> <%= @appointment.member.last_name %></td>
-          <td><%= @appointment.vaccine.name %></td>
-          <td><%= @appointment.laboratory.name %></td>
-          <td><%= @appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
-          <td>R$<%= (@appointment.price)/100 %></td>
-        </tr>
-          <%# end %>
-      </tbody>
-      </table>
+    <p><%= link_to "Voltar à página principal", members_path %> | <%= link_to "Voltar à página do familiar", member_path(@appointment.member_id) %> | <%= link_to "Ver todos os agendamentos", appointments_path(@appointment.member_id) %></p>
   </div>
-  <br>
-  <p><%= link_to "Voltar à página principal", members_path %> | <%= link_to "Voltar à página do familiar", member_path(@appointment.member_id) %> | <%= link_to "Ver todos os agendamentos", appointments_path(@appointment.member_id) %></p>
 </div>

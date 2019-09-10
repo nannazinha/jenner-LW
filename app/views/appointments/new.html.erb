@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="col-12">
+  <div class="col-12 col-lg-6 offset-lg-3">
 
-    <h1>ESCOLHA UMA DATA E HORARIO:</h1>
+    <h1>ESCOLHA UMA DATA E HORARIO</h1>
     <div class="appointment-new-card">
       <div>
         <% if @laboratory.category == "public" %>
@@ -22,15 +22,15 @@
       </div>
     </div>
 
-    <div class="col-12 justify-content-center">
+    <div class="col-12">
       <%= simple_form_for @appointment, method: :post do |f| %>
         <%= f.input :vaccine_id, as: :hidden, input_html: { value: @vaccine.id } %>
         <%= f.input :member_id, as: :hidden, input_html: { value: @member.id } %>
         <%= f.input :laboratory_id, as: :hidden, input_html: { value: @laboratory.id, data: {opening_time: "#{@laboratory.opening_time}:00", closing_time: "#{@laboratory.closing_time}:00" }} %>
         <%= f.input :date, label: "Escolha uma data:", as: :string, required: true, input_html: {class: "datepicker"} %>
+    </div>
         <%= f.submit 'Agendar', class: 'btn btn-primary' %>
       <% end%>
-    </div>
 
   </div>
 </div>
