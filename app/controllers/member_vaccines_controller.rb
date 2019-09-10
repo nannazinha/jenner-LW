@@ -7,7 +7,7 @@ class MemberVaccinesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "file_name",
+        render pdf: "#{@member.first_name} #{@member.last_name} - #{@vaccine.name} - #{@appointment.date.strftime('%Y%m%d')}",
         template: "../views/member_vaccines/show.pdf.erb",
         page_size: 'A4',
         layout: "../views/layouts/pdf.html.erb",
