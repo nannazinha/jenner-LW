@@ -3,7 +3,7 @@
     <div class="container my-3">
       <div class="row">
         <% @members.each do |member| %>
-          <% if vaccine_filter(member).size != 0 %>
+          <% if vaccine_expired(member).size != 0 %>
             <div class="col-12 col-sm-6 text-center py-2 flash-pos">
               <div class="flash flash-danger alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
                 <span><strong><%= member.first_name %>:</strong> Está com alguma vacina atrasada! 😱 </span>

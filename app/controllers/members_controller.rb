@@ -39,8 +39,8 @@ class MembersController < ApplicationController
 
   def update
     @member.update(member_params)
-    mail = UserMailer.with(member: @member, user: current_user).update_confirmation_member
-    mail.deliver_now
+    # mail = UserMailer.with(member: @member, user: current_user).update_confirmation_member
+    # mail.deliver_now
     redirect_to member_path(@member)
   end
 
