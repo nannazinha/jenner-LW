@@ -14,4 +14,9 @@ module VaccineFilterHelper
     vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
     Vaccine.where(id: vaccine_taken_ids)
   end
+
+  def vaccine_index
+    names = Vaccine.distinct.pluck(:name, :description)
+    # Vaccine.where(id: vaccine_taken_ids)
+  end
 end
