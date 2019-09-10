@@ -35,10 +35,12 @@
 
       <p>VACINAS PENDENTES</p>
 
+
+
       <div class="row">
         <% vaccine_expired(@member).each do |mv| %>
-          <div class="col-6 col-md-4 col-lg-4">
-            <p><%= link_to mv.name.upcase, member_vaccine_path(@member, mv), class: "btn vaccines-pendentes" %></p>
+          <div class="col-6 col-md-4 col-lg-3">
+            <p><%= link_to image_tag("#{mv.image}"), member_vaccine_path(@member, mv), class: "btn vaccines-pendentes" %></p>
             <p><%#= mv.vaccine_date %></p>
           </div>
         <% end %>

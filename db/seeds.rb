@@ -42,6 +42,7 @@ csv.each do |row|
   t.sus = row['sus']
   t.required = row['required']
   t.description = row['description']
+  t.image = row['image']
   t.save
   puts "#{t.name} saved"
 end
