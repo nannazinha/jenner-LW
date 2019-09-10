@@ -41,6 +41,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  position:relative;
 }
 
 .vac-card img {
@@ -48,6 +49,7 @@
   width: 120px;
   object-fit: cover;
   margin: 10px;
+  border-radius: 100px;
 }
 
 .vac-card h2 {
@@ -110,4 +112,11 @@
   .vaccs {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+
+.edit-delete-card-show {
+  position:absolute;
+  bottom:0;
+  right:0;
+  margin-right: 15px;
 }

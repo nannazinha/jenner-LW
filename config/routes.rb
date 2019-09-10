@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   post '/email_confirmed/:id', to: 'appointments#email_confirmed', as: 'email_confirmed'
 
+  get '/about', to: 'application#about', as: 'about'
+
 end

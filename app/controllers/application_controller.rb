@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def about
+  end
 end
