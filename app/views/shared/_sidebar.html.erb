@@ -17,9 +17,9 @@
       <!-- IMAGE MEMBER - TITULAR -->
       <div class="container-fluid">
         <% if @master %>
-          <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid w-75 self-align" %>
+          <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid w-75 self-align mx-auto d-block" %>
           <div  class="text-center py-2">
-            <h3><span> <%= @master.first_name %></span></h3>
+            <h3><span><b> <%= @master.first_name %></b></span></h3>
           </div>
         <% else %>
           <%= image_tag "default.jpg", class: "rounded-circle img-fluid w-75"  %>
@@ -35,9 +35,15 @@
               </a>
           </li>
           <li>
+            <a href="/members/new">
+              <i class="fas fa-user-plus"></i>
+              <span>Novo Membro</span>
+            </a>
+          </li>
+          <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
                   <i class="far fa-id-card"></i>
-                  <span>Cartão de Vacinas</span>
+                  <span>Cartões de Vacinas</span>
               </a>
               <!-- MEMBERS VACCINES LINKS -->
               <ul class="collapse list-unstyled" id="pageSubmenu">
@@ -75,10 +81,6 @@
               <span>Sair</span>
             <% end %>
           </li>
-           <!-- BUTTON ADD MEMBER -->
-        <ul class="list-unstyled CTAs">
-          <li><a href="/members/new" class="download text-center">Adicionar familiar</a></li>
-        </ul>
       </ul>
   </nav>
 <% end %>
