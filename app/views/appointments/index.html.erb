@@ -1,52 +1,54 @@
-<div class="container">
-  <div class="justify-content-center p-0 mt-3">
-    <h2><strong>Meus Agendamentos</strong></h2>
-
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" class="table-title">ID</th>
-            <th scope="col" class="table-title"></th>
-            <th scope="col" class="table-title">Membro</th>
-            <th scope="col" class="table-title">Vacina</th>
-            <th scope="col" class="table-title">Local</th>
-            <th scope="col" class="table-title">Data/Horário</th>
-            <th scope="col" class="table-title">Valor</th>
-            <th scope="col" class="table-title">Status</th>
-          <br>
-          </tr>
-        </thead>
-        <tbody>
-          <% @appointments.each do |appointment| %>
-            <tr>
-              <th scope="row"><%= appointment.id %></th>
-              <td><%= cl_image_tag appointment.member.photo, width: 38, crop: :fill, class: "confirmed-photo" %></td>
-              <td><%= appointment.member.first_name %> <%= appointment.member.last_name %></td>
-              <td><%= appointment.vaccine.name %></td>
-              <td><%= appointment.laboratory.name %></td>
-              <td><%= appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
-              <td>R$<%= (appointment.price)/100 %></td>
-              <td>
-                <% if MemberVaccine.find_by(vaccine: appointment.vaccine, member: appointment.member).vaccinated == false %>
-                  <%= form_tag vaccinate_path do %>
-                    <%= hidden_field_tag :id, appointment.vaccine.id %>
-                    <%= hidden_field_tag :member_id, appointment.member.id %>
-                    <%= submit_tag "Não realizada", class: 'btn btn-danger' %>
-                  <% end %>
-                <% else %>
-                  <%= form_tag vaccinate_path do %>
-                    <%= hidden_field_tag :id, appointment.vaccine.id %>
-                    <%= hidden_field_tag :member_id, appointment.member.id %>
-                    <%= submit_tag "Realizada", class: 'btn btn-success' %>
-                  <% end %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+<div class="container container-table">
+  <div class="col-12 col-lg-12">
+    <div class="appointments-new-card">
+      <h1><strong>MEUS AGENDAMENTOS</strong></h1>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" class="table-title">ID</th>
+                <th scope="col" class="table-title"></th>
+                <th scope="col" class="table-title">Membro</th>
+                <th scope="col" class="table-title">Vacina</th>
+                <th scope="col" class="table-title">Local</th>
+                <th scope="col" class="table-title">Data/Horário</th>
+                <th scope="col" class="table-title">Valor</th>
+                <th scope="col" class="table-title">Status</th>
+              <br>
+              </tr>
+            </thead>
+            <tbody>
+              <% @appointments.each do |appointment| %>
+                <tr>
+                  <th scope="row"><%= appointment.id %></th>
+                  <td><%= cl_image_tag appointment.member.photo, width: 38, crop: :fill, class: "confirmed-photo" %></td>
+                  <td><%= appointment.member.first_name %> <%= appointment.member.last_name %></td>
+                  <td><%= appointment.vaccine.name %></td>
+                  <td><%= appointment.laboratory.name %></td>
+                  <td><%= appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
+                  <td>R$<%= (appointment.price)/100 %></td>
+                  <td>
+                    <% if MemberVaccine.find_by(vaccine: appointment.vaccine, member: appointment.member).vaccinated == false %>
+                      <%= form_tag vaccinate_path do %>
+                        <%= hidden_field_tag :id, appointment.vaccine.id %>
+                        <%= hidden_field_tag :member_id, appointment.member.id %>
+                        <%= submit_tag "Não realizada", class: 'btn btn-danger' %>
+                      <% end %>
+                    <% else %>
+                      <%= form_tag vaccinate_path do %>
+                        <%= hidden_field_tag :id, appointment.vaccine.id %>
+                        <%= hidden_field_tag :member_id, appointment.member.id %>
+                        <%= submit_tag "Realizada", class: 'btn btn-success' %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <br>
+      <p><%= link_to "Voltar à página principal", members_path %></p>
     </div>
   </div>
-  <p><%= link_to "Voltar à página principal", members_path %></p>
 </div>
