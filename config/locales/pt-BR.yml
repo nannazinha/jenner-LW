@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    attributes:
+      member:
+        first_name: 'Nome'
+        last_name: 'Sobrenome'
+        birth_date: 'Data de nascimento'
+        category: 'Conta'
