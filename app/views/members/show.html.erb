@@ -1,28 +1,28 @@
 <div class="container">
-  <div class="col-12 col-lg-8 offset-lg-2">
+  <div class="col-12 col-lg-8 offset-lg-2 custom-margin-top">
     <h1>CARTÃO DE VACINAS</h1>
 
-      <div class="card">
-        <div class="card-body">
-          <% if @member.photo.url %>
-            <%= cl_image_tag @member.photo, class: "float-left rounded-circle w-25 mr-4" %>
-          <% else %>
-            <%= image_tag "default.jpg", class: "float-left rounded-circle w-25 mr-4" %>
-          <% end %>
-          <div class="message">
-            <h5 class="card-title"><%= @member.first_name.upcase %> <%= @member.last_name.upcase %></h5>
-            <h6 class="card-subtitle mb-3 text-muted"> <%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h6>
-            <p class="card-text mb-4"><%= @member.category %></p>
-          </div>
-          <div class="actions">
-            <a href="#" class="card-link"><%= link_to "Editar dados pessoais", edit_member_path(@member) %> | </a>
-            <a href="#" class="card-link"><%= link_to "Editar vacinas tomadas", edit_member_vaccine_show_path(@member) %> | </a>
-            <a href="#" class="card-link"><%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></a>
-          </div>
+    <div class="card">
+      <div class="card-body">
+        <% if @member.photo.url %>
+        <%= cl_image_tag @member.photo, class: "float-left rounded-circle w-25 mr-4" %>
+        <% else %>
+        <%= image_tag "default.jpg", class: "float-left rounded-circle w-25 mr-4" %>
+        <% end %>
+        <div class="message">
+          <h5 class="card-title"><%= @member.first_name.upcase %> <%= @member.last_name.upcase %></h5>
+          <h6 class="card-subtitle mb-3 text-muted"> <%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h6>
+          <p class="card-text mb-4"><%= @member.category %></p>
+        </div>
+        <div class="actions">
+          <a href="#" class="card-link"><%= link_to "Editar dados pessoais", edit_member_path(@member) %> | </a>
+          <a href="#" class="card-link"><%= link_to "Editar vacinas tomadas", edit_member_vaccine_show_path(@member) %> | </a>
+          <a href="#" class="card-link"><%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></a>
         </div>
       </div>
+    </div>
 
-        <br>
+    <br>
 
 
     <p>VACINAS PENDENTES</p>
@@ -58,7 +58,7 @@
         <div class="vaccines-taken <%= Appointment.find_by(member: @member, vaccine: mv).nil? ? 'date-vaccine' : '' %>">
           <% if Appointment.find_by(member: @member, vaccine: mv.vaccine).nil? %>
           <%= image_tag("#{mv.vaccine.image}", class: 'date-show') %>
-          <p><%= mv.vaccine_date.strftime('%d/%m/%Y') %></p>
+          <p><b><%= mv.vaccine_date.strftime('%d/%m/%Y') %></b></p>
           <% else %>
           <%= link_to image_tag("#{mv.vaccine.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv.vaccine), format: :pdf), target: :_blank %> <%#= mv.vaccine_date %>
           <% end %>
