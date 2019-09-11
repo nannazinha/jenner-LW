@@ -31,4 +31,5 @@ module VaccineFilterHelper
     names = Vaccine.distinct.pluck(:name, :description)
     # Vaccine.where(id: vaccine_taken_ids)
   end
+
 end

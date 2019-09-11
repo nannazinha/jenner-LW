@@ -9,6 +9,15 @@ class AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+    qrcode = RQRCode::QRCode.new("appointment-#{@appointment.id}")
+
+    # NOTE: showing with default options specified explicitly
+    @svg = qrcode.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6
+    )
   end
 
   def new

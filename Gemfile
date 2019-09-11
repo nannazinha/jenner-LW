@@ -5,6 +5,7 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
+gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
@@ -27,6 +28,7 @@ gem 'wkhtmltopdf-binary'
 gem 'pagarme'
 gem 'money-rails'
 gem 'omniauth-google-oauth2'
+gem 'rqrcode'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -7,7 +7,10 @@
         <h6>O pedido número <b><%= @appointment.id %></b> foi aprovado! Um email de confirmação foi enviado.</h6>
       </div>
     </div>
-
+    <br>
+    <div class="text-center">
+      <%= raw(@svg) %>
+    </div>
     <h1>DETALHES DO PEDIDO</h1>
 
     <div class="table-responsive">
@@ -42,3 +45,4 @@
     <p><%= link_to "Voltar à página principal", members_path %> | <%= link_to "Voltar à página do familiar", member_path(@appointment.member_id) %> | <%= link_to "Ver todos os agendamentos", appointments_path(@appointment.member_id) %></p>
   </div>
 </div>
+
