@@ -6,7 +6,7 @@
           <% if vaccine_expired(member).size != 0 %>
             <div class="col-12 col-sm-6 text-center py-2 flash-pos">
               <div class="flash flash-danger alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
-                <span><strong><%= member.first_name %>:</strong> Está com alguma vacina atrasada! 😱 </span>
+                <span><strong><%= link_to "#{member.first_name}: Está com alguma vacina atrasada! 😱", member_path(member) %></strong></span>
                 <a data-dismiss="alert" aria-label="Close">
                 </a>
               </div>
