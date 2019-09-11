@@ -62,7 +62,7 @@
       <div class="col-6 col-md-4 col-lg-3">
         <div class="vaccines-taken <%= Appointment.find_by(member: @member, vaccine: mv).nil? ? 'date-vaccine' : '' %>">
           <% if Appointment.find_by(member: @member, vaccine: mv.vaccine).nil? %>
-          <%= image_tag("#{mv.vaccine.image}", class: 'date-show') %>
+          <%= image_tag("#{mv.vaccine.image}") %>
           <p><b><%= mv.vaccine_date.strftime('%d/%m/%Y') %></b></p>
           <% else %>
           <%= link_to image_tag("#{mv.vaccine.image}"), member_vaccine_show_path(Appointment.find_by(member: @member, vaccine: mv.vaccine), format: :pdf), target: :_blank %> <%#= mv.vaccine_date %>
