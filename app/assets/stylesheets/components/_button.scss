@@ -1,5 +1,13 @@
 .btn {
   @include float-right;
+  @media screen and (max-width: 320px) {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
   width: 150px;
   padding: 10px;
   font-weight: bold;
