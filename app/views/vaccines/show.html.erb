@@ -2,19 +2,21 @@
   <div class="col-12 col-lg-8 offset-lg-2">
     <h1>ESCOLHA A CLÍNICA</h1>
 
-    <div class="map-text-card">
-      <div class="img">
+    <div class="card">
+      <div class="card-body">
         <% if @member.photo.url %>
-          <%= cl_image_tag @member.photo %>
+          <%= cl_image_tag @member.photo, class: "float-left rounded-circle w-25 mr-4" %>
         <% else %>
-          <%= image_tag "default.jpg" %>
+          <%= image_tag "default.jpg", class: "float-left rounded-circle w-25 mr-4" %>
         <% end %>
-      </div>
-      <div>
-        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
-        <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
+        <div class="message">
+          <h5 class="card-title"><%= @member.first_name.upcase %> <%= @member.last_name.upcase %></h5>
+          <h6 class="card-subtitle mb-3 text-muted"> <%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h6>
+          <p class="card-text"><%= @member.category %></p>
+        </div>
       </div>
     </div>
+
 
     <li class="list-unstyled mb-2">
       <button class="vaccine-list-btn btn-full btn-primary" href="#Submenu-<%= @vaccine.id %>" data-toggle="collapse" aria-expanded="false">
