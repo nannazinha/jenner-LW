@@ -1,16 +1,19 @@
-<%= image_tag "home.jpg", class: "d-flex w-100 home"%>
+<div class="w-100 d-flex">
 
-<div class="divi">
-  <%= image_tag "logo.png", id: "logo" %>
-  <span class="font-text navbar-brand">
-    <h4>Jenner</h4>
-  </span>
+  <%= image_tag "home.jpg", class: "d-flex w-100 home"%>
 
-    <hr><h1>Aqui tem uma div</h1><hr>
+  <div class="divi container justify-content-end">
+    <%= image_tag "logo.png", id: "logo" %>
+    <span class="font-text navbar-brand">
+      <h4>Jenner</h4>
+    </span>
 
-  <br>
-  <br>
-  <hr>
+      <hr><h1>Tenha sempre seu cartao de vacinas com voce!</h1>
+      <p>Alem disso, seja alertado quando uma vacina nova deve ser tomada.</p>
 
-  <%= link_to 'Cadastre-se', new_user_registration_path, class: "btn btn-primary" %>
+    <br>
+    <hr>
+
+    <%= link_to 'Cadastre-se', new_user_registration_path, class: "btn btn-primary" %>
+  </div>
 </div>
