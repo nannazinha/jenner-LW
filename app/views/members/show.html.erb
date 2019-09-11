@@ -25,7 +25,7 @@
         <br>
 
 
-    <p>VACINAS PENDENTES</p>
+    <h1>VACINAS PENDENTES</h1>
 
     <div class="row">
       <% vaccine_expired(@member).each do |mv| %>
@@ -38,7 +38,7 @@
       <% end %>
     </div>
 
-    <p>VACINAS PRÓXIMAS</p>
+    <h1>VACINAS PRÓXIMAS</h1>
 
     <div class="row">
       <% vaccine_next(@member).each do |mv| %>
@@ -50,7 +50,7 @@
       <% end %>
     </div>
 
-    <p>VACINAS TOMADAS</p>
+    <h1>VACINAS TOMADAS</h1>
 
     <div class="row">
       <% vaccine_taken(@member).each do |mv| %>
