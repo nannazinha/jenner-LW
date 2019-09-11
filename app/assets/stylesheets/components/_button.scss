@@ -1,4 +1,12 @@
 .btn {
+  @media screen and (max-width: 320px) {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
   @include float-right;
   width: 150px;
   padding: 10px;
@@ -14,5 +22,23 @@
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.btn-box {
+  width: 100%;
+  padding: 8px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#date-button input {
+  background-color: $azul;
+  width: 150px;
+  padding: 10px;
+  border-style: none;
+  font-weight: bold;
   border-radius: 5px;
 }
