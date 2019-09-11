@@ -1,0 +1,26 @@
+.home {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.nav-home{
+  position: relative;
+  background: none !important;
+}
+
+.divi {
+  background-color: white;
+  z-index: 10;
+  top: 100px;
+  left: 950px;
+  position: relative;
+  width: 450px;
+  height: 400px;
+  border-radius: 3px;
+  padding: 100px;
+  #logo {
+    width: 60px;
+  }
+
+}

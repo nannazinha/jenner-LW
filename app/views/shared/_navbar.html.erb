@@ -1,18 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
-  <!-- LOGO -->
-  <div class="">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", id: "logo" %>
-    <% end %>
-    <span class="font-text navbar-brand">
-      <h4>Jenner</h4>
-    </span>
-  </div>
-  <!-- LINKS MENU - LOGGED IN-->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <!-- LOGO -->
+    <div class="">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", id: "logo" %>
+      <% end %>
+      <span class="font-text navbar-brand">
+        <h4>Jenner</h4>
+      </span>
+    </div>
+    <!-- LINKS MENU - LOGGED IN-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to "Home", members_path, class: "nav-link" %>
         </li>
@@ -22,13 +21,29 @@
         <li class="nav-item">
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-
-  <!-- LINKS MENU - LOGGED OUT-->
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   </div>
-</div>
+<!-- LINKS MENU - LOGGED OUT-->
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon nav-home">
+    <!-- LOGO -->
+    <div class="">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", id: "logo" %>
+      <% end %>
+      <span class="font-text navbar-brand">
+        <h4>Jenner</h4>
+      </span>
+    </div>
+    <!-- LINKS MENU - LOGGED IN-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item ">
+          <%= link_to "Login", new_user_session_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
