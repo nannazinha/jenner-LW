@@ -1,5 +1,5 @@
 <div class="container-table">
-  <div class="col-12 col-lg-6 offset-lg-3">
+  <div class="col-12 col-lg-8 offset-lg-2">
 
     <h1>ESCOLHA UMA DATA E HORÁRIO</h1>
     <div class="appointment-new-card">
@@ -28,9 +28,9 @@
         <%= f.input :member_id, as: :hidden, input_html: { value: @member.id } %>
         <%= f.input :laboratory_id, as: :hidden, input_html: { value: @laboratory.id, data: {opening_time: "#{@laboratory.opening_time}:00", closing_time: "#{@laboratory.closing_time}:00" }} %>
         <%= f.input :date, label: "Escolha uma data:", as: :string, required: true, input_html: {class: "datepicker"} %>
-    </div>
         <a id="date-button" class="btn disabled"><%= f.submit 'Agendar' %></a>
       <% end%>
+    </div>
 
   </div>
 </div>
