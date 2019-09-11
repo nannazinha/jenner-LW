@@ -1,7 +1,9 @@
 <div class="pdf mt-3">
-  <div class="pdf-logo"><%= wicked_pdf_image_tag "logo.png" %></div>
-  <br>
-  <h2><b>Certificação de Vacina</b></h2>
+  <div class="pdf-logo"><%= wicked_pdf_image_tag "logo.png" %>
+    <span class="font-text navbar-brand">
+      <h4>Jenner</h4>
+    </span>
+  </div>
   <br>
   <p>A Jenner Inc. certifica que <b><%= @member.first_name %> <%= @member.last_name %></b> tomou a vacina <b><%= @vaccine.name %></b> no dia <b><%= @appointment.date.strftime("%d/%m/%Y") %></b>, no laboratório <b><%= @appointment.laboratory.name %></b>, situado no endereço <b><%= @appointment.laboratory.address %></b>.</p>
   <br>

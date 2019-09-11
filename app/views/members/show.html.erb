@@ -14,7 +14,7 @@
           <h3><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h3>
 
           <h5><%= @member.category %></h5>
-          <p style="margin-top: 5px"><%= link_to "Editar", edit_member_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></p>
+          <p style="margin-top: 5px"><%= link_to "Editar dados pessoais", edit_member_path(@member) %> | <%= link_to "Editar vacinas tomadas", edit_member_vaccine_show_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></p>
         </div>
 
       </div>

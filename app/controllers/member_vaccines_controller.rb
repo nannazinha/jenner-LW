@@ -16,5 +16,12 @@ class MemberVaccinesController < ApplicationController
     end
   end
 
+  def edit
+    @member = Member.find(params[:id])
+  end
 
+  def update
+    member.update(member_params)
+    redirect_to member_path(member)
+  end
 end
