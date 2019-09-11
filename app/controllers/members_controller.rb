@@ -13,6 +13,7 @@ class MembersController < ApplicationController
   end
 
   def new
+    @master = current_user.members.find_by(category: "Titular")
     @member = Member.new
     @member.member_vaccines.build
     @vaccines = []

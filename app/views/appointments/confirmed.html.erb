@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-12 col-lg-6 offset-lg-3">
+  <div class="col-12 col-lg-6 offset-lg-3 custom-margin-top">
 
     <h1>PAGAMENTO</h1>
     <div class="appointment-new-card">
@@ -32,7 +32,7 @@
         data-customer-email="<%= current_user.email %>"
         data-create-token="false"
         data-button-class="btn btn-primary"
-        data-amount="<%= @vaccine_laboratory.price %>">
+        data-amount="<%= @vaccine_laboratory.price_cents / 100 %>">
       </script>
     <% end %>
   </div>

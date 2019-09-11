@@ -3,7 +3,6 @@
   padding-left: 10px;
 }
 
-
 .wrapper {
     display: flex;
     align-items: stretch;
@@ -18,8 +17,6 @@
     background-color: $azul;
     transition: all 0.3s;
     border-right: 2px solid $azul;
-    height: 100vh;
-
 }
 
 #sidebar.active {
@@ -172,6 +169,12 @@ a.article, a.article:hover {
   }
 }
 
+
+
+.navbar-header {
+  margin-top: 5rem;
+}
+
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -200,6 +203,14 @@ a.article, a.article:hover {
 //     z-index: 100;
 //     }
 // }
+@media (min-width: 1000px) {
+  #sidebar {
+    height: 100vh;
+    margin-right: 80px;
+    position: fixed;
+  }
+}
+
 @media (max-width: 768px) {
     #sidebar {
         min-width: 110px;
@@ -217,6 +228,7 @@ a.article, a.article:hover {
     }
     #sidebar.active {
         margin-left: 0 !important;
+
     }
 
     #sidebar .sidebar-header h3, #sidebar .CTAs {

@@ -1,84 +1,86 @@
 <% if user_signed_in? %>
 
-  <!-- SIDEBAR -->
-  <nav id="sidebar" class="active">
-    <!-- TOGGLE BUTTON -->
-      <div class="sidebar-header text-center ">
-        <div class="toggle-btn">
-          <button type="button" id="sidebarCollapse" class="toggle-btn">
-            <i class="fas fa-arrows-alt-h"></i>
-          </button>
-        </div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar" class="active">
+  <!-- TOGGLE BUTTON -->
+  <div class="sidebar-header text-center ">
+    <div class="toggle-btn">
+      <button type="button" id="sidebarCollapse" class="btn toggle-btn">
+        <i class="fas fa-arrows-alt-h"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- TOGGLE BUTTON -->
+  <div class="navbar-header">
+
+    <!-- IMAGE MEMBER - TITULAR -->
+    <div class="container-fluid">
+      <% if @master %>
+      <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid w-75 self-align mx-auto d-block" %>
+      <div  class="text-center py-2">
+        <h3><span><b> <%= @master.first_name %></b></span></h3>
       </div>
+      <% else %>
+      <%= image_tag "default.jpg", class: "rounded-circle img-fluid w-75"  %>
+      <% end %>
+    </div>
 
-      <!-- TOGGLE BUTTON -->
-      <div class="navbar-header">
-
-      <!-- IMAGE MEMBER - TITULAR -->
-      <div class="container-fluid">
-        <% if @master %>
-          <%= cl_image_tag @master.photo, class: "rounded-circle img-fluid w-75 self-align mx-auto d-block" %>
-          <div  class="text-center py-2">
-            <h3><span><b> <%= @master.first_name %></b></span></h3>
-          </div>
-        <% else %>
-          <%= image_tag "default.jpg", class: "rounded-circle img-fluid w-75"  %>
+    <!-- MENU -->
+    <ul class="list-unstyled components">
+      <li>
+        <a href="/members">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="/members/new">
+          <i class="fas fa-user-plus"></i>
+          <span>Novo Membro</span>
+        </a>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="far fa-id-card"></i>
+          <span>Cartões de Vacinas</span>
+        </a>
+        <!-- MEMBERS VACCINES LINKS -->
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <% current_user.members.each do |member| %>
+          <li><%= link_to member.first_name, member_path(member.id) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li>
+        <a href="/appointments">
+          <i class="far fa-calendar-alt text-truncate"></i>
+          <span>Meus agendamentos</span>
+        </a>
+      </li>
+      <li>
+        <a href="/vaccines">
+          <i class="fas fa-syringe"></i>
+          <span>Vacinas</span>
+        </a>
+      </li>
+      <li >
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="fas fa-cog"></i>
+          <span>Configurações</span>
+        </a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li><%= link_to "Sobre", about_path %></li>
+        </ul>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Sair</span>
         <% end %>
-      </div>
-
-      <!-- MENU -->
-      <ul class="list-unstyled components">
-          <li>
-              <a href="/members">
-                  <i class="fas fa-home"></i>
-                  <span>Home</span>
-              </a>
-          </li>
-          <li>
-            <a href="/members/new">
-              <i class="fas fa-user-plus"></i>
-              <span>Novo Membro</span>
-            </a>
-          </li>
-          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                  <i class="far fa-id-card"></i>
-                  <span>Cartões de Vacinas</span>
-              </a>
-              <!-- MEMBERS VACCINES LINKS -->
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <% current_user.members.each do |member| %>
-                  <li><%= link_to member.first_name, member_path(member.id) %></li>
-                <% end %>
-              </ul>
-          </li>
-          <li>
-            <a href="/appointments">
-              <i class="far fa-calendar-alt text-truncate"></i>
-              <span>Meus agendamentos</span>
-            </a>
-          </li>
-          <li>
-            <a href="/vaccines">
-              <i class="fas fa-syringe"></i>
-              <span>Vacinas</span>
-            </a>
-          </li>
-          <li >
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-              <i class="fas fa-cog"></i>
-              <span>Configurações</span>
-              </a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li><%= link_to "Sobre", about_path %></li>
-              </ul>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fas fa-sign-out-alt"></i>
-              <span>Sair</span>
-            <% end %>
-          </li>
-      </ul>
+      </li>
+    </ul>
   </nav>
-<% end %>
+  <% end %>

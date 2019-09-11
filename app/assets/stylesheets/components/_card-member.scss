@@ -10,6 +10,10 @@
   margin-top: 35px;
 }
 
+.custom-margin-top {
+  margin-top: 6rem;
+}
+
 
 .member-cont {
   position: relative;
@@ -160,4 +164,10 @@
 
   }
 
+}
+
+@media (max-width: 768px) {
+  .custom-margin-top {
+  margin-top: 6rem;
+}
 }
