@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def about
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 end
