@@ -10,6 +10,7 @@
                 <a data-dismiss="alert" aria-label="Close">
                 </a>
               </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>
@@ -18,27 +19,27 @@
   </div>
   <div class="member-cont my-5">
     <% @members.each do |member| %>
-      <%= link_to member_path(member) do %>
+    <%= link_to member_path(member) do %>
 
-        <div class="card-member m-3">
-          <div class= 'card-content' >
-              <% if vaccine_expired(member).size != 0 %>
-                <div class="notif">
-                  <span class="align-middle"><h3><%= vaccine_expired(member).size %></h3></span>
-                </div>
-              <% end %>
-
-
-              <% if member.photo.url %>
-                <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
-              <% else %>
-                <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
-              <% end %>
-              <h3 class="mt-3"> <b> <%= member.first_name %></b> </h3>
-
-          </div>
+    <div class="card-member m-3">
+      <div class= 'card-content' >
+        <% if vaccine_expired(member).size != 0 %>
+        <div class="notif">
+          <span class="align-middle"><h3><%= vaccine_expired(member).size %></h3></span>
         </div>
-      <% end %>
+        <% end %>
+
+
+        <% if member.photo.url %>
+        <%= cl_image_tag member.photo, class: "rounded-circle img-fluid" %>
+        <% else %>
+        <%= image_tag "default.jpg", class: "rounded-circle img-fluid"  %>
+        <% end %>
+        <h3 class="mt-3"> <b> <%= member.first_name %></b> </h3>
+
+      </div>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
