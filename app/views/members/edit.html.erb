@@ -16,7 +16,7 @@
           </div>
         </div>
 
-        <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de Nascimento' %>
+        <%= f.input :birth_date, order: [:day, :month, :year], end_year: Date.today.year - 100, start_year: Date.today.year, label: 'Data de Nascimento' %>
 
         <div class="row">
           <div class="col-6">

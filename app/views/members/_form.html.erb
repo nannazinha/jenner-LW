@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <%= f.input :birth_date, order: [:day, :month, :year], prompt: " ", start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de nascimento'%>
+        <%= f.input :birth_date, order: [:day, :month, :year], prompt: " ", end_year: Date.today.year - 100, start_year: Date.today.year, label: 'Data de nascimento'%>
 
         <div class="row">
           <div class="col-6">
