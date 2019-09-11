@@ -1,5 +1,5 @@
 .home {
-  height: calc(100vh - 66.3px);
+  height: calc(100vh - 6.76vh);
   position: absolute;
   top: 10;
 }
@@ -68,7 +68,7 @@
   }
 }
 
-@media only screen and (min-width: 500px) and (max-width: 1050px) {
+@media only screen and (min-width: 501px) and (max-width: 1050px) {
   .divi {
     margin-left: 20px;
     margin-right: 20px;
