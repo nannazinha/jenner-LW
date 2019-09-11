@@ -1,5 +1,5 @@
 .home {
-  height: 93.2vh;
+  height: calc(100vh - 66.3px);
   position: absolute;
   top: 10;
 }
@@ -47,4 +47,43 @@
 .home-button {
   width: 200px !important;
   font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .divi {
+    margin: 0;
+    top: 130px;
+  }
+
+  .divi h1 {
+    font-size: 40px;
+  }
+
+  .divi p {
+    font-size: 25px;
+  }
+
+  .home-img {
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .divi {
+    margin-left: 20px;
+    margin-right: 20px;
+    top: 300px;
+  }
+
+  .divi h1 {
+    font-size: 40px;
+  }
+
+  .divi p {
+    font-size: 25px;
+  }
+
+  .home-img {
+    object-fit: cover;
+  }
 }
