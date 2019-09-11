@@ -18,9 +18,13 @@ module VaccineFilterHelper
     Vaccine.where.not(id: vaccine_taken_ids)
   end
 
+  # def vaccine_taken(member)
+  #   vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
+  #   Vaccine.where(id: vaccine_taken_ids)
+  # end
+
   def vaccine_taken(member)
-    vaccine_taken_ids = MemberVaccine.where(member: member, vaccinated: true).pluck(:vaccine_id)
-    Vaccine.where(id: vaccine_taken_ids)
+    MemberVaccine.where(member: member, vaccinated: true)
   end
 
   def vaccine_index
