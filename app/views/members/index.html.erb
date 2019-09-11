@@ -22,12 +22,10 @@
 
         <div class="card-member m-3">
           <div class= 'card-content' >
-            <% @members.each do |member| %>
               <% if vaccine_expired(member).size != 0 %>
                 <div class="notif">
                   <span class="align-middle"><h3><%= vaccine_expired(member).size %></h3></span>
                 </div>
-              <% end %>
               <% end %>
 
 
