@@ -25,7 +25,7 @@
             <% @members.each do |member| %>
               <% if vaccine_expired(member).size != 0 %>
                 <div class="notif">
-                  <h3><%= vaccine_expired(member).size %></h3>
+                  <span class="align-middle"><h3><%= vaccine_expired(member).size %></h3></span>
                 </div>
               <% end %>
               <% end %>
