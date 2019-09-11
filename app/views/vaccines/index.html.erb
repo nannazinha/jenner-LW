@@ -10,7 +10,7 @@
         <% index = 0 %>
         <% vaccine_index.each do |vaccine| %>
           <li class="list-unstyled">
-            <button class="vaccine-list-btn btn btn-primary" href="#Submenu-<%= index %>" data-toggle="collapse" aria-expanded="false">
+            <button class="vaccine-list-btn btn-full btn-primary" href="#Submenu-<%= index %>" data-toggle="collapse" aria-expanded="false">
               <i class="fas fa-syringe"></i>
                 <span><%=vaccine[0] %></span>
             </button>
@@ -20,7 +20,7 @@
           </li>
           <% index += 1 %>
         <% end %>
-              <%# raise %>
+
         <p style="margin-top: 10px"><%= link_to 'Voltar à página principal', members_path %></p>
       </div>
     </div>

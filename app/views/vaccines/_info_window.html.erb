@@ -14,7 +14,7 @@
 
     <h6><b><%= humanized_money_with_symbol((laboratory_vaccine.price)/100) %></b></h6>
 
-    <%= link_to "AGENDAR", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-primary" %>
+    <%= link_to "Agendar", new_appointment_path(vaccine_id: @vaccine.id, laboratory_id: laboratory.id, member_id: @member.id), class: "btn btn-full btn-primary" %>
   <% end %>
 
 

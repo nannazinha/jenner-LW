@@ -7,18 +7,22 @@
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <div class="d-inline">
-        <%= f.input :first_name, label: 'Nome' %>
-        <%= f.input :last_name, label: 'Sobrenome' %>
+        <div class="row">
+          <div class="col-lg-6">
+            <%= f.input :first_name, label: 'Nome' %>
+          </div>
+          <div class="col-lg-6">
+            <%= f.input :last_name, label: 'Sobrenome' %>
+          </div>
         </div>
 
         <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de Nascimento' %>
 
-        <div class="row radio-inline">
-          <div class="col-xs-6 flex-fill px-3">
+        <div class="row">
+          <div class="col-6">
             <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Sexo' %>
           </div>
-          <div class="col-xs-6 flex-fill px-3">
+          <div class="col-6">
             <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
           </div>
         </div>
@@ -27,11 +31,10 @@
         <%= f.input :photo_cache, as: :hidden %>
 
         <%= f.input :user_id, as: :hidden %>
-    </div>
 
       <div class="row">
         <%= f.simple_fields_for :member_vaccines do |mv| %>
-          <div class="col-xs-12 col-md-6 col-lg-4">
+          <div class="col-12 col-md-6 col-lg-4">
             <div class="vaccines">
               <p><%= mv.object.vaccine.name.upcase %></p>
               <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data da vacinação' %></p>
@@ -41,12 +44,13 @@
         <% end %>
       </div>
 
+        <%= f.button :submit, value: "Editar", class: "btn btn-primary" %>
 
 
-        <%= f.button :submit, value: "Editar", class: "btn btn-primary mb-3" %>
       <% end %>
 
-    <%= link_to 'Voltar ao perfil', @member %> |
-    <%= link_to 'Voltar à página principal', members_path %>
+      <%= link_to 'Voltar ao perfil', @member %> | <%= link_to 'Voltar à página principal', members_path %>
+
+    </div>
   </div>
 </div>
