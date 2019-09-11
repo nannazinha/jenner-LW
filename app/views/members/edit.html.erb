@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-12 col-lg-8 offset-lg-2">
     <div class="form-edit">
-      <h1>EDITAR FAMILIAR</h1>
+      <h1>EDITAR DADOS PESSOAIS DO FAMILIAR</h1>
       <%= simple_form_for(@member) do |f| %>
 
         <%= f.error_notification %>
@@ -45,8 +45,6 @@
         </div>
 
         <%= f.button :submit, value: "Editar", class: "btn btn-primary" %>
-
-
 
       <% end %>
 

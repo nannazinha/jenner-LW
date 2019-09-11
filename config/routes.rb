@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root to: 'members#index'
+  authenticated :user do
+    root to: 'members#index'
+  end
+
+  root to: 'pages#home'
 
   resources :members do
     resources :vaccines, only: [:show]
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :appointments, only: [:show, :new, :create, :index]
 
-  resources :member_vaccines, only: [:show], as: :member_vaccine_show
+  resources :member_vaccines, only: [:show, :edit, :update], as: :member_vaccine_show
 
   post '/vaccinate_member', to: "vaccines#vaccinate", as: "vaccinate"
 
