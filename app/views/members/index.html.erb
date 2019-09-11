@@ -5,9 +5,8 @@
         <% @members.each do |member| %>
           <% if vaccine_expired(member).size != 0 %>
             <div class="col-12 col-sm-6 text-center py-2 flash-pos">
-              <%= link_to member_path(member) do %>
-              <div class="flash flash-danger alert-dismissible fade show animated slow bounce delay-5s alert-x" role="alert">
-                <span><strong><%= member.first_name %>:</strong> Está com alguma vacina atrasada! 😱 </span>
+              <div class="flash flash-danger alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
+                <span><strong><%= link_to "#{member.first_name}: Está com alguma vacina atrasada! 😱", member_path(member), class: "alert-link" %></strong></span>
                 <a data-dismiss="alert" aria-label="Close">
                 </a>
               </div>

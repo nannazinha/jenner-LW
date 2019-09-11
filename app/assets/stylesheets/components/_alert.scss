@@ -4,3 +4,9 @@
   right: 16px;
   // z-index: 1000;
 }
+
+.alert-link:hover {
+  text-decoration: none;
+  color: #808080;
+  opacity: 0.6;
+}
