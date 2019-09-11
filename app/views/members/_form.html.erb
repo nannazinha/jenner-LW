@@ -5,29 +5,34 @@
       <%= simple_form_for(@member) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="form-inputs">
-          <%= f.input :first_name, label: 'Nome' %>
-          <%= f.input :last_name, label: 'Sobrenome' %>
-          <%= f.input :birth_date, order: [:day, :month, :year], start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de nascimento'%>
-          <div class="row radio-inline">
-            <div class="col-xs-6 flex-fill px-3">
-          <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], wrapper: :inline_checkbox, label: 'Sexo' %>
-            </div>
-            <div class="col-xs-6 flex-fill px-3">
 
-          <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], wrapper: :inline_checkbox, label: 'Conta' %>
-            </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <%= f.input :first_name, label: 'Nome' %>
           </div>
-          <%= f.input :user_id, as: :hidden %>
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
+          <div class="col-lg-6">
+            <%= f.input :last_name, label: 'Sobrenome' %>
+          </div>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, value: "Adicionar", class: "btn btn-primary" %>
+        <%= f.input :birth_date, order: [:day, :month, :year], prompt: " ", start_year: Date.today.year - 100, end_year: Date.today.year, label: 'Data de nascimento'%>
+
+        <div class="row">
+          <div class="col-6">
+            <%= f.input :gender, as: :radio_buttons, collection: ['Feminino', 'Masculino'], label: 'Sexo' %>
+          </div>
+          <div class="col-6">
+            <%= f.input :category, as: :radio_buttons, collection: ['Titular', 'Dependente'], label: 'Conta' %>
+          </div>
         </div>
-      <% end %>
+
+        <%= f.input :user_id, as: :hidden %>
+        <%= f.input :photo, label: 'Foto' %>
+        <%= f.input :photo_cache, as: :hidden %>
+
     </div>
+          <%= f.button :submit, value: "Adicionar", class: "btn btn-primary" %>
+      <% end %>
   </div>
 </div>
 

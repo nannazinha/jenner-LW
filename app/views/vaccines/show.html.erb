@@ -1,4 +1,4 @@
-<div class="container-table">
+<div class="container">
   <div class="col-12 col-lg-8 offset-lg-2">
     <h1>ESCOLHA A CLÍNICA</h1>
 
@@ -10,19 +10,19 @@
           <%= image_tag "default.jpg" %>
         <% end %>
       </div>
-        <div>
-          <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
-          <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
-        </div>
+      <div>
+        <h5><b><%= @member.first_name.upcase %> <%= @member.last_name.upcase %> - <%= @member.category %></b></h5>
+        <p><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></p>
+      </div>
     </div>
 
-    <li class="list-unstyled mb-4">
-      <button class="vaccine-list-btn btn btn-primary" href="#Submenu-<%= @vaccine.id %>" data-toggle="collapse" aria-expanded="false">
+    <li class="list-unstyled mb-2">
+      <button class="vaccine-list-btn btn-full btn-primary" href="#Submenu-<%= @vaccine.id %>" data-toggle="collapse" aria-expanded="false">
         <i class="fas fa-syringe"></i>
           <span><%= @vaccine.name %></span>
       </button>
       <ul class="collapse list-unstyled mt-2" id="Submenu-<%= @vaccine.id %>">
-        <li><p><%= @vaccine.description %><</p></li>
+        <li><p><%= @vaccine.description %></p></li>
       </ul>
     </li>
 
