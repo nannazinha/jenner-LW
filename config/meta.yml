@@ -1,0 +1,5 @@
+meta_product_name: "JENNER"
+meta_title: "JENNER - Seu cartão de vacinas virtual"
+meta_description: "Tenha sempre seu cartão de vacinas com voce e seja alertado sobre as vacinas a tomar"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+# instagram_account: "@product_twitter_account"   # required for Twitter Cards
