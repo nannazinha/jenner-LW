@@ -1,3 +1,18 @@
+
+.card .card-body .message {
+  padding-left: 80px;
+
+  &::after {
+    clear: both;
+  }
+}
+
+.card .card-body .actions {
+  margin-top: 35px;
+}
+
+
+
 .member-cont {
   position: relative;
   display: flex;
