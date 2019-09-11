@@ -1,23 +1,39 @@
 <div class="container">
   <div class="col-12 col-lg-8 offset-lg-2">
     <h1>CARTÃO DE VACINAS</h1>
-      <div class="cards vac-card">
-        <div>
+      <div class="card">
+        <div class="card-body">
           <% if @member.photo.url %>
-            <%= cl_image_tag @member.photo %>
+            <%= cl_image_tag @member.photo, class: "float-left rounded-circle w-25 mr-4" %>
           <% else %>
-            <%= image_tag "default.jpg" %>
+            <%= image_tag "default.jpg", class: "float-left rounded-circle w-25 mr-4" %>
           <% end %>
+          <div class="message">
+            <h5 class="card-title"><%= @member.first_name.upcase %> <%= @member.last_name.upcase %></h5>
+            <h6 class="card-subtitle mb-3 text-muted"> <%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h6>
+            <p class="card-text mb-4"><%= @member.category %></p>
+          </div>
+          <div class="actions">
+            <a href="#" class="card-link"><%= link_to "Editar dados pessoais", edit_member_path(@member) %> | </a>
+            <a href="#" class="card-link"><%= link_to "Editar vacinas tomadas", edit_member_vaccine_show_path(@member) %> | </a>
+            <a href="#" class="card-link"><%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></a>
+          </div>
         </div>
-        <div>
-          <h1><%= @member.first_name %> <%= @member.last_name %></h1>
-          <h3><%= @member.birth_date.strftime("%d/%m/%Y") %> | <%= @member.gender %></h3>
-
-          <h5><%= @member.category %></h5>
-          <p style="margin-top: 5px"><%= link_to "Editar dados pessoais", edit_member_path(@member) %> | <%= link_to "Editar vacinas tomadas", edit_member_vaccine_show_path(@member) %> | <%= link_to "Deletar", member_path(@member), method: :delete, data: { confirm: "Tem certeza de quer deletar este dependente?" } %></p>
-        </div>
-
       </div>
+
+        <br>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
