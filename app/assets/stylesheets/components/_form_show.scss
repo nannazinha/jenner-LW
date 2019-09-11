@@ -1,29 +1,52 @@
 .vaccines-taken {
   img {
-  width: 125px;
-  border-radius: 50%;
-  padding: 10px;
-  background-color: #C5D86D;
-  margin-bottom: 15px;
+    width: 125px;
+    border-radius: 50%;
+    border: 11px solid #C5D86D;
+    margin-bottom: 15px;
+  }
+  p{
+    text-align: center;
+    position: absolute;
+    top: 37%;
+    left: 32px;
+    opacity: 0;
   }
 }
 
 .vaccines-expired {
   img {
-  width: 125px;
-  border-radius: 50%;
-  padding: 10px;
-  background-color: #FFB5C4;
-  margin-bottom: 15px;
+    width: 125px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #FFB5C4;
+    margin-bottom: 15px;
   }
 }
 
 .vaccines-next {
   img {
-  width: 125px;
+    width: 125px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #FFd86d;
+    margin-bottom: 15px;
+  }}
+
+
+.date-vaccine:hover {
+  border: 11px solid #C5D86D;
   border-radius: 50%;
-  padding: 10px;
-  background-color: #FFd86d;
-  margin-bottom: 15px;
+  width: 125px;
+  height: 125px;
+  background-color: $azul;
+  img {
+    opacity: 0;
+  }
+  p{
+    opacity: 1;
+    color: rgb(76, 148, 191);
+    font-family: 'Umba'
   }
 }
+
