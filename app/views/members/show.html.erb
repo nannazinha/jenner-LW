@@ -24,8 +24,9 @@
 
     <br>
 
-
-    <p>VACINAS PENDENTES</p>
+    <% if vaccine_expired(@member).size != 0 %>
+      <h1>VACINAS PENDENTES</h1>
+    <% end %>
 
     <div class="row">
       <% vaccine_expired(@member).each do |mv| %>
@@ -38,7 +39,9 @@
       <% end %>
     </div>
 
-    <p>VACINAS PRÓXIMAS</p>
+    <% if vaccine_next(@member).size != 0 %>
+      <h1>VACINAS PRÓXIMAS</h1>
+    <% end %>
 
     <div class="row">
       <% vaccine_next(@member).each do |mv| %>
@@ -50,7 +53,9 @@
       <% end %>
     </div>
 
-    <p>VACINAS TOMADAS</p>
+    <% if vaccine_taken(@member).size != 0 %>
+      <h1>VACINAS TOMADAS</h1>
+    <% end %>
 
     <div class="row">
       <% vaccine_taken(@member).each do |mv| %>

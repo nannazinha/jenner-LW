@@ -12,7 +12,7 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="vaccines">
             <p><%= mv.object.vaccine.name.upcase %></p>
-            <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], start_year: Date.today.year - 90, end_year: Date.today.year, label: 'Data da vacinação' %></p>
+            <p><%= mv.input :vaccine_date, prompt: " ", order: [:day, :month, :year], end_year: Date.today.year - 90, start_year: Date.today.year, label: 'Data da vacinação' %></p>
             <p><%= mv.input :vaccinated, label: 'Vacina OK?' %></p>
           </div>
         </div>
@@ -22,8 +22,10 @@
       <%= f.button :submit, value: "Editar", class: "btn btn-primary" %>
 
       <% end %>
-      <%= link_to 'Voltar ao perfil', @member %> | <%= link_to 'Voltar à página principal', members_path %>
+    </div>
 
+    <div class="mt-5 mb-3">
+    <%= link_to 'Voltar ao perfil', @member %> | <%= link_to 'Voltar à página principal', members_path %>
     </div>
   </div>
 </div>

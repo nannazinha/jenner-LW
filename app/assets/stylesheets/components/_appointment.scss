@@ -32,6 +32,29 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 750px) {
+  .dayContainer{
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .flatpickr-calendar{
+    width: 100% !important;
+  }
+
+  .flatpickr-innerContainer{
+    width: 100% !important;
+  }
+
+  .flatpickr-rContainer{
+    width: 100% !important;
+  }
+
+  .flatpickr-days{
+    width: 100% !important;
+  }
+}
 
 // .btn {
 //   width: 100%;

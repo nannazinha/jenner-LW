@@ -13,6 +13,7 @@
                 <th scope="col" class="table-title">Local</th>
                 <th scope="col" class="table-title">Data/Horário</th>
                 <th scope="col" class="table-title">Valor</th>
+                <th scope="col" class="table-title">Confirmação</th>
                 <th scope="col" class="table-title">Status</th>
               <br>
               </tr>
@@ -27,6 +28,7 @@
                   <td><%= appointment.laboratory.name %></td>
                   <td><%= appointment.date.strftime("%d/%m/%Y / %H:%M") %></td>
                   <td>R$<%= (appointment.price)/100 %></td>
+                  <td><%= link_to "Confirmação", appointment_path(appointment), class: 'btn btn-primary' %></td>
                   <td>
                     <% if MemberVaccine.find_by(vaccine: appointment.vaccine, member: appointment.member).vaccinated == false %>
                       <%= form_tag vaccinate_path do %>
