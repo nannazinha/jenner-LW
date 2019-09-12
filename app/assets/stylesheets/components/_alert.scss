@@ -2,11 +2,19 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
+  color: white;
   // z-index: 1000;
-}
+  }
 
+.alert-x{
+  a{
+    color: white;
+  }
+}
 .alert-link:hover {
   text-decoration: none;
-  color: #808080;
+  a {
+  color: white;
   opacity: 0.6;
+  }
 }
