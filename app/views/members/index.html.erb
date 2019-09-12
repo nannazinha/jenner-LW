@@ -5,7 +5,7 @@
         <% @members.each do |member| %>
           <% if vaccine_expired(member).size != 0 %>
             <div class="col-12 col-sm-6 text-center py-2 flash-pos custom-margin-top">
-              <div class="flash flash-danger alert-dismissible fade show animated slow     bounce delay-5s alert-x" role="alert">
+              <div class="flash flash-danger alert-dismissible fade show animated slow bounce delay-5s alert-x" role="alert">
                 <span><strong><%= link_to "#{member.first_name}: Está com alguma vacina atrasada! 😱", member_path(member), class: "alert-link" %></strong></span>
                 <a data-dismiss="alert" aria-label="Close">
                 </a>
@@ -22,30 +22,27 @@
   <div class="row d-flex justify-content-between">
     <div class="col-12 col-lg-4">
       <div class="card mb-2">
-        <div class="card-body">
-          <h5 class="card-title text-center">CADASTRE SEUS FAMILIARES</h5>
-          <p class="card-text">Cadastre você como titular da conta e seus familiares como dependentes.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="card-body card-index">
+          <h5 class="card-title text-center">CADASTRE SUA FAMÍLIA</h5>
+          <p class="card-text">Cadastre-se no Jenner como titular de sua conta e seus familiares como dependentes em <b>Adicionar Membro</b></p>
         </div>
       </div>
     </div>
 
     <div class="col-12 col-lg-4">
       <div class="card mb-2">
-        <div class="card-body">
+        <div class="card-body card-index">
           <h5 class="card-title text-center">VACINAS ATUALIZADAS</h5>
-          <p class="card-text">Preencha os dados de vacinas passadas no perfil do familiar e mantenha o histórico atualizado</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">Preencha os dados de vacinas passadas no perfil do familiar e mantenha o histórico atualizado. Clique na opção <b>Editar Vacinas Tomadas</b> no perfil do familiar</p>
         </div>
       </div>
     </div>
 
     <div class="col-12 col-lg-4">
       <div class="card mb-2">
-        <div class="card-body">
+        <div class="card-body card-index">
           <h5 class="card-title text-center">AGENDE NOVAS VACINAS</h5>
-          <p class="card-text">Agende e pague por vacinas pendentes em clínicas particulares com conveniência</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <p class="card-text">Agende e pague por vacinas pendentes em clínicas particulares com conveniência. Clique no ícone da <b>Vacina Pendente</b> no perfil do familiar</p>
         </div>
       </div>
     </div>
