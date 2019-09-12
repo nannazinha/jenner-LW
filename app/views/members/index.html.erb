@@ -1,6 +1,6 @@
 <div class="container vaccine-container">
   <div class="row">
-    <div class="container my-3">
+    <div class="container">
       <div class="row">
         <% @members.each do |member| %>
           <% if vaccine_expired(member).size != 0 %>
@@ -16,7 +16,44 @@
       </div>
     </div>
   </div>
-  <div class="member-cont my-5">
+
+  <br>
+
+  <div class="row d-flex justify-content-between">
+    <div class="col-12 col-lg-4">
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="card-title text-center">CADASTRE SEUS FAMILIARES</h5>
+          <p class="card-text">Cadastre você como titular da conta e seus familiares como dependentes.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="card-title text-center">VACINAS ATUALIZADAS</h5>
+          <p class="card-text">Preencha os dados de vacinas passadas no perfil do familiar e mantenha o histórico atualizado</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="card-title text-center">AGENDE NOVAS VACINAS</h5>
+          <p class="card-text">Agende e pague por vacinas pendentes em clínicas particulares com conveniência</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1>MEUS FAMILIARES</h1>
+
+  <div class="member-cont my-4">
     <% @members.each do |member| %>
     <%= link_to member_path(member) do %>
 
